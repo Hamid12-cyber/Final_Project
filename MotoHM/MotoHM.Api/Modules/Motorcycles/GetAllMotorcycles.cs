@@ -22,6 +22,7 @@ public static class GetAllMotorcycles
             const string sql = """
                 SELECT Id, Name, Brand, Cc, Year, Price, ImageUrl
                 FROM Motorcycles
+                WHERE Status = 'Approved'
                 ORDER BY Id DESC
                 """;
 

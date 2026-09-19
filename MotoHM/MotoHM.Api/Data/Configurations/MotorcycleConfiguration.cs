@@ -12,5 +12,11 @@ public class MotorcycleConfiguration : IEntityTypeConfiguration<MotorcycleEntity
         builder.Property(m => m.Name).HasMaxLength(150).IsRequired();
         builder.Property(m => m.Brand).HasMaxLength(80).IsRequired();
         builder.Property(m => m.Model).HasMaxLength(80).IsRequired();
+        builder.Property(m => m.Status).HasConversion<string>().HasMaxLength(20);
+
+        builder.HasOne(m => m.Seller)
+            .WithMany()
+            .HasForeignKey(m => m.SellerId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

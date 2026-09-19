@@ -1,3 +1,5 @@
+using MotoHM.Api.Entites.Enums;
+
 namespace MotoHM.Api.Entites;
 
 public class MotorcycleEntity : BaseEntity
@@ -11,4 +13,8 @@ public class MotorcycleEntity : BaseEntity
     public string? ImageUrl { get; set; }
     public bool IsForRent { get; set; }
     public bool IsForSale { get; set; } = true;
+
+    public int SellerId { get; set; }
+    public UserEntity Seller { get; set; } = null!;
+    public ApprovalStatus Status { get; set; } = ApprovalStatus.Pending;
 }

@@ -56,6 +56,10 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.86, )"
@@ -63,6 +67,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[14.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[10.0.12, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -81,6 +89,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[10.0.12, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

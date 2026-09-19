@@ -1,15 +1,314 @@
 [
   {
-    "ContainingType": "MotoHM.Api.Modules.Motorcycles.CreateMotorcycle\u002B\u003C\u003Ec",
+    "ContainingType": "MotoHM.Api.Modules.Admin.ApproveMotorcycle\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__2_0",
-    "RelativePath": "api/motorcycles",
+    "RelativePath": "api/admin/motorcycles/{id:int}/approve",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "ApproveMotorcycle"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.RejectMotorcycle\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/admin/motorcycles/{id:int}/reject",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "RejectMotorcycle"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.GetPendingMotorcycles\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/admin/motorcycles/pending",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "GetPendingMotorcycles"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.ApprovePart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/admin/parts/{id:int}/approve",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "ApprovePart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.RejectPart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/admin/parts/{id:int}/reject",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "RejectPart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.GetPendingParts\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/admin/parts/pending",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "GetPendingParts"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Users.Login\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/auth/login",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
         "Name": "command",
-        "Type": "MotoHM.Api.Modules.Motorcycles.CreateMotorcycle\u002BCreateMotorcycleCommand",
+        "Type": "MotoHM.Api.Modules.Users.Login\u002BLoginCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "Login"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Users.Register\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/auth/register",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MotoHM.Api.Modules.Users.Register\u002BRegisterCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "Register"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Cart.GetMyCart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/cart",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Cart"
+    ],
+    "EndpointName": "GetMyCart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Cart.AddToCart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/cart/items",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Cart.AddToCart\u002BAddToCartBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Cart"
+    ],
+    "EndpointName": "AddToCart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Cart.UpdateCartItemQuantity\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/cart/items/{cartItemId:int}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cartItemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Cart.UpdateCartItemQuantity\u002BUpdateQuantityBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Cart"
+    ],
+    "EndpointName": "UpdateCartItemQuantity"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Cart.RemoveFromCart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/cart/items/{cartItemId:int}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cartItemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Cart"
+    ],
+    "EndpointName": "RemoveFromCart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Motorcycles.CreateMotorcycle\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/motorcycles",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Motorcycles.CreateMotorcycle\u002BCreateMotorcycleBody",
         "IsRequired": true
       }
     ],
@@ -127,5 +426,619 @@
       "Motorcycles"
     ],
     "EndpointName": "DeleteMotorcycle"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.PartCategories.GetAllPartCategories\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/part-categories",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "PartCategories"
+    ],
+    "EndpointName": "GetAllPartCategories"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.PartCategories.CreatePartCategory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/part-categories",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MotoHM.Api.Modules.PartCategories.CreatePartCategory\u002BCreatePartCategoryCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "PartCategories"
+    ],
+    "EndpointName": "CreatePartCategory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.PartCategories.GetPartCategoryById\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/part-categories/{id:int}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "PartCategories"
+    ],
+    "EndpointName": "GetPartCategoryById"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.PartCategories.UpdatePartCategory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/part-categories/{id:int}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.PartCategories.UpdatePartCategory\u002BUpdatePartCategoryBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "PartCategories"
+    ],
+    "EndpointName": "UpdatePartCategory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.PartCategories.DeletePartCategory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/part-categories/{id:int}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "PartCategories"
+    ],
+    "EndpointName": "DeletePartCategory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Parts.GetAllParts\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/parts",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Parts"
+    ],
+    "EndpointName": "GetAllParts"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Parts.CreatePart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/parts",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Parts.CreatePart\u002BCreatePartBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Parts"
+    ],
+    "EndpointName": "CreatePart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Parts.GetPartById\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/parts/{id:int}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Parts"
+    ],
+    "EndpointName": "GetPartById"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Parts.UpdatePart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/parts/{id:int}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Parts.UpdatePart\u002BUpdatePartBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Parts"
+    ],
+    "EndpointName": "UpdatePart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Parts.DeletePart\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/parts/{id:int}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Parts"
+    ],
+    "EndpointName": "DeletePart"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Rentals.GetAllRentals\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/rentals",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Rentals"
+    ],
+    "EndpointName": "GetAllRentals"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Rentals.CreateRental\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/rentals",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MotoHM.Api.Modules.Rentals.CreateRental\u002BCreateRentalCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Rentals"
+    ],
+    "EndpointName": "CreateRental"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Rentals.GetRentalById\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/rentals/{id:int}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Rentals"
+    ],
+    "EndpointName": "GetRentalById"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Rentals.UpdateRental\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/rentals/{id:int}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Rentals.UpdateRental\u002BUpdateRentalBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Rentals"
+    ],
+    "EndpointName": "UpdateRental"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Rentals.DeleteRental\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/rentals/{id:int}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Rentals"
+    ],
+    "EndpointName": "DeleteRental"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Service.GetAllServiceBookings\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/service-bookings",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Service"
+    ],
+    "EndpointName": "GetAllServiceBookings"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Service.CreateServiceBooking\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/service-bookings",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MotoHM.Api.Modules.Service.CreateServiceBooking\u002BCreateServiceBookingCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Service"
+    ],
+    "EndpointName": "CreateServiceBooking"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Service.GetServiceBookingById\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/service-bookings/{id:int}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Service"
+    ],
+    "EndpointName": "GetServiceBookingById"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Service.UpdateServiceBooking\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/service-bookings/{id:int}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Service.UpdateServiceBooking\u002BUpdateServiceBookingBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Service"
+    ],
+    "EndpointName": "UpdateServiceBooking"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Service.DeleteServiceBooking\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/service-bookings/{id:int}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Service"
+    ],
+    "EndpointName": "DeleteServiceBooking"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Service.GetAvailableSlots\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__5_0",
+    "RelativePath": "api/service-bookings/available-slots",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Service"
+    ],
+    "EndpointName": "GetAvailableSlots"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Testimonials.GetAllTestimonials\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/testimonials",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Testimonials"
+    ],
+    "EndpointName": "GetAllTestimonials"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Testimonials.CreateTestimonial\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/testimonials",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MotoHM.Api.Modules.Testimonials.CreateTestimonial\u002BCreateTestimonialCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Testimonials"
+    ],
+    "EndpointName": "CreateTestimonial"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Testimonials.DeleteTestimonial\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/testimonials/{id:int}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Testimonials"
+    ],
+    "EndpointName": "DeleteTestimonial"
   }
 ]
