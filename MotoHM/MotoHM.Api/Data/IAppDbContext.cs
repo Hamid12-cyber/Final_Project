@@ -13,5 +13,8 @@ public interface IAppDbContext
     DbSet<UserEntity> Users { get; }
     DbSet<CartEntity> Carts { get; }
     DbSet<CartItemEntity> CartItems { get; }
+    DbSet<OrderEntity> Orders { get; }
+    DbSet<OrderItemEntity> OrderItems { get; }
+    DbSet<AccessoryEntity> Accessories { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

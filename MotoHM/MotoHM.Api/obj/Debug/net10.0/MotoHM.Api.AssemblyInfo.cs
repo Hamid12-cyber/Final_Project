@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MotoHM.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5748696a4f052822e9ffdde8a05f6b088d5965f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+823d3e030f5e27bc5e4c5f6f6648430bd6bf2a2a")]
 [assembly: System.Reflection.AssemblyProductAttribute("MotoHM.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MotoHM.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -17,6 +17,8 @@ using MotoHM.Api.Modules.Service;
 using MotoHM.Api.Modules.Admin;
 using MotoHM.Api.Modules.Users;
 using MotoHM.Api.Modules.Cart;
+using MotoHM.Api.Modules.Orders;
+using MotoHM.Api.Modules.Accessories;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -153,6 +155,9 @@ RejectMotorcycle.MapEndpoint(app);
 GetPendingParts.MapEndpoint(app);
 ApprovePart.MapEndpoint(app);
 RejectPart.MapEndpoint(app);
+GetPendingAccessories.MapEndpoint(app);
+ApproveAccessory.MapEndpoint(app);
+RejectAccessory.MapEndpoint(app);
 
 // Auth / Users
 Register.MapEndpoint(app);
@@ -163,5 +168,18 @@ GetMyCart.MapEndpoint(app);
 AddToCart.MapEndpoint(app);
 UpdateCartItemQuantity.MapEndpoint(app);
 RemoveFromCart.MapEndpoint(app);
+
+// Orders
+CreateOrder.MapEndpoint(app);
+GetMyOrders.MapEndpoint(app);
+GetOrderById.MapEndpoint(app);
+UpdateOrderStatus.MapEndpoint(app);
+
+// Accessories
+GetAllAccessories.MapEndpoint(app);
+GetAccessoryById.MapEndpoint(app);
+CreateAccessory.MapEndpoint(app);
+UpdateAccessory.MapEndpoint(app);
+DeleteAccessory.MapEndpoint(app);
 
 app.Run();

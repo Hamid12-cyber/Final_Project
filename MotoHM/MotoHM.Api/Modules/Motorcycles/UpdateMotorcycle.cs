@@ -1,8 +1,4 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-
-namespace MotoHM.Api.Modules.Motorcycles;
+﻿namespace MotoHM.Api.Modules.Motorcycles;
 
 public static class UpdateMotorcycle
 {

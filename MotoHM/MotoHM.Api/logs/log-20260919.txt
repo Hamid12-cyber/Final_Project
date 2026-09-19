@@ -610,3 +610,152 @@ SELECT @result
 2026-09-19 16:21:12.442 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - null null
 2026-09-19 16:21:12.603 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 129.0401 ms
 2026-09-19 16:21:12.792 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 349.7999ms
+2026-09-19 21:23:26.398 +03:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-19 21:23:27.635 +03:00 [INF] Now listening on: https://localhost:7268
+2026-09-19 21:23:27.643 +03:00 [INF] Now listening on: http://localhost:5010
+2026-09-19 21:23:27.675 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-09-19 21:23:27.825 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-19 21:23:27.829 +03:00 [INF] Hosting environment: Development
+2026-09-19 21:23:27.831 +03:00 [INF] Content root path: C:\Users\Asus\Desktop\MotoHM\MotoHM\MotoHM.Api
+2026-09-19 21:23:28.586 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/index.html - null null
+2026-09-19 21:23:29.320 +03:00 [INF] HTTP GET /swagger/index.html responded 304 in 150.6538 ms
+2026-09-19 21:23:29.336 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/index.html - 304 null null 755.0525ms
+2026-09-19 21:23:29.372 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/swagger-ui.css - null null
+2026-09-19 21:23:29.375 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-19 21:23:29.388 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/index.css - null null
+2026-09-19 21:23:29.390 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/swagger-ui-bundle.js - null null
+2026-09-19 21:23:29.391 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-19 21:23:29.419 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/index.js - null null
+2026-09-19 21:23:29.425 +03:00 [INF] HTTP GET /swagger/index.js responded 304 in 0.7206 ms
+2026-09-19 21:23:29.429 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/index.js - 304 null null 9.8401ms
+2026-09-19 21:23:29.434 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_vs/browserLink - null null
+2026-09-19 21:23:29.446 +03:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 38.5195 ms
+2026-09-19 21:23:29.446 +03:00 [INF] HTTP GET /swagger/index.css responded 304 in 45.9597 ms
+2026-09-19 21:23:29.446 +03:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 56.2784 ms
+2026-09-19 21:23:29.449 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/swagger-ui-standalone-preset.js - 304 null null 57.9631ms
+2026-09-19 21:23:29.464 +03:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 59.4747 ms
+2026-09-19 21:23:29.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/index.css - 304 null null 93.2224ms
+2026-09-19 21:23:29.498 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/swagger-ui.css - 304 null null 126.7649ms
+2026-09-19 21:23:29.514 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/swagger-ui-bundle.js - 304 null null 124.3ms
+2026-09-19 21:23:29.530 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - 200 14925 application/javascript; charset=utf-8 156.0729ms
+2026-09-19 21:23:29.687 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_vs/browserLink - 200 null text/javascript; charset=UTF-8 252.3179ms
+2026-09-19 21:23:30.114 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - null null
+2026-09-19 21:23:30.244 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 89.5597 ms
+2026-09-19 21:23:30.292 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 178.6002ms
+2026-09-19 21:32:42.641 +03:00 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-09-19 21:32:42.752 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-09-19 21:32:42.865 +03:00 [INF] Executed DbCommand (103ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2026-09-19 21:32:43.092 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2026-09-19 21:32:43.129 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-09-19 21:32:43.133 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-09-19 21:32:43.266 +03:00 [INF] Executed DbCommand (127ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-09-19 21:32:43.298 +03:00 [INF] Applying migration '20260919183212_AddOrders'.
+2026-09-19 21:32:43.493 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Status] nvarchar(20) NOT NULL,
+    [TotalAmount] decimal(10,2) NOT NULL,
+    [ShippingAddress] nvarchar(300) NOT NULL,
+    [ContactPhone] nvarchar(30) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Orders_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2026-09-19 21:32:43.521 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OrderItems] (
+    [Id] int NOT NULL IDENTITY,
+    [OrderId] int NOT NULL,
+    [MotorcycleId] int NULL,
+    [PartId] int NULL,
+    [Quantity] int NOT NULL,
+    [UnitPriceAtOrderTime] decimal(10,2) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NULL,
+    CONSTRAINT [PK_OrderItems] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_OrderItems_Motorcycles_MotorcycleId] FOREIGN KEY ([MotorcycleId]) REFERENCES [Motorcycles] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_OrderItems_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_OrderItems_Parts_PartId] FOREIGN KEY ([PartId]) REFERENCES [Parts] ([Id]) ON DELETE NO ACTION
+);
+2026-09-19 21:32:43.652 +03:00 [INF] Executed DbCommand (130ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderItems_MotorcycleId] ON [OrderItems] ([MotorcycleId]);
+2026-09-19 21:32:43.670 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderItems_OrderId] ON [OrderItems] ([OrderId]);
+2026-09-19 21:32:43.677 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderItems_PartId] ON [OrderItems] ([PartId]);
+2026-09-19 21:32:43.688 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_UserId] ON [Orders] ([UserId]);
+2026-09-19 21:32:43.804 +03:00 [INF] Executed DbCommand (116ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260919183212_AddOrders', N'10.0.12');
+2026-09-19 21:32:43.902 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2026-09-19 21:44:12.380 +03:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-09-19 21:44:12.549 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-09-19 21:44:12.602 +03:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2026-09-19 21:44:12.770 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2026-09-19 21:44:12.794 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-09-19 21:44:12.796 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-09-19 21:44:12.826 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-09-19 21:44:12.858 +03:00 [INF] Applying migration '20260919184341_AddAccessories'.
+2026-09-19 21:44:12.943 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Accessories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(150) NOT NULL,
+    [Brand] nvarchar(80) NOT NULL,
+    [Price] decimal(10,2) NOT NULL,
+    [StockQty] int NOT NULL,
+    [ImageUrl] nvarchar(max) NULL,
+    [SellerId] int NOT NULL,
+    [Status] nvarchar(20) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NULL,
+    CONSTRAINT [PK_Accessories] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Accessories_Users_SellerId] FOREIGN KEY ([SellerId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2026-09-19 21:44:12.947 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Accessories_SellerId] ON [Accessories] ([SellerId]);
+2026-09-19 21:44:12.958 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260919184341_AddAccessories', N'10.0.12');
+2026-09-19 21:44:12.967 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result

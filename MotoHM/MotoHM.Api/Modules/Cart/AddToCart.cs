@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
 using MotoHM.Api.Shared.Exceptions.Common;
+using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Cart;
 
@@ -63,7 +64,7 @@ public static class AddToCart
     {
         app.MapPost("/api/cart/items", async (AddToCartBody body, ClaimsPrincipal user, ISender sender) =>
         {
-            var userId = int.Parse(user.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var userId = user.GetUserId();
             await sender.Send(new AddToCartCommand(userId, body.MotorcycleId, body.PartId, body.Quantity));
             return Results.NoContent();
         })

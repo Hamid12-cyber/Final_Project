@@ -2,6 +2,7 @@
 using Dapper;
 using MediatR;
 using MotoHM.Api.Data;
+using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Cart;
 
@@ -40,7 +41,7 @@ public static class GetMyCart
     {
         app.MapGet("/api/cart", async (ClaimsPrincipal user, ISender sender) =>
         {
-            var userId = int.Parse(user.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var userId = user.GetUserId();
             var result = await sender.Send(new Query(userId));
             return Results.Ok(result);
         })

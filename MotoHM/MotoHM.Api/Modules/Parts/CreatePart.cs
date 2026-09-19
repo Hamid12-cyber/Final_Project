@@ -5,6 +5,7 @@ using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
 using MotoHM.Api.Entites.Enums;
 using MotoHM.Api.Shared.Exceptions.Common;
+using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Parts;
 
@@ -56,7 +57,7 @@ public static class CreatePart
     {
         app.MapPost("/api/parts", async (CreatePartBody body, ClaimsPrincipal user, ISender sender) =>
         {
-            var sellerId = int.Parse(user.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var sellerId = user.GetUserId();
 
             var command = new CreatePartCommand(body.Name, body.Brand, body.Price, body.StockQty,
                 body.ImageUrl, body.PartCategoryId, sellerId);

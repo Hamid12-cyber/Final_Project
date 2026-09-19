@@ -16,6 +16,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
     public DbSet<CartEntity> Carts => Set<CartEntity>();
     public DbSet<CartItemEntity> CartItems => Set<CartItemEntity>();
+    public DbSet<OrderEntity> Orders => Set<OrderEntity>();
+    public DbSet<OrderItemEntity> OrderItems => Set<OrderItemEntity>();
+    public DbSet<AccessoryEntity> Accessories => Set<AccessoryEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
