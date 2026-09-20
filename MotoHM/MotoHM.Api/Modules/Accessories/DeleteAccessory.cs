@@ -20,7 +20,9 @@ public static class DeleteAccessory
             if (entity is null)
                 return false;
 
-            _db.Accessories.Remove(entity);
+            entity.IsDeleted = true;
+            entity.UpdatedAt = DateTime.UtcNow;
+
             await _db.SaveChangesAsync(cancellationToken);
             return true;
         }

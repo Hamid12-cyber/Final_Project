@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
@@ -54,5 +55,16 @@ public static class CreateServiceBooking
         })
         .WithName("CreateServiceBooking")
         .WithTags("Service");
+    }
+    public class Validator : AbstractValidator<CreateServiceBookingCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.MotorcycleId).GreaterThan(0);
+            RuleFor(x => x.ScheduledDate).NotEmpty();
+            RuleFor(x => x.CustomerName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.CustomerPhone).NotEmpty().MaximumLength(30);
+            RuleFor(x => x.Notes).MaximumLength(500);
+        }
     }
 }

@@ -12,7 +12,6 @@ public static class DeleteMotorcycle
     {
         private readonly IAppDbContext _db;
         public Handler(IAppDbContext db) => _db = db;
-
         public async Task<bool> Handle(DeleteMotorcycleCommand request, CancellationToken cancellationToken)
         {
             var entity = await _db.Motorcycles.FirstOrDefaultAsync(m => m.Id == request.Id, cancellationToken);
@@ -20,7 +19,9 @@ public static class DeleteMotorcycle
             if (entity is null)
                 return false;
 
-            _db.Motorcycles.Remove(entity);
+            entity.IsDeleted = true;
+            entity.UpdatedAt = DateTime.UtcNow;
+
             await _db.SaveChangesAsync(cancellationToken);
             return true;
         }

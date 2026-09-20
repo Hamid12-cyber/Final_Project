@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 
@@ -46,5 +47,15 @@ public static class UpdateAccessory
         .RequireAuthorization()
         .WithName("UpdateAccessory")
         .WithTags("Accessories");
+    }
+    public class Validator : AbstractValidator<UpdateAccessoryCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(150);
+            RuleFor(x => x.Brand).NotEmpty().MaximumLength(80);
+            RuleFor(x => x.Price).GreaterThan(0);
+            RuleFor(x => x.StockQty).GreaterThanOrEqualTo(0);
+        }
     }
 }

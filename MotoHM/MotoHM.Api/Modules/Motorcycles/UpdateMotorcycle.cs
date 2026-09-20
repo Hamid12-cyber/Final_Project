@@ -1,4 +1,6 @@
-﻿namespace MotoHM.Api.Modules.Motorcycles;
+﻿using FluentValidation;
+
+namespace MotoHM.Api.Modules.Motorcycles;
 
 public static class UpdateMotorcycle
 {
@@ -49,4 +51,17 @@ public static class UpdateMotorcycle
 
     public record UpdateMotorcycleBody(string Name, string Brand, string Model, int Cc, int Year,
         decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale);
+
+    public class Validator : AbstractValidator<UpdateMotorcycleCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(150);
+            RuleFor(x => x.Brand).NotEmpty().MaximumLength(80);
+            RuleFor(x => x.Model).NotEmpty().MaximumLength(80);
+            RuleFor(x => x.Cc).GreaterThan(0);
+            RuleFor(x => x.Year).InclusiveBetween(1980, DateTime.UtcNow.Year + 1);
+            RuleFor(x => x.Price).GreaterThan(0);
+        }
+    }
 }

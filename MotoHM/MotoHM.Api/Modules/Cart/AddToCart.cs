@@ -1,10 +1,11 @@
-﻿using System.Security.Claims;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
 using MotoHM.Api.Shared.Exceptions.Common;
 using MotoHM.Api.Shared.Extensions;
+using System.Security.Claims;
 
 namespace MotoHM.Api.Modules.Cart;
 
@@ -71,5 +72,15 @@ public static class AddToCart
         .RequireAuthorization()
         .WithName("AddToCart")
         .WithTags("Cart");
+    }
+    public class Validator : AbstractValidator<AddToCartCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.Quantity).GreaterThan(0);
+            RuleFor(x => x)
+                .Must(x => (x.MotorcycleId.HasValue && !x.PartId.HasValue) || (!x.MotorcycleId.HasValue && x.PartId.HasValue))
+                .WithMessage("Ya MotorcycleId, ya da PartId göndərilməlidir (ikisi birdən yox).");
+        }
     }
 }

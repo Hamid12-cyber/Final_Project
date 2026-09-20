@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
@@ -47,5 +48,14 @@ public static class Register
         })
         .WithName("Register")
         .WithTags("Auth");
+    }
+    public class Validator : AbstractValidator<RegisterCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.FullName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.Email).NotEmpty().EmailAddress().MaximumLength(150);
+            RuleFor(x => x.Password).NotEmpty().MinimumLength(6);
+        }
     }
 }

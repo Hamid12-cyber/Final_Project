@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites.Enums;
@@ -22,10 +23,6 @@ public static class UpdateRental
 
             if (entity is null)
                 return false;
-
-            if (request.EndDate <= request.StartDate)
-                throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
-                    "Bitmə tarixi başlanğıc tarixindən sonra olmalıdır.");
 
             entity.StartDate = request.StartDate;
             entity.EndDate = request.EndDate;
@@ -55,4 +52,15 @@ public static class UpdateRental
 
     public record UpdateRentalBody(DateTime StartDate, DateTime EndDate,
         RentalPeriod Period, string CustomerName, string CustomerPhone);
+
+    public class Validator : AbstractValidator<UpdateRentalCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.StartDate).NotEmpty();
+            RuleFor(x => x.EndDate).GreaterThan(x => x.StartDate);
+            RuleFor(x => x.CustomerName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.CustomerPhone).NotEmpty().MaximumLength(30);
+        }
+    }
 }

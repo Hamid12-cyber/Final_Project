@@ -1,5 +1,206 @@
 [
   {
+    "ContainingType": "MotoHM.Api.Modules.Accessories.GetAllAccessories\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/accessories",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Accessories"
+    ],
+    "EndpointName": "GetAllAccessories"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Accessories.CreateAccessory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/accessories",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Accessories.CreateAccessory\u002BCreateAccessoryBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Accessories"
+    ],
+    "EndpointName": "CreateAccessory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Accessories.GetAccessoryById\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/accessories/{id:int}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Accessories"
+    ],
+    "EndpointName": "GetAccessoryById"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Accessories.UpdateAccessory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/accessories/{id:int}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Accessories.UpdateAccessory\u002BUpdateAccessoryBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Accessories"
+    ],
+    "EndpointName": "UpdateAccessory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Accessories.DeleteAccessory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/accessories/{id:int}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Accessories"
+    ],
+    "EndpointName": "DeleteAccessory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.ApproveAccessory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/admin/accessories/{id:int}/approve",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "ApproveAccessory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.RejectAccessory\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/admin/accessories/{id:int}/reject",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "RejectAccessory"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Admin.GetPendingAccessories\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/admin/accessories/pending",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "GetPendingAccessories"
+  },
+  {
     "ContainingType": "MotoHM.Api.Modules.Admin.ApproveMotorcycle\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__2_0",
     "RelativePath": "api/admin/motorcycles/{id:int}/approve",
@@ -70,6 +271,37 @@
       "Admin"
     ],
     "EndpointName": "GetPendingMotorcycles"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Orders.UpdateOrderStatus\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/admin/orders/{id:int}/status",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Orders.UpdateOrderStatus\u002BUpdateStatusBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "UpdateOrderStatus"
   },
   {
     "ContainingType": "MotoHM.Api.Modules.Admin.ApprovePart\u002B\u003C\u003Ec",
@@ -426,6 +658,78 @@
       "Motorcycles"
     ],
     "EndpointName": "DeleteMotorcycle"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Orders.CreateOrder\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/orders",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "MotoHM.Api.Modules.Orders.CreateOrder\u002BCreateOrderBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Orders"
+    ],
+    "EndpointName": "CreateOrder"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Orders.GetMyOrders\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__3_0",
+    "RelativePath": "api/orders",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Orders"
+    ],
+    "EndpointName": "GetMyOrders"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Orders.GetOrderById\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__4_0",
+    "RelativePath": "api/orders/{id:int}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Orders"
+    ],
+    "EndpointName": "GetOrderById"
   },
   {
     "ContainingType": "MotoHM.Api.Modules.PartCategories.GetAllPartCategories\u002B\u003C\u003Ec",

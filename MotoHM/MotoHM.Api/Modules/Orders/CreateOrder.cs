@@ -1,10 +1,11 @@
-﻿using System.Security.Claims;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
 using MotoHM.Api.Shared.Exceptions.Common;
 using MotoHM.Api.Shared.Extensions;
+using System.Security.Claims;
 
 namespace MotoHM.Api.Modules.Orders;
 
@@ -82,5 +83,13 @@ public static class CreateOrder
         .RequireAuthorization()
         .WithName("CreateOrder")
         .WithTags("Orders");
+    }
+    public class Validator : AbstractValidator<CreateOrderCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.ShippingAddress).NotEmpty().MaximumLength(300);
+            RuleFor(x => x.ContactPhone).NotEmpty().MaximumLength(30);
+        }
     }
 }

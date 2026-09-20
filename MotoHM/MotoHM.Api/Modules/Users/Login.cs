@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -73,5 +74,13 @@ public static class Login
         })
         .WithName("Login")
         .WithTags("Auth");
+    }
+    public class Validator : AbstractValidator<LoginCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.Email).NotEmpty().EmailAddress();
+            RuleFor(x => x.Password).NotEmpty();
+        }
     }
 }

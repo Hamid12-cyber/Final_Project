@@ -25,7 +25,7 @@ public static class GetPartById
                        p.PartCategoryId, c.Name AS PartCategoryName
                 FROM Parts p
                 INNER JOIN PartCategories c ON c.Id = p.PartCategoryId
-                WHERE p.Id = @Id
+                WHERE p.Id = @Id AND p.IsDeleted = 0
                 """;
 
             return await connection.QueryFirstOrDefaultAsync<PartDetailDto>(sql, new { request.Id });

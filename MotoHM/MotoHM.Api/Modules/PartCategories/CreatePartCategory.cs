@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
 
@@ -31,5 +32,13 @@ public static class CreatePartCategory
         })
         .WithName("CreatePartCategory")
         .WithTags("PartCategories");
+    }
+    public class Validator : AbstractValidator<CreatePartCategoryCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.Icon).NotEmpty().MaximumLength(20);
+        }
     }
 }

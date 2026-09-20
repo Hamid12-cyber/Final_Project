@@ -12,7 +12,6 @@ public static class DeletePart
     {
         private readonly IAppDbContext _db;
         public Handler(IAppDbContext db) => _db = db;
-
         public async Task<bool> Handle(DeletePartCommand request, CancellationToken cancellationToken)
         {
             var entity = await _db.Parts.FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
@@ -20,7 +19,9 @@ public static class DeletePart
             if (entity is null)
                 return false;
 
-            _db.Parts.Remove(entity);
+            entity.IsDeleted = true;
+            entity.UpdatedAt = DateTime.UtcNow;
+
             await _db.SaveChangesAsync(cancellationToken);
             return true;
         }

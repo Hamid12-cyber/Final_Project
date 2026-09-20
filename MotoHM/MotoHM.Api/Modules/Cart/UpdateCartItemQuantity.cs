@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Shared.Exceptions.Common;
@@ -45,5 +46,12 @@ public static class UpdateCartItemQuantity
         .RequireAuthorization()
         .WithName("UpdateCartItemQuantity")
         .WithTags("Cart");
+    }
+    public class Validator : AbstractValidator<Command>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.Quantity).GreaterThan(0);
+        }
     }
 }

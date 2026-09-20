@@ -22,7 +22,7 @@ public static class GetAllAccessories
             const string sql = """
                 SELECT Id, Name, Brand, Price, StockQty, ImageUrl
                 FROM Accessories
-                WHERE Status = 'Approved'
+                WHERE Status = 'Approved' AND IsDeleted = 0
                 ORDER BY Id DESC
                 """;
 

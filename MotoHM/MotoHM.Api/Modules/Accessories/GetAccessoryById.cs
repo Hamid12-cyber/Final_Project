@@ -22,7 +22,7 @@ public static class GetAccessoryById
             const string sql = """
                 SELECT Id, Name, Brand, Price, StockQty, ImageUrl
                 FROM Accessories
-                WHERE Id = @Id
+                WHERE Id = @Id AND IsDeleted = 0
                 """;
 
             return await connection.QueryFirstOrDefaultAsync<AccessoryDetailDto>(sql, new { request.Id });

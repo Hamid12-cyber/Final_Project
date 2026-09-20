@@ -1,24 +1,27 @@
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
+using FluentValidation;
 using MediatR;
-using System.Reflection;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using MotoHM.Api.Shared.Handlers;
-using Serilog;
-
+using Microsoft.OpenApi.Models;
+using MotoHM.Api.Data;
+using MotoHM.Api.Data.Interceptors;
+using MotoHM.Api.Modules.Accessories;
+using MotoHM.Api.Modules.Admin;
+using MotoHM.Api.Modules.Cart;
 using MotoHM.Api.Modules.Motorcycles;
+using MotoHM.Api.Modules.Orders;
 using MotoHM.Api.Modules.PartCategories;
 using MotoHM.Api.Modules.Parts;
-using MotoHM.Api.Modules.Testimonials;
 using MotoHM.Api.Modules.Rentals;
 using MotoHM.Api.Modules.Service;
-using MotoHM.Api.Modules.Admin;
+using MotoHM.Api.Modules.Testimonials;
 using MotoHM.Api.Modules.Users;
-using MotoHM.Api.Modules.Cart;
-using MotoHM.Api.Modules.Orders;
-using MotoHM.Api.Modules.Accessories;
+using MotoHM.Api.Shared.Behaviors;
+using MotoHM.Api.Shared.Handlers;
+using Serilog;
+using System.Reflection;
+using System.Text;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -34,17 +37,55 @@ builder.Host.UseSerilog();
 // ---- Swagger / OpenAPI ----
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Token-i belə yaz: Bearer {sənin tokenin}"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 // ---- Database ----
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddSingleton<BackupWriteInterceptor>();
+
+builder.Services.AddDbContext<AppDbContext>((sp, options) =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+    options.AddInterceptors(sp.GetRequiredService<BackupWriteInterceptor>());
+});
+
+builder.Services.AddDbContext<BackupDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Backup")));
 
 builder.Services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
 builder.Services.AddScoped<IDbConnectionFactory, SqlConnectionFactory>();
 
 // ---- MediatR ----
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+// ---- Validation ----
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 // ---- Exception handling ----
 builder.Services.AddExceptionHandler<AppExceptionHandler>();
@@ -86,6 +127,13 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+// ---- Postgres backup DB-nin cədvəllərini (yoxdursa) avtomatik yarat ----
+using (var scope = app.Services.CreateScope())
+{
+    var backupDb = scope.ServiceProvider.GetRequiredService<BackupDbContext>();
+    backupDb.Database.EnsureCreated();
+}
 
 // ---- Pipeline ----
 app.UseExceptionHandler();

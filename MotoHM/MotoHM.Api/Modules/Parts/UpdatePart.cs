@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 
@@ -50,4 +51,16 @@ public static class UpdatePart
 
     public record UpdatePartBody(string Name, string Brand, decimal Price, int StockQty,
         string? ImageUrl, int PartCategoryId);
+
+    public class Validator : AbstractValidator<UpdatePartCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(150);
+            RuleFor(x => x.Brand).NotEmpty().MaximumLength(80);
+            RuleFor(x => x.Price).GreaterThan(0);
+            RuleFor(x => x.StockQty).GreaterThanOrEqualTo(0);
+            RuleFor(x => x.PartCategoryId).GreaterThan(0);
+        }
+    }
 }

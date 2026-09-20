@@ -23,6 +23,13 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        modelBuilder.Entity<MotorcycleEntity>().HasQueryFilter(m => !m.IsDeleted);
+        modelBuilder.Entity<PartEntity>().HasQueryFilter(p => !p.IsDeleted);
+        modelBuilder.Entity<AccessoryEntity>().HasQueryFilter(a => !a.IsDeleted);
+        modelBuilder.Entity<UserEntity>().HasQueryFilter(u => !u.IsDeleted);
+        modelBuilder.Entity<OrderEntity>().HasQueryFilter(o => !o.IsDeleted);
+
         base.OnModelCreating(modelBuilder);
     }
 }

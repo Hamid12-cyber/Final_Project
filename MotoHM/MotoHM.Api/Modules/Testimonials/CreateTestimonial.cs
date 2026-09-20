@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
 
@@ -38,5 +39,14 @@ public static class CreateTestimonial
         })
         .WithName("CreateTestimonial")
         .WithTags("Testimonials");
+    }
+    public class Validator : AbstractValidator<CreateTestimonialCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.CustomerName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.Rating).InclusiveBetween(1, 5);
+            RuleFor(x => x.Text).NotEmpty().MaximumLength(1000);
+        }
     }
 }

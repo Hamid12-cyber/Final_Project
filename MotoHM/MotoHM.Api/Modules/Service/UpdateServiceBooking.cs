@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites.Enums;
@@ -27,7 +28,6 @@ public static class UpdateServiceBooking
                 throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
                     "Bron tarixi keçmişdə ola bilməz.");
 
-            // Seçilən yeni vaxt artıq tutulubmu? (özündən başqa)
             var slotTaken = await _db.ServiceBookings.AnyAsync(s =>
                 s.Id != request.Id && s.ScheduledDate == request.ScheduledDate, cancellationToken);
 
@@ -63,4 +63,15 @@ public static class UpdateServiceBooking
 
     public record UpdateServiceBookingBody(ServiceType Type, DateTime ScheduledDate,
         string CustomerName, string CustomerPhone, string? Notes);
+
+    public class Validator : AbstractValidator<UpdateServiceBookingCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.ScheduledDate).NotEmpty();
+            RuleFor(x => x.CustomerName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.CustomerPhone).NotEmpty().MaximumLength(30);
+            RuleFor(x => x.Notes).MaximumLength(500);
+        }
+    }
 }

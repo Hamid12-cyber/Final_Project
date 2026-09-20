@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
@@ -29,10 +30,6 @@ public static class CreateRental
             if (!motorcycle.IsForRent)
                 throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
                     "Bu motosiklet kirayə üçün deyil.");
-
-            if (request.EndDate <= request.StartDate)
-                throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
-                    "Bitmə tarixi başlanğıc tarixindən sonra olmalıdır.");
 
             var totalPrice = CalculatePrice(request.StartDate, request.EndDate, request.Period);
 
@@ -77,5 +74,16 @@ public static class CreateRental
         })
         .WithName("CreateRental")
         .WithTags("Rentals");
+    }
+    public class Validator : AbstractValidator<CreateRentalCommand>
+    {
+        public Validator()
+        {
+            RuleFor(x => x.MotorcycleId).GreaterThan(0);
+            RuleFor(x => x.StartDate).NotEmpty();
+            RuleFor(x => x.EndDate).GreaterThan(x => x.StartDate);
+            RuleFor(x => x.CustomerName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.CustomerPhone).NotEmpty().MaximumLength(30);
+        }
     }
 }

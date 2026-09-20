@@ -23,7 +23,7 @@ public static class GetMotorcycleById
             const string sql = """
                 SELECT Id, Name, Brand, Model, Cc, Year, Price, ImageUrl, IsForRent, IsForSale
                 FROM Motorcycles
-                WHERE Id = @Id
+                WHERE Id = @Id AND IsDeleted = 0
                 """;
 
             return await connection.QueryFirstOrDefaultAsync<MotorcycleDetailDto>(sql, new { request.Id });

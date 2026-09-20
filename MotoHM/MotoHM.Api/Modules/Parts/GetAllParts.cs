@@ -25,7 +25,7 @@ public static class GetAllParts
                        p.PartCategoryId, c.Name AS PartCategoryName
                 FROM Parts p
                 INNER JOIN PartCategories c ON c.Id = p.PartCategoryId
-                WHERE p.Status = 'Approved'
+                WHERE p.Status = 'Approved' AND p.IsDeleted = 0
                 ORDER BY p.Id DESC
                 """;
 
