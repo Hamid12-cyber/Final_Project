@@ -201,6 +201,26 @@
     "EndpointName": "GetPendingAccessories"
   },
   {
+    "ContainingType": "MotoHM.Api.Modules.Admin.ResyncBackup\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/admin/backup/resync",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "ResyncBackup"
+  },
+  {
     "ContainingType": "MotoHM.Api.Modules.Admin.ApproveMotorcycle\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__2_0",
     "RelativePath": "api/admin/motorcycles/{id:int}/approve",

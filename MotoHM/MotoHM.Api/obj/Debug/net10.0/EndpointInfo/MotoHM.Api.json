@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.4",
+  "openapi": "3.0.1",
   "info": {
     "title": "MotoHM.Api",
     "version": "1.0"
@@ -293,6 +293,19 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/admin/backup/resync": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "operationId": "ResyncBackup",
         "responses": {
           "200": {
             "description": "OK"
@@ -1642,41 +1655,19 @@
         "type": "integer",
         "format": "int32"
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Token-i belə yaz: Bearer {sənin tokenin}",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
   },
-  "tags": [
+  "security": [
     {
-      "name": "Accessories"
-    },
-    {
-      "name": "Admin"
-    },
-    {
-      "name": "Auth"
-    },
-    {
-      "name": "Cart"
-    },
-    {
-      "name": "Motorcycles"
-    },
-    {
-      "name": "Orders"
-    },
-    {
-      "name": "PartCategories"
-    },
-    {
-      "name": "Parts"
-    },
-    {
-      "name": "Rentals"
-    },
-    {
-      "name": "Service"
-    },
-    {
-      "name": "Testimonials"
+      "Bearer": [ ]
     }
   ]
 }

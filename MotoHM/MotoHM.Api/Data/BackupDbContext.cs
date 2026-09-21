@@ -26,6 +26,18 @@ public class BackupDbContext(DbContextOptions<BackupDbContext> options) : DbCont
             {
                 idProperty.ValueGenerated = ValueGenerated.Never;
             }
+
+            // MSSQL-dən gələn DateTime dəyərlərinin Kind-i "Unspecified"-dır (nə UTC,
+            // nə local işarələnib). Npgsql defolt olaraq DateTime sütunlarını
+            // "timestamp with time zone" kimi yaradır və bu tip YALNIZ Kind=Utc qəbul edir —
+            // Kind=Unspecified görəndə "only UTC is supported" xətası atır.
+            // "timestamp without time zone" isə Kind yoxlamadan hər DateTime-ı qəbul edir.
+            foreach (var property in entityType.GetProperties())
+            {
+                var clrType = Nullable.GetUnderlyingType(property.ClrType) ?? property.ClrType;
+                if (clrType == typeof(DateTime))
+                    property.SetColumnType("timestamp without time zone");
+            }
         }
 
         base.OnModelCreating(modelBuilder);

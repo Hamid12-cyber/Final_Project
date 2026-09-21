@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 using MotoHM.Api.Data;
 using MotoHM.Api.Data.Interceptors;
@@ -34,8 +35,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog();
 
-// ---- Swagger / OpenAPI ----
-builder.Services.AddOpenApi();
+// ---- Swagger ----
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -60,7 +60,7 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            Array.Empty<string>()
+            new List<string>()
         }
     });
 });
@@ -141,7 +141,6 @@ app.UseSerilogRequestLogging();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -206,6 +205,7 @@ RejectPart.MapEndpoint(app);
 GetPendingAccessories.MapEndpoint(app);
 ApproveAccessory.MapEndpoint(app);
 RejectAccessory.MapEndpoint(app);
+ResyncBackup.MapEndpoint(app);
 
 // Auth / Users
 Register.MapEndpoint(app);
