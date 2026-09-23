@@ -132,7 +132,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var backupDb = scope.ServiceProvider.GetRequiredService<BackupDbContext>();
-    backupDb.Database.EnsureCreated();
+    backupDb.Database.Migrate();
 }
 
 // ---- Pipeline ----

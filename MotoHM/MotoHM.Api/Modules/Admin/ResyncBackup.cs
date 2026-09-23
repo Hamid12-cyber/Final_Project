@@ -4,13 +4,6 @@ using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
 
 namespace MotoHM.Api.Modules.Admin;
-
-/// <summary>
-/// Backup (PostgreSQL) bazasını sıfırdan MSSQL-dən yenidən qurur.
-/// Lazımdır çünki: 1) backup inteqrasiyasından ƏVVƏL yaranmış data heç vaxt
-/// avtomatik köçürülməyib, 2) dual-write ara vaxtlarda uğursuz olub (log-a bax).
-/// FK sırası ilə: əvvəlcə valideyn cədvəllər (Users), sonra ona bağlı olanlar.
-/// </summary>
 public static class ResyncBackup
 {
     public record Command : IRequest<Dictionary<string, int>>;
@@ -32,32 +25,44 @@ public static class ResyncBackup
         {
             var report = new Dictionary<string, int>();
 
-            // Silmə: uşaqdan valideynə doğru (FK pozulmasın)
-            await _backup.OrderItems.ExecuteDeleteAsync(ct);
-            await _backup.Orders.ExecuteDeleteAsync(ct);
-            await _backup.ServiceBookings.ExecuteDeleteAsync(ct);
-            await _backup.Rentals.ExecuteDeleteAsync(ct);
-            await _backup.Testimonials.ExecuteDeleteAsync(ct);
-            await _backup.Accessories.ExecuteDeleteAsync(ct);
-            await _backup.Parts.ExecuteDeleteAsync(ct);
-            await _backup.PartCategories.ExecuteDeleteAsync(ct);
-            await _backup.Motorcycles.ExecuteDeleteAsync(ct);
-            await _backup.Users.ExecuteDeleteAsync(ct);
+            await using var transaction = await _backup.Database.BeginTransactionAsync(ct);
 
-            // Köçürmə: valideyndən uşağa doğru
-            report["Users"] = await CopyAsync(_primary.Users, _backup.Users, ct);
-            report["Motorcycles"] = await CopyAsync(_primary.Motorcycles, _backup.Motorcycles, ct);
-            report["PartCategories"] = await CopyAsync(_primary.PartCategories, _backup.PartCategories, ct);
-            report["Parts"] = await CopyAsync(_primary.Parts, _backup.Parts, ct);
-            report["Accessories"] = await CopyAsync(_primary.Accessories, _backup.Accessories, ct);
-            report["Testimonials"] = await CopyAsync(_primary.Testimonials, _backup.Testimonials, ct);
-            report["Rentals"] = await CopyAsync(_primary.Rentals, _backup.Rentals, ct);
-            report["ServiceBookings"] = await CopyAsync(_primary.ServiceBookings, _backup.ServiceBookings, ct);
-            report["Orders"] = await CopyAsync(_primary.Orders, _backup.Orders, ct);
-            report["OrderItems"] = await CopyAsync(_primary.OrderItems, _backup.OrderItems, ct);
+            try
+            {
+                // Silmə: uşaqdan valideynə doğru
+                await _backup.OrderItems.ExecuteDeleteAsync(ct);
+                await _backup.Orders.ExecuteDeleteAsync(ct);
+                await _backup.ServiceBookings.ExecuteDeleteAsync(ct);
+                await _backup.Rentals.ExecuteDeleteAsync(ct);
+                await _backup.Testimonials.ExecuteDeleteAsync(ct);
+                await _backup.Accessories.ExecuteDeleteAsync(ct);
+                await _backup.Parts.ExecuteDeleteAsync(ct);
+                await _backup.PartCategories.ExecuteDeleteAsync(ct);
+                await _backup.Motorcycles.ExecuteDeleteAsync(ct);
+                await _backup.Users.ExecuteDeleteAsync(ct);
 
-            _logger.LogInformation("Backup resync tamamlandı: {Total} sətir.", report.Values.Sum());
-            return report;
+                // Köçürmə: valideyndən uşağa doğru
+                report["Users"] = await CopyAsync(_primary.Users, _backup.Users, ct);
+                report["Motorcycles"] = await CopyAsync(_primary.Motorcycles, _backup.Motorcycles, ct);
+                report["PartCategories"] = await CopyAsync(_primary.PartCategories, _backup.PartCategories, ct);
+                report["Parts"] = await CopyAsync(_primary.Parts, _backup.Parts, ct);
+                report["Accessories"] = await CopyAsync(_primary.Accessories, _backup.Accessories, ct);
+                report["Testimonials"] = await CopyAsync(_primary.Testimonials, _backup.Testimonials, ct);
+                report["Rentals"] = await CopyAsync(_primary.Rentals, _backup.Rentals, ct);
+                report["ServiceBookings"] = await CopyAsync(_primary.ServiceBookings, _backup.ServiceBookings, ct);
+                report["Orders"] = await CopyAsync(_primary.Orders, _backup.Orders, ct);
+                report["OrderItems"] = await CopyAsync(_primary.OrderItems, _backup.OrderItems, ct);
+
+                await transaction.CommitAsync(ct);
+
+                _logger.LogInformation("Backup resync tamamlandı: {Total} sətir.", report.Values.Sum());
+                return report;
+            }
+            catch
+            {
+                await transaction.RollbackAsync(ct);
+                throw;
+            }
         }
 
         private async Task<int> CopyAsync<T>(DbSet<T> source, DbSet<T> target, CancellationToken ct)

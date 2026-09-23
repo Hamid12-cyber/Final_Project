@@ -1,0 +1,226 @@
+2026-09-22 09:48:30.397 +03:00 [INF] Executed DbCommand (443ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-09-22 09:48:32.770 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-09-22 09:48:33.087 +03:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-09-22 09:48:33.143 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-09-22 09:48:33.189 +03:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-09-22 09:48:33.198 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-09-22 09:48:33.217 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-09-22 09:48:34.165 +03:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-22 09:48:38.472 +03:00 [INF] Now listening on: https://localhost:7268
+2026-09-22 09:48:38.698 +03:00 [INF] Now listening on: http://localhost:5010
+2026-09-22 09:48:39.148 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-09-22 09:48:39.807 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/index.html - null null
+2026-09-22 09:48:40.619 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-22 09:48:41.153 +03:00 [INF] Hosting environment: Development
+2026-09-22 09:48:41.825 +03:00 [INF] Content root path: C:\Users\Asus\Desktop\MotoHM\MotoHM\MotoHM.Api
+2026-09-22 09:48:44.413 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 405.1608 ms
+2026-09-22 09:48:44.470 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-22 09:48:44.484 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_vs/browserLink - null null
+2026-09-22 09:48:44.776 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - 200 14925 application/javascript; charset=utf-8 305.146ms
+2026-09-22 09:48:44.801 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/index.html - 200 null text/html;charset=utf-8 5044.0276ms
+2026-09-22 09:48:45.350 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_vs/browserLink - 200 null text/javascript; charset=UTF-8 866.4436ms
+2026-09-22 09:48:45.532 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - null null
+2026-09-22 09:48:48.307 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 140.4624 ms
+2026-09-22 09:48:48.712 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 3179.9055ms
+2026-09-22 09:49:31.726 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-09-22 09:49:32.027 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:49:32.110 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-09-22 09:49:34.449 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:49:34.459 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:49:34.467 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:49:34.479 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 2669.5095 ms
+2026-09-22 09:49:34.484 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 2757.9413ms
+2026-09-22 09:49:34.576 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/favicon.ico - null null
+2026-09-22 09:49:34.593 +03:00 [INF] HTTP GET /favicon.ico responded 404 in 9.8307 ms
+2026-09-22 09:49:34.598 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/favicon.ico - 404 0 null 21.7442ms
+2026-09-22 09:49:34.612 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7268/favicon.ico, Response status code: 404
+2026-09-22 09:51:13.634 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7268/api/auth/login - application/json 65
+2026-09-22 09:51:13.662 +03:00 [INF] CORS policy execution failed.
+2026-09-22 09:51:13.669 +03:00 [INF] Request origin https://localhost:7268 does not have permission to access the resource.
+2026-09-22 09:51:13.693 +03:00 [INF] Executing endpoint 'HTTP: POST /api/auth/login'
+2026-09-22 09:51:14.372 +03:00 [WRN] Entity 'UserEntity' has a global query filter defined and is the required end of a relationship with the entity 'CartEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-22 09:51:14.378 +03:00 [WRN] Entity 'OrderEntity' has a global query filter defined and is the required end of a relationship with the entity 'OrderItemEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-22 09:51:14.381 +03:00 [WRN] Entity 'MotorcycleEntity' has a global query filter defined and is the required end of a relationship with the entity 'RentalEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-22 09:51:14.385 +03:00 [WRN] Entity 'MotorcycleEntity' has a global query filter defined and is the required end of a relationship with the entity 'ServiceBookingEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-22 09:51:15.505 +03:00 [INF] Executed DbCommand (107ms) [Parameters=[@request_Email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsDeleted], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+FROM [Users] AS [u]
+WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[Email] = @request_Email
+2026-09-22 09:51:16.785 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:51:16.789 +03:00 [INF] Writing value of type 'LoginResponse' as Json.
+2026-09-22 09:51:16.799 +03:00 [INF] Executed endpoint 'HTTP: POST /api/auth/login'
+2026-09-22 09:51:16.802 +03:00 [INF] HTTP POST /api/auth/login responded 200 in 3145.8824 ms
+2026-09-22 09:51:16.818 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7268/api/auth/login - 200 null application/json; charset=utf-8 3183.8471ms
+2026-09-22 09:51:51.503 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/admin/motorcycles/pending - null null
+2026-09-22 09:51:51.644 +03:00 [INF] Executing endpoint 'HTTP: GET /api/admin/motorcycles/pending'
+2026-09-22 09:51:51.722 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:51:51.728 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:51:51.740 +03:00 [INF] Executed endpoint 'HTTP: GET /api/admin/motorcycles/pending'
+2026-09-22 09:51:51.745 +03:00 [INF] HTTP GET /api/admin/motorcycles/pending responded 200 in 230.2730 ms
+2026-09-22 09:51:51.749 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/admin/motorcycles/pending - 200 null application/json; charset=utf-8 245.8765ms
+2026-09-22 09:52:05.107 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-09-22 09:52:05.159 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:05.178 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:52:05.181 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:52:05.185 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:05.193 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 34.1138 ms
+2026-09-22 09:52:05.199 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 91.7102ms
+2026-09-22 09:52:06.052 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-09-22 09:52:06.076 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:06.109 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:52:06.112 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:52:06.117 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:06.152 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 75.7394 ms
+2026-09-22 09:52:06.186 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 133.6221ms
+2026-09-22 09:52:06.270 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-09-22 09:52:06.283 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:06.294 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:52:06.297 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:52:06.302 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:06.332 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 49.7244 ms
+2026-09-22 09:52:06.345 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 74.6279ms
+2026-09-22 09:52:15.046 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-09-22 09:52:15.076 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:15.092 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:52:15.095 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:52:15.098 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:52:15.108 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 32.5366 ms
+2026-09-22 09:52:15.117 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 69.316ms
+2026-09-22 09:52:30.426 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/admin/motorcycles/pending - null null
+2026-09-22 09:52:30.500 +03:00 [INF] Executing endpoint 'HTTP: GET /api/admin/motorcycles/pending'
+2026-09-22 09:52:30.521 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:52:30.525 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:52:30.527 +03:00 [INF] Executed endpoint 'HTTP: GET /api/admin/motorcycles/pending'
+2026-09-22 09:52:30.538 +03:00 [INF] HTTP GET /api/admin/motorcycles/pending responded 200 in 48.9258 ms
+2026-09-22 09:52:30.556 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/admin/motorcycles/pending - 200 null application/json; charset=utf-8 119.8658ms
+2026-09-22 09:53:28.875 +03:00 [INF] Request starting HTTP/2 PUT https://localhost:7268/api/admin/motorcycles/1/approve - null 0
+2026-09-22 09:53:28.883 +03:00 [INF] CORS policy execution failed.
+2026-09-22 09:53:28.885 +03:00 [INF] Request origin https://localhost:7268 does not have permission to access the resource.
+2026-09-22 09:53:28.927 +03:00 [INF] Executing endpoint 'HTTP: PUT /api/admin/motorcycles/{id:int}/approve'
+2026-09-22 09:53:29.186 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[@request_Id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Brand], [m].[Cc], [m].[CreatedAt], [m].[ImageUrl], [m].[IsDeleted], [m].[IsForRent], [m].[IsForSale], [m].[Model], [m].[Name], [m].[Price], [m].[SellerId], [m].[Status], [m].[UpdatedAt], [m].[Year]
+FROM [Motorcycles] AS [m]
+WHERE [m].[IsDeleted] = CAST(0 AS bit) AND [m].[Id] = @request_Id
+2026-09-22 09:53:29.562 +03:00 [INF] Executed DbCommand (45ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 20), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Motorcycles] SET [Status] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2026-09-22 09:53:29.785 +03:00 [INF] Executed DbCommand (55ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."Id", m."Brand", m."Cc", m."CreatedAt", m."ImageUrl", m."IsDeleted", m."IsForRent", m."IsForSale", m."Model", m."Name", m."Price", m."SellerId", m."Status", m."UpdatedAt", m."Year"
+FROM "Motorcycles" AS m
+WHERE m."Id" = @p
+LIMIT 1
+2026-09-22 09:53:29.971 +03:00 [ERR] Failed executing DbCommand (31ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Motorcycles" SET "CreatedAt" = @p0, "Status" = @p1, "UpdatedAt" = @p2
+WHERE "Id" = @p3;
+2026-09-22 09:53:30.070 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'MotoHM.Api.Data.BackupDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options, IDbTypeResolver dbTypeResolver)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(ReloadableState reloadableState, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options, IDbTypeResolver dbTypeResolver)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(ReloadableState reloadableState, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-09-22 09:53:30.128 +03:00 [WRN] Postgres backup yazması uğursuz oldu.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options, IDbTypeResolver dbTypeResolver)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(ReloadableState reloadableState, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at MotoHM.Api.Data.Interceptors.BackupWriteInterceptor.ReplicateToBackupAsync(List`1 changes) in C:\Users\Asus\Desktop\MotoHM\MotoHM\MotoHM.Api\Data\Interceptors\BackupWriteInterceptor.cs:line 104
+2026-09-22 09:53:30.214 +03:00 [INF] Setting HTTP status code 204.
+2026-09-22 09:53:30.216 +03:00 [INF] Executed endpoint 'HTTP: PUT /api/admin/motorcycles/{id:int}/approve'
+2026-09-22 09:53:30.219 +03:00 [INF] HTTP PUT /api/admin/motorcycles/1/approve responded 204 in 1336.5979 ms
+2026-09-22 09:53:30.226 +03:00 [INF] Request finished HTTP/2 PUT https://localhost:7268/api/admin/motorcycles/1/approve - 204 null null 1350.9801ms
+2026-09-22 09:53:40.818 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-09-22 09:53:40.846 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:53:40.863 +03:00 [INF] Setting HTTP status code 200.
+2026-09-22 09:53:40.866 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-09-22 09:53:40.874 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-09-22 09:53:40.877 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 32.1554 ms
+2026-09-22 09:53:40.890 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 71.8292ms
