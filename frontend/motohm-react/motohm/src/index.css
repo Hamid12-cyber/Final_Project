@@ -174,10 +174,13 @@ a { text-decoration: none; color: inherit; }
   border-radius: 14px;
   overflow: hidden;
 }
+.bike-card { text-decoration: none; color: var(--text); display: block; }
 .bike-image {
   height: 130px;
   background: linear-gradient(135deg, #2a1414, #151518);
+  overflow: hidden;
 }
+.bike-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bike-info { padding: 16px; }
 .bike-name { font-weight: 600; font-size: 14px; }
 .bike-meta { color: var(--muted); font-size: 12px; margin: 4px 0 8px; }
@@ -235,7 +238,8 @@ a { text-decoration: none; color: inherit; }
   border-radius: 14px;
   overflow: hidden;
 }
-.product-image { height: 130px; background: linear-gradient(135deg, #2a1414, #151518); }
+.product-image { height: 130px; background: linear-gradient(135deg, #2a1414, #151518); overflow: hidden; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .product-info { padding: 16px; }
 .product-name { font-weight: 600; font-size: 14px; }
 .product-meta { color: var(--muted); font-size: 12px; margin: 4px 0 8px; }
@@ -274,6 +278,69 @@ a { text-decoration: none; color: inherit; }
 }
 .checkout-btn:hover:not(:disabled) { background: var(--accent-hover); }
 .checkout-btn:disabled { opacity: 0.5; }
+
+/* Orders */
+.order-row { text-decoration: none; color: var(--text); cursor: pointer; transition: 0.2s; }
+.order-row:hover { border-color: rgba(229,57,53,0.4); }
+.order-meta-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.status-badge {
+  display: inline-block; padding: 5px 14px; border-radius: 999px;
+  font-size: 12px; font-weight: 700;
+}
+.status-pending { background: rgba(255,193,7,0.15); color: #ffc107; }
+.status-confirmed { background: rgba(33,150,243,0.15); color: #2196f3; }
+.status-shipped { background: rgba(156,39,176,0.15); color: #ba68c8; }
+.status-delivered { background: rgba(76,175,80,0.15); color: #4caf50; }
+.status-cancelled { background: rgba(229,57,53,0.15); color: var(--accent); }
+
+/* Checkout form */
+.checkout-form {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; margin-top: 16px; max-width: 420px; display: flex; flex-direction: column; gap: 16px;
+}
+.checkout-form-title { font-size: 16px; font-weight: 700; }
+.form-field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); }
+.form-field input {
+  background: #0e0e11; border: 1px solid var(--border); border-radius: 8px;
+  padding: 10px 12px; color: var(--text); font-size: 14px;
+}
+.form-field input:focus { outline: none; border-color: var(--accent); }
+.form-error { color: var(--accent); font-size: 13px; }
+
+.slot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.slot-btn {
+  background: #0e0e11; border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 4px; color: var(--text); font-size: 13px; font-weight: 600;
+}
+.slot-btn:hover:not(:disabled) { border-color: rgba(229,57,53,0.4); }
+.slot-btn.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+.slot-btn.taken { opacity: 0.3; text-decoration: line-through; cursor: not-allowed; }
+
+/* Admin panel */
+.admin-approve-btn, .admin-reject-btn {
+  padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; white-space: nowrap;
+}
+.admin-approve-btn { background: rgba(76,175,80,0.15); color: #4caf50; border: 1px solid rgba(76,175,80,0.3); }
+.admin-approve-btn:hover:not(:disabled) { background: rgba(76,175,80,0.25); }
+.admin-reject-btn { background: rgba(229,57,53,0.15); color: var(--accent); border: 1px solid rgba(229,57,53,0.3); }
+.admin-reject-btn:hover:not(:disabled) { background: rgba(229,57,53,0.25); }
+.admin-approve-btn:disabled, .admin-reject-btn:disabled { opacity: 0.4; }
+
+/* Motorcycle detail page */
+.detail-layout { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 20px; }
+@media (min-width: 768px) { .detail-layout { grid-template-columns: 1fr 1fr; } }
+.detail-image {
+  height: 320px; border-radius: 16px; overflow: hidden;
+  background: linear-gradient(135deg, #2a1414, #151518);
+}
+.detail-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.detail-badges { display: flex; gap: 8px; margin-bottom: 16px; }
+.detail-specs { width: 100%; border-collapse: collapse; font-size: 14px; }
+.detail-specs td { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.detail-specs td:first-child { color: var(--muted); width: 40%; }
+
+/* Create listing (Elan yerləşdir) */
+.listing-type-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
 
 /* Banners */
 .banner {
