@@ -31,7 +31,9 @@ export default function AccessoriesPage() {
         <div className="product-grid">
           {accessories.map((a) => (
             <div className="product-card" key={a.id}>
-              <div className="product-image" />
+              <div className="product-image">
+                {a.imageUrl && <img src={a.imageUrl} alt={a.name} />}
+              </div>
               <div className="product-info">
                 <p className="product-name">{a.name}</p>
                 <p className="product-meta">{a.brand}</p>

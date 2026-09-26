@@ -15,8 +15,16 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const isLoginRequest = error.config?.url?.includes('/auth/login');
+    if (error.response?.status === 401 && !isLoginRequest) {
+      // Token bitib/etibarsızdır: tam çıxış edib login səhifəsinə yönləndiririk.
+      // (LoginPage-in öz "yanlış şifrə" xətasını göstərə bilməsi üçün /auth/login
+      // sorğusunu bu davranışdan kənarda saxlayırıq.)
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      if (window.location.pathname !== '/login') {
+        window.location.href = '/login';
+      }
     }
     return Promise.reject(error);
   }

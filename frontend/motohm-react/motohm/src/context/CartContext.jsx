@@ -41,12 +41,18 @@ export function CartProvider({ children }) {
     await refreshCart();
   };
 
+  const checkout = async ({ shippingAddress, contactPhone }) => {
+    const res = await apiClient.post('/orders', { shippingAddress, contactPhone });
+    await refreshCart(); // sifariş yarandıqdan sonra backend səbəti təmizləyir, burda da sync edirik
+    return res.data.id;
+  };
+
   const count = items.reduce((sum, i) => sum + i.quantity, 0);
   const total = items.reduce((sum, i) => sum + i.unitPrice * i.quantity, 0);
 
   return (
     <CartContext.Provider
-      value={{ items, loading, count, total, addToCart, updateQuantity, removeItem, refreshCart }}
+      value={{ items, loading, count, total, addToCart, updateQuantity, removeItem, checkout, refreshCart }}
     >
       {children}
     </CartContext.Provider>

@@ -1,12 +1,18 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
 
 export default function CartPage() {
   const { user } = useAuth();
-  const { items, loading, total, updateQuantity, removeItem } = useCart();
+  const { items, loading, total, updateQuantity, removeItem, checkout } = useCart();
   const [busyId, setBusyId] = useState(null);
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [shippingAddress, setShippingAddress] = useState('');
+  const [contactPhone, setContactPhone] = useState('');
+  const [checkoutError, setCheckoutError] = useState(null);
+  const [placing, setPlacing] = useState(false);
+  const navigate = useNavigate();
 
   if (!user) {
     return (
@@ -42,6 +48,20 @@ export default function CartPage() {
       alert(err.response?.data?.message ?? 'Silinmədi.');
     } finally {
       setBusyId(null);
+    }
+  };
+
+  const handlePlaceOrder = async (e) => {
+    e.preventDefault();
+    setCheckoutError(null);
+    setPlacing(true);
+    try {
+      const orderId = await checkout({ shippingAddress, contactPhone });
+      navigate(`/orders/${orderId}`);
+    } catch (err) {
+      setCheckoutError(err.response?.data?.message ?? 'Sifariş yaradıla bilmədi.');
+    } finally {
+      setPlacing(false);
     }
   };
 
@@ -95,11 +115,48 @@ export default function CartPage() {
               <p className="cart-item-type">Cəmi</p>
               <p className="cart-total-value">{total.toLocaleString('az-AZ')} AZN</p>
             </div>
-            {/* Orders modulu hazır olanda POST /orders buradan çağırılacaq */}
-            <button className="checkout-btn" disabled title="Sifariş modulu tezliklə əlavə olunacaq">
-              Sifariş ver (tezliklə)
-            </button>
+            {!showCheckout && (
+              <button className="checkout-btn" onClick={() => setShowCheckout(true)}>
+                Sifariş ver
+              </button>
+            )}
           </div>
+
+          {showCheckout && (
+            <form className="checkout-form" onSubmit={handlePlaceOrder}>
+              <h2 className="checkout-form-title">Çatdırılma məlumatları</h2>
+
+              <label className="form-field">
+                <span>Ünvan</span>
+                <input
+                  type="text"
+                  value={shippingAddress}
+                  onChange={(e) => setShippingAddress(e.target.value)}
+                  placeholder="Bakı, Nərimanov r., ..."
+                  maxLength={300}
+                  required
+                />
+              </label>
+
+              <label className="form-field">
+                <span>Əlaqə nömrəsi</span>
+                <input
+                  type="text"
+                  value={contactPhone}
+                  onChange={(e) => setContactPhone(e.target.value)}
+                  placeholder="+994 55 123 45 67"
+                  maxLength={30}
+                  required
+                />
+              </label>
+
+              {checkoutError && <p className="form-error">{checkoutError}</p>}
+
+              <button className="checkout-btn" type="submit" disabled={placing}>
+                {placing ? 'Göndərilir...' : 'Sifarişi təsdiqlə'}
+              </button>
+            </form>
+          )}
         </>
       )}
     </div>

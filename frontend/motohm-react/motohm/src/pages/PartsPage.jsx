@@ -84,7 +84,9 @@ export default function PartsPage() {
         <div className="product-grid">
           {filtered.map((p) => (
             <div className="product-card" key={p.id}>
-              <div className="product-image" />
+              <div className="product-image">
+                {p.imageUrl && <img src={p.imageUrl} alt={p.name} />}
+              </div>
               <div className="product-info">
                 <p className="product-name">{p.name}</p>
                 <p className="product-meta">{p.brand} · {p.partCategoryName}</p>
