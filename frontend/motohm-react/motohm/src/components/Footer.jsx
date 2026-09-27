@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -14,30 +16,30 @@ export default function Footer() {
 
         <div>
           <p className="footer-heading">Menyu</p>
-          <p>Ana səhifə</p>
-          <p>Motosikletlər</p>
-          <p>Ehtiyat hissələri</p>
-          <p>Kirayə</p>
-          <p>Servis</p>
+          <Link to="/" className="footer-link">Ana səhifə</Link>
+          <Link to="/motorcycles" className="footer-link">Motosikletlər</Link>
+          <Link to="/parts" className="footer-link">Ehtiyat hissələri</Link>
+          <Link to="/rentals" className="footer-link">Kirayə</Link>
+          <Link to="/service" className="footer-link">Servis</Link>
         </div>
 
         <div>
           <p className="footer-heading">Məlumat</p>
-          <p>Haqqımızda</p>
-          <p>Çatdırılma</p>
-          <p>Qaytarma və dəyişdirmə</p>
-          <p>İstifadə şərtləri</p>
+          <Link to="/about" className="footer-link">Haqqımızda</Link>
+          <Link to="/delivery" className="footer-link">Çatdırılma</Link>
+          <Link to="/returns" className="footer-link">Qaytarma və dəyişdirmə</Link>
+          <Link to="/terms" className="footer-link">İstifadə şərtləri</Link>
         </div>
 
         <div>
           <p className="footer-heading">Əlaqə</p>
-          <p>📞 +994 50 123 45 67</p>
-          <p>✉️ info@motohm.az</p>
-          <p>📍 Bakı, Nərimanov r., Əhməd Racabli 25</p>
+          <p className="footer-contact-item">📞 +994 50 123 45 67</p>
+          <p className="footer-contact-item">✉️ info@motohm.az</p>
+          <p className="footer-contact-item">📍 Bakı, Nərimanov r., Əhməd Racabli 25</p>
         </div>
       </div>
 
-      <p className="footer-bottom">© 2026 MotoHM. Bütün hüquqlar qorunur.</p>
+      <p className="footer-bottom">© {new Date().getFullYear()} MotoHM. Bütün hüquqlar qorunur.</p>
     </footer>
   );
 }

@@ -143,44 +143,42 @@ a { text-decoration: none; color: inherit; }
 .feature-title { font-weight: 600; }
 .feature-subtitle { color: var(--muted); font-size: 12px; }
 
-/* Bike slider (Ana səhifə, Hero-dan sonra) */
-.bike-slider {
-  position: relative;
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-  padding: 32px 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+/* Bike slider (Ana səhifə, Hero-dan sonra) — eyni anda bir neçə kart görünən karusel */
+.bike-slider-section { padding: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+.slider-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 4px;
 }
-.slider-slide {
-  display: flex; align-items: center; gap: 28px;
-  max-width: 760px; width: 100%;
-  color: var(--text); text-decoration: none;
+.slider-track::-webkit-scrollbar { display: none; }
+
+.slider-card {
+  flex: 0 0 calc(25% - 15px);
+  scroll-snap-align: start;
+  text-decoration: none; color: var(--text);
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  overflow: hidden;
 }
-.slider-image {
-  flex-shrink: 0;
-  width: 260px; height: 160px; border-radius: 16px; overflow: hidden;
-  background: linear-gradient(135deg, #2a1414, #151518);
-}
-.slider-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.slider-info { flex: 1; }
-.slider-eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; margin-bottom: 6px; }
-.slider-name { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
-.slider-meta { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
-.slider-price { font-size: 20px; font-weight: 700; }
+@media (max-width: 1024px) { .slider-card { flex: 0 0 calc(33.333% - 14px); } }
+@media (max-width: 768px)  { .slider-card { flex: 0 0 calc(50% - 10px); } }
+@media (max-width: 480px)  { .slider-card { flex: 0 0 85%; } }
+
+.slider-card-image { height: 140px; background: linear-gradient(135deg, #2a1414, #151518); }
+.slider-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slider-card-info { padding: 14px; }
+.slider-card-name { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+.slider-card-meta { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+.slider-card-price { font-weight: 700; }
+
 .slider-arrow {
   background: var(--card); border: 1px solid var(--border); color: var(--text);
-  width: 40px; height: 40px; border-radius: 50%; font-size: 20px; flex-shrink: 0;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 18px;
 }
 .slider-arrow:hover { border-color: rgba(229,57,53,0.4); }
-.slider-dots {
-  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 6px;
-}
-.slider-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); padding: 0; }
-.slider-dot.active { background: var(--accent); width: 18px; border-radius: 4px; }
-@media (max-width: 640px) {
-  .slider-slide { flex-direction: column; text-align: center; }
-  .slider-image { width: 100%; }
-}
 
 /* Categories */
 .categories {
@@ -353,13 +351,31 @@ a { text-decoration: none; color: inherit; }
   padding: 24px; margin-top: 16px; max-width: 420px; display: flex; flex-direction: column; gap: 16px;
 }
 .checkout-form-title { font-size: 16px; font-weight: 700; }
-.form-field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); }
+.form-field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); min-width: 0; }
 .form-field input {
   background: #0e0e11; border: 1px solid var(--border); border-radius: 8px;
   padding: 10px 12px; color: var(--text); font-size: 14px;
+  width: 100%;
 }
 .form-field input:focus { outline: none; border-color: var(--accent); }
+.form-field select { width: 100%; }
 .form-error { color: var(--accent); font-size: 13px; }
+
+/* Auth pages (Login/Register) */
+.auth-page {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 20px;
+}
+.auth-card {
+  width: 100%; max-width: 420px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 36px 32px;
+}
+.auth-title { font-size: 26px; font-weight: 800; margin-bottom: 24px; text-align: center; }
+.auth-row { display: flex; gap: 12px; }
+.auth-row .form-field { flex: 1; }
+.auth-footer { margin-top: 20px; color: var(--muted); font-size: 14px; text-align: center; }
 
 .slot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .slot-btn {
@@ -450,7 +466,7 @@ a { text-decoration: none; color: inherit; }
 /* Footer */
 .footer {
   border-top: 1px solid rgba(255,255,255,0.05);
-  padding: 48px 40px 24px;
+  padding: 56px 40px 24px;
   margin-top: 24px;
   font-size: 14px;
   color: var(--muted);
@@ -459,15 +475,31 @@ a { text-decoration: none; color: inherit; }
   display: grid; gap: 40px;
   grid-template-columns: 1fr;
 }
-@media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
-.footer-grid p { margin-bottom: 8px; }
-.footer-heading { color: #fff; font-weight: 600; margin-bottom: 12px; }
-.footer-tagline { font-size: 12px; margin-top: 12px; }
+@media (min-width: 640px)  { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: 1.2fr 1fr 1fr 1.2fr; } }
+
+.footer-grid > div { display: flex; flex-direction: column; }
+.footer-heading { color: #fff; font-weight: 700; margin-bottom: 16px; font-size: 13px; letter-spacing: 0.03em; text-transform: uppercase; }
+
+.footer-link {
+  display: block;
+  color: var(--muted); text-decoration: none;
+  margin-bottom: 12px; width: fit-content;
+  transition: color 0.15s;
+}
+.footer-link:hover { color: #fff; }
+.footer-link-static { cursor: default; }
+.footer-link-static:hover { color: var(--muted); }
+
+.footer-contact-item { margin-bottom: 12px; line-height: 1.5; }
+
+.footer-tagline { font-size: 13px; margin-top: 14px; line-height: 1.6; max-width: 220px; }
+
 .footer-bottom {
   text-align: center;
   font-size: 12px;
   color: #5c5c62;
-  margin-top: 40px;
+  margin-top: 48px;
   padding-top: 24px;
   border-top: 1px solid rgba(255,255,255,0.05);
 }

@@ -3,79 +3,89 @@ import { useNavigate, Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
 
 export default function RegisterPage() {
-  const [form, setForm] = useState({ fullName: '', email: '', password: '', role: 'Customer' });
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('Customer');
   const [error, setError] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+    setSubmitting(true);
     try {
-      await apiClient.post('/auth/register', form);
+      const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
+      await apiClient.post('/auth/register', { fullName, email, phone, password, role });
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message ?? 'Qeydiyyat uğursuz oldu.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
   return (
-    <div style={{ padding: 40, color: '#fff', maxWidth: 400 }}>
-      <h1>Qeydiyyat</h1>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 20 }}>
-        <input
-          name="fullName"
-          placeholder="Ad Soyad"
-          value={form.fullName}
-          onChange={handleChange}
-          style={inputStyle}
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          style={inputStyle}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Şifrə"
-          value={form.password}
-          onChange={handleChange}
-          style={inputStyle}
-        />
-        <select name="role" value={form.role} onChange={handleChange} style={inputStyle}>
-          <option value="Customer">Müştəri</option>
-          <option value="Seller">Satıcı</option>
-        </select>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit" style={btnStyle}>Qeydiyyatdan keç</button>
-      </form>
-      <p style={{ marginTop: 16, color: '#8a8a92' }}>
-        Artıq hesabın var? <Link to="/login" style={{ color: '#e53935' }}>Giriş et</Link>
-      </p>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h1 className="auth-title">Qeydiyyat</h1>
+
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <div className="auth-row">
+            <label className="form-field">
+              <span>Ad</span>
+              <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required maxLength={50} />
+            </label>
+            <label className="form-field">
+              <span>Soyad</span>
+              <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required maxLength={50} />
+            </label>
+          </div>
+
+          <label className="form-field">
+            <span>Email</span>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </label>
+
+          <label className="form-field">
+            <span>Telefon nömrəsi</span>
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              maxLength={30}
+              placeholder="+994 55 123 45 67"
+            />
+          </label>
+
+          <label className="form-field">
+            <span>Şifrə</span>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
+          </label>
+
+          <label className="form-field">
+            <span>Hesab növü</span>
+            <select value={role} onChange={(e) => setRole(e.target.value)}>
+              <option value="Customer">Müştəri</option>
+              <option value="Seller">Satıcı</option>
+            </select>
+          </label>
+
+          {error && <p className="form-error">{error}</p>}
+
+          <button type="submit" className="checkout-btn" disabled={submitting}>
+            {submitting ? 'Göndərilir...' : 'Qeydiyyatdan keç'}
+          </button>
+        </form>
+
+        <p className="auth-footer">
+          Artıq hesabın var? <Link to="/login" className="accent">Giriş et</Link>
+        </p>
+      </div>
     </div>
   );
 }
-
-const inputStyle = {
-  padding: 10,
-  borderRadius: 8,
-  border: '1px solid #232329',
-  background: '#151519',
-  color: '#fff',
-};
-
-const btnStyle = {
-  padding: 12,
-  background: '#e53935',
-  color: '#fff',
-  border: 'none',
-  borderRadius: 8,
-  fontWeight: 600,
-};
