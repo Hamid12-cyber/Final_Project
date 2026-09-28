@@ -22,7 +22,7 @@ export default function RentalsPage() {
 
   useEffect(() => {
     apiClient.get('/motorcycles').then((res) => {
-      const list = res.data.items ?? res.data;
+      const list = (res.data.items ?? res.data).filter((m) => m.isForRent);
       setMotorcycles(list);
       if (list.length > 0) setMotorcycleId(String(list[0].id));
     });
@@ -72,6 +72,9 @@ export default function RentalsPage() {
     <div className="page-wrap">
       <h1 className="page-title">Motosiklet kirayəsi</h1>
 
+      {motorcycles.length === 0 ? (
+        <div className="state-msg">Hazırda kirayə üçün əlçatan motosiklet yoxdur.</div>
+      ) : (
       <form className="checkout-form" onSubmit={handleSubmit}>
         <label className="form-field">
           <span>Motosiklet</span>
@@ -80,11 +83,6 @@ export default function RentalsPage() {
               <option key={m.id} value={m.id}>{m.name} — {m.brand}</option>
             ))}
           </select>
-          {/* Backend /motorcycles endpoint-i IsForRent sahəsini qaytarmır, ona görə burda filtr edə bilmirik.
-              Kirayə üçün olmayan model seçilsə, backend "Bu motosiklet kirayə üçün deyil." xətası qaytarır. */}
-          <span style={{ fontSize: 11, color: 'var(--muted)' }}>
-            Qeyd: seçilən model kirayə üçün deyilsə, göndərəndə xəbərdarlıq görəcəksiniz.
-          </span>
         </label>
 
         <label className="form-field">
@@ -122,6 +120,7 @@ export default function RentalsPage() {
           {submitting ? 'Göndərilir...' : 'Kirayə sorğusu göndər'}
         </button>
       </form>
+      )}
     </div>
   );
 }

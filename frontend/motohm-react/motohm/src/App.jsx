@@ -18,6 +18,7 @@ import AboutPage from './pages/AboutPage.jsx';
 import DeliveryPage from './pages/DeliveryPage.jsx';
 import ReturnsPage from './pages/ReturnsPage.jsx';
 import TermsPage from './pages/TermsPage.jsx';
+import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ export default function App() {
       <Route path="/delivery" element={<DeliveryPage />} />
       <Route path="/returns" element={<ReturnsPage />} />
       <Route path="/terms" element={<TermsPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
     </Routes>
   );
 }
