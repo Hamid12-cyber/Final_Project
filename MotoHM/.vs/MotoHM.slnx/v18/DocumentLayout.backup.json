@@ -3,16 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\admin\\resyncbackup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\admin\\resyncbackup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\data\\migrationsbackup\\20260920200852_fixtimestampcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\data\\migrationsbackup\\20260920200852_fixtimestampcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\migrations\\20260920200852_fixtimestampcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\migrations\\20260920200852_fixtimestampcolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\users\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\users\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\users\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\users\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\shared\\email\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\shared\\email\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\shared\\email\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\shared\\email\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\entites\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\entites\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\service\\getallservicebookings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\service\\getallservicebookings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\service\\updateservicebooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\service\\updateservicebooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\service\\deleteservicebooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\service\\deleteservicebooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\rentals\\getallrentals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\rentals\\getallrentals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\rentals\\deleterental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\rentals\\deleterental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\rentals\\updaterental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\rentals\\updaterental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\motorcycles\\getallmotorcycles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\motorcycles\\getallmotorcycles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\admin\\resyncbackup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\admin\\resyncbackup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\data\\backupdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\motohm.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\motohm.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,36 +90,198 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "20260920200852_FixTimestampColumns.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Migrations\\20260920200852_FixTimestampColumns.cs",
-              "RelativeDocumentMoniker": "MotoHM.Api\\Migrations\\20260920200852_FixTimestampColumns.cs",
-              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Migrations\\20260920200852_FixTimestampColumns.cs",
-              "RelativeToolTip": "MotoHM.Api\\Migrations\\20260920200852_FixTimestampColumns.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ResetPassword.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Users\\ResetPassword.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Users\\ResetPassword.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Users\\ResetPassword.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Users\\ResetPassword.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T20:08:53.738Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ResyncBackup.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
-              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
-              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
-              "RelativeToolTip": "MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAuwAUAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T19:54:43.252Z",
+              "WhenOpened": "2026-09-28T17:32:53.885Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "ForgotPassword.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Users\\ForgotPassword.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Users\\ForgotPassword.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Users\\ForgotPassword.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Users\\ForgotPassword.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAzwCEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-28T17:31:58.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SmtpEmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Shared\\Email\\SmtpEmailSender.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Shared\\Email\\SmtpEmailSender.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Shared\\Email\\SmtpEmailSender.cs",
+              "RelativeToolTip": "MotoHM.Api\\Shared\\Email\\SmtpEmailSender.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAADIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-28T17:30:32.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IEmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Shared\\Email\\IEmailSender.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Shared\\Email\\IEmailSender.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Shared\\Email\\IEmailSender.cs",
+              "RelativeToolTip": "MotoHM.Api\\Shared\\Email\\IEmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-28T17:29:45.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Entites\\UserEntity.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Entites\\UserEntity.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Entites\\UserEntity.cs",
+              "RelativeToolTip": "MotoHM.Api\\Entites\\UserEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-28T17:26:25.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GetAllServiceBookings.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\GetAllServiceBookings.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Service\\GetAllServiceBookings.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\GetAllServiceBookings.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Service\\GetAllServiceBookings.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAADwvysAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T17:06:56.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateServiceBooking.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\UpdateServiceBooking.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Service\\UpdateServiceBooking.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\UpdateServiceBooking.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Service\\UpdateServiceBooking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T17:06:01.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DeleteServiceBooking.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\DeleteServiceBooking.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Service\\DeleteServiceBooking.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\DeleteServiceBooking.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Service\\DeleteServiceBooking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T17:05:44.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GetAllRentals.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\GetAllRentals.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Rentals\\GetAllRentals.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\GetAllRentals.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Rentals\\GetAllRentals.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswCsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T17:05:08.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DeleteRental.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\DeleteRental.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Rentals\\DeleteRental.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\DeleteRental.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Rentals\\DeleteRental.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwCcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T17:04:54.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UpdateRental.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\UpdateRental.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Rentals\\UpdateRental.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\UpdateRental.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Rentals\\UpdateRental.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T17:03:50.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GetAllMotorcycles.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Motorcycles\\GetAllMotorcycles.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Motorcycles\\GetAllMotorcycles.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Motorcycles\\GetAllMotorcycles.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Motorcycles\\GetAllMotorcycles.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAuwCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T16:59:28.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MotoHM.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-25T17:48:04.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260920200852_FixTimestampColumns.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\MigrationsBackup\\20260920200852_FixTimestampColumns.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Data\\MigrationsBackup\\20260920200852_FixTimestampColumns.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\MigrationsBackup\\20260920200852_FixTimestampColumns.cs",
+              "RelativeToolTip": "MotoHM.Api\\Data\\MigrationsBackup\\20260920200852_FixTimestampColumns.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T20:08:53.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ResyncBackup.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T19:54:43.252Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "BackupWriteInterceptor.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Interceptors\\BackupWriteInterceptor.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\Interceptors\\BackupWriteInterceptor.cs",
@@ -79,19 +293,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Program.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Program.cs",
               "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Program.cs",
               "RelativeToolTip": "MotoHM.Api\\Program.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAswH0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAAAOwAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T13:19:07.261Z"
+              "WhenOpened": "2026-09-20T13:19:07.261Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 17,
               "Title": "BackupDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\BackupDbContext.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\BackupDbContext.cs",
@@ -103,19 +318,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\appsettings.json",
               "RelativeDocumentMoniker": "MotoHM.Api\\appsettings.json",
               "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\appsettings.json",
               "RelativeToolTip": "MotoHM.Api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABoAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-20T13:11:56.186Z"
+              "WhenOpened": "2026-09-20T13:11:56.186Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
               "Title": "MotoHM.Api.csproj",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\MotoHM.Api.csproj",
               "RelativeDocumentMoniker": "MotoHM.Api\\MotoHM.Api.csproj",

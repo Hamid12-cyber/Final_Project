@@ -38,6 +38,7 @@ public static class GetAllRentals
         app.MapGet("/api/rentals", async (ISender sender) =>
             Results.Ok(await sender.Send(new Query())))
             .WithName("GetAllRentals")
-            .WithTags("Rentals");
+            .WithTags("Rentals")
+            .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 }

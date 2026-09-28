@@ -58,7 +58,8 @@ public static class UpdateServiceBooking
             return success ? Results.NoContent() : Results.NotFound();
         })
         .WithName("UpdateServiceBooking")
-        .WithTags("Service");
+        .WithTags("Service")
+        .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 
     public record UpdateServiceBookingBody(ServiceType Type, DateTime ScheduledDate,

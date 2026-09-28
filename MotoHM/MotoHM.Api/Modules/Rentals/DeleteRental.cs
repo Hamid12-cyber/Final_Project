@@ -34,6 +34,7 @@ public static class DeleteRental
             return success ? Results.NoContent() : Results.NotFound();
         })
         .WithName("DeleteRental")
-        .WithTags("Rentals");
+        .WithTags("Rentals")
+        .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 }

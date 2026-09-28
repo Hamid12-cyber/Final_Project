@@ -8,7 +8,7 @@ public static class GetAllMotorcycles
 {
     public record Query : IRequest<List<MotorcycleDto>>;
 
-    public record MotorcycleDto(int Id, string Name, string Brand, int Cc, int Year, decimal Price, string? ImageUrl);
+    public record MotorcycleDto(int Id, string Name, string Brand, int Cc, int Year, decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale);
 
     public class Handler : IRequestHandler<Query, List<MotorcycleDto>>
     {
@@ -20,7 +20,7 @@ public static class GetAllMotorcycles
             using var connection = _connectionFactory.CreateConnection();
 
             const string sql = """
-                SELECT Id, Name, Brand, Cc, Year, Price, ImageUrl
+                SELECT Id, Name, Brand, Cc, Year, Price, ImageUrl, IsForRent, IsForSale
                 FROM Motorcycles
                 WHERE Status = 'Approved' AND IsDeleted = 0
                 ORDER BY Id DESC

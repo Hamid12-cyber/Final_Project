@@ -38,6 +38,7 @@ public static class GetAllServiceBookings
         app.MapGet("/api/service-bookings", async (ISender sender) =>
             Results.Ok(await sender.Send(new Query())))
             .WithName("GetAllServiceBookings")
-            .WithTags("Service");
+            .WithTags("Service")
+            .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 }

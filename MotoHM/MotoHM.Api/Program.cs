@@ -1,4 +1,5 @@
 using FluentValidation;
+using MotoHM.Api.Shared.Email;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -67,6 +68,9 @@ builder.Services.AddSwaggerGen(c =>
 
 // ---- Database ----
 builder.Services.AddSingleton<BackupWriteInterceptor>();
+
+// ---- Email sender ----
+builder.Services.AddSingleton<IEmailSender, SmtpEmailSender>();
 
 builder.Services.AddDbContext<AppDbContext>((sp, options) =>
 {
@@ -229,5 +233,9 @@ GetAccessoryById.MapEndpoint(app);
 CreateAccessory.MapEndpoint(app);
 UpdateAccessory.MapEndpoint(app);
 DeleteAccessory.MapEndpoint(app);
+
+// Password reset
+ForgotPassword.MapEndpoint(app);
+ResetPassword.MapEndpoint(app);
 
 app.Run();

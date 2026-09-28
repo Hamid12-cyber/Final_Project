@@ -34,6 +34,7 @@ public static class DeleteServiceBooking
             return success ? Results.NoContent() : Results.NotFound();
         })
         .WithName("DeleteServiceBooking")
-        .WithTags("Service");
+        .WithTags("Service")
+        .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 }

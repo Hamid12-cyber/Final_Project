@@ -47,7 +47,8 @@ public static class UpdateRental
             return success ? Results.NoContent() : Results.NotFound();
         })
         .WithName("UpdateRental")
-        .WithTags("Rentals");
+        .WithTags("Rentals")
+        .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 
     public record UpdateRentalBody(DateTime StartDate, DateTime EndDate,
