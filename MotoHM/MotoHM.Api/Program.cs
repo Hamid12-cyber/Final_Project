@@ -1,5 +1,4 @@
 using FluentValidation;
-using MotoHM.Api.Shared.Email;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +18,9 @@ using MotoHM.Api.Modules.Rentals;
 using MotoHM.Api.Modules.Service;
 using MotoHM.Api.Modules.Testimonials;
 using MotoHM.Api.Modules.Users;
+using System.Text.Json.Serialization;
 using MotoHM.Api.Shared.Behaviors;
+using MotoHM.Api.Shared.Email;
 using MotoHM.Api.Shared.Handlers;
 using Serilog;
 using System.Reflection;
@@ -38,6 +39,12 @@ builder.Host.UseSerilog();
 
 // ---- Swagger ----
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    // Bütün enum-lar (UserRole, OrderStatus, RentalPeriod, ServiceType və s.) JSON-da
+    // rəqəm (1,2,3) yox, oxunaqlı ad ("Customer","Pending" və s.) kimi göndərilir/qəbul edilir.
+    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 builder.Services.AddSwaggerGen(c =>
 {
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -68,8 +75,6 @@ builder.Services.AddSwaggerGen(c =>
 
 // ---- Database ----
 builder.Services.AddSingleton<BackupWriteInterceptor>();
-
-// ---- Email sender ----
 builder.Services.AddSingleton<IEmailSender, SmtpEmailSender>();
 
 builder.Services.AddDbContext<AppDbContext>((sp, options) =>
@@ -214,6 +219,8 @@ ResyncBackup.MapEndpoint(app);
 // Auth / Users
 Register.MapEndpoint(app);
 Login.MapEndpoint(app);
+ForgotPassword.MapEndpoint(app);
+ResetPassword.MapEndpoint(app);
 
 // Cart
 GetMyCart.MapEndpoint(app);
@@ -233,9 +240,5 @@ GetAccessoryById.MapEndpoint(app);
 CreateAccessory.MapEndpoint(app);
 UpdateAccessory.MapEndpoint(app);
 DeleteAccessory.MapEndpoint(app);
-
-// Password reset
-ForgotPassword.MapEndpoint(app);
-ResetPassword.MapEndpoint(app);
 
 app.Run();

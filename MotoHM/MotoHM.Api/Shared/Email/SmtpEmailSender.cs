@@ -48,7 +48,7 @@ public class SmtpEmailSender : IEmailSender
             IsBodyHtml = true
         };
         message.To.Add(toEmail);
-        s
+        
         await client.SendMailAsync(message, cancellationToken);
     }
 }

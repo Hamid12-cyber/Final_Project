@@ -396,6 +396,32 @@
     "EndpointName": "GetPendingParts"
   },
   {
+    "ContainingType": "MotoHM.Api.Modules.Users.ForgotPassword\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/auth/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MotoHM.Api.Modules.Users.ForgotPassword\u002BForgotPasswordCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "ForgotPassword"
+  },
+  {
     "ContainingType": "MotoHM.Api.Modules.Users.Login\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__3_0",
     "RelativePath": "api/auth/login",
@@ -446,6 +472,32 @@
       "Auth"
     ],
     "EndpointName": "Register"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Users.ResetPassword\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MotoHM.Api.Modules.Users.ResetPassword\u002BResetPasswordCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Auth"
+    ],
+    "EndpointName": "ResetPassword"
   },
   {
     "ContainingType": "MotoHM.Api.Modules.Cart.GetMyCart\u002B\u003C\u003Ec",
