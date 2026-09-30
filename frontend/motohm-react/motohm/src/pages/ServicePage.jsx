@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import apiClient from '../api/client.js';
 
 const SERVICE_TYPES = [
-  { value: 1, label: 'Yağ dəyişimi' },
-  { value: 2, label: 'Təmir' },
-  { value: 3, label: 'Diaqnostika' },
-  { value: 4, label: 'Tənzimləmə' },
+  { value: 'OilChange', label: 'Yağ dəyişimi' },
+  { value: 'Repair', label: 'Təmir' },
+  { value: 'Diagnostics', label: 'Diaqnostika' },
+  { value: 'Tuning', label: 'Tənzimləmə' },
 ];
 
-// Backend Type enum-unu DB-də string kimi saxlayır (HasConversion<string>),
-// ona görə GetServiceBookingById "OilChange" kimi ingiliscə ad qaytarır.
+// Backend indi enum-ları string kimi qaytarır, ona görə əlavə map-ə ehtiyac qalmadı,
+// amma "type" dəyərini birbaşa label kimi göstərmək istəsək deyə saxlayırıq.
 const TYPE_NAME_LABELS = {
   OilChange: 'Yağ dəyişimi',
   Repair: 'Təmir',
@@ -24,7 +24,7 @@ function todayIso() {
 export default function ServicePage() {
   const [motorcycles, setMotorcycles] = useState([]);
   const [motorcycleId, setMotorcycleId] = useState('');
-  const [type, setType] = useState(1);
+  const [type, setType] = useState('OilChange');
   const [date, setDate] = useState(todayIso());
   const [slots, setSlots] = useState([]);
   const [slotsLoading, setSlotsLoading] = useState(false);
@@ -66,7 +66,7 @@ export default function ServicePage() {
     try {
       const res = await apiClient.post('/service-bookings', {
         motorcycleId: Number(motorcycleId),
-        type: Number(type),
+        type,
         scheduledDate: selectedSlot,
         customerName,
         customerPhone,

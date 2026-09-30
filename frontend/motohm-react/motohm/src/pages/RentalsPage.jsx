@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react';
 import apiClient from '../api/client.js';
 
 const PERIOD_OPTIONS = [
-  { value: 1, label: 'Günlük' },
-  { value: 2, label: 'Həftəlik' },
-  { value: 3, label: 'Aylıq' },
+  { value: 'Daily', label: 'Günlük' },
+  { value: 'Weekly', label: 'Həftəlik' },
+  { value: 'Monthly', label: 'Aylıq' },
 ];
 
 export default function RentalsPage() {
   const [motorcycles, setMotorcycles] = useState([]);
   const [motorcycleId, setMotorcycleId] = useState('');
-  const [period, setPeriod] = useState(1);
+  const [period, setPeriod] = useState('Daily');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [customerName, setCustomerName] = useState('');
@@ -37,7 +37,7 @@ export default function RentalsPage() {
         motorcycleId: Number(motorcycleId),
         startDate,
         endDate,
-        period: Number(period),
+        period,
         customerName,
         customerPhone,
       });

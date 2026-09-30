@@ -19,6 +19,7 @@ import DeliveryPage from './pages/DeliveryPage.jsx';
 import ReturnsPage from './pages/ReturnsPage.jsx';
 import TermsPage from './pages/TermsPage.jsx';
 import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 export default function App() {
   return (
@@ -33,16 +34,22 @@ export default function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/orders" element={<OrdersPage />} />
-      <Route path="/orders/:id" element={<OrderDetailPage />} />
-      <Route path="/admin" element={<AdminPage />} />
-      <Route path="/sell" element={<CreateListingPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/delivery" element={<DeliveryPage />} />
       <Route path="/returns" element={<ReturnsPage />} />
       <Route path="/terms" element={<TermsPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
+
+      <Route element={<ProtectedRoute />}>
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/orders/:id" element={<OrderDetailPage />} />
+        <Route path="/sell" element={<CreateListingPage />} />
+      </Route>
+
+      <Route element={<ProtectedRoute roles={['Admin']} />}>
+        <Route path="/admin" element={<AdminPage />} />
+      </Route>
     </Routes>
   );
 }

@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
 
 const STATUS_LABELS = {
-  1: 'Gözləmədə',
-  2: 'Təsdiqləndi',
-  3: 'Göndərildi',
-  4: 'Çatdırıldı',
-  5: 'Ləğv edildi',
+  Pending: 'Gözləmədə',
+  Confirmed: 'Təsdiqləndi',
+  Shipped: 'Göndərildi',
+  Delivered: 'Çatdırıldı',
+  Cancelled: 'Ləğv edildi',
 };
 
 const STATUS_CLASS = {
-  1: 'status-pending',
-  2: 'status-confirmed',
-  3: 'status-shipped',
-  4: 'status-delivered',
-  5: 'status-cancelled',
+  Pending: 'status-pending',
+  Confirmed: 'status-confirmed',
+  Shipped: 'status-shipped',
+  Delivered: 'status-delivered',
+  Cancelled: 'status-cancelled',
 };
 
 export default function OrdersPage() {
