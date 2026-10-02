@@ -1,0 +1,1548 @@
+2026-10-01 08:40:23.587 +03:00 [INF] Executed DbCommand (312ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-01 08:40:27.614 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-01 08:40:31.442 +03:00 [INF] Executed DbCommand (241ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-10-01 08:40:35.850 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-10-01 08:40:35.932 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-10-01 08:40:35.944 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-01 08:40:35.964 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-10-01 08:40:37.472 +03:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-01 08:40:41.890 +03:00 [INF] Now listening on: https://localhost:7268
+2026-10-01 08:40:41.990 +03:00 [INF] Now listening on: http://localhost:5010
+2026-10-01 08:40:42.040 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-10-01 08:40:42.233 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-01 08:40:42.256 +03:00 [INF] Hosting environment: Development
+2026-10-01 08:40:42.264 +03:00 [INF] Content root path: C:\Users\Asus\Desktop\MotoHM\MotoHM\MotoHM.Api
+2026-10-01 08:40:43.785 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/index.html - null null
+2026-10-01 08:40:45.660 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 399.1832 ms
+2026-10-01 08:40:45.779 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - null null
+2026-10-01 08:40:45.779 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_vs/browserLink - null null
+2026-10-01 08:40:47.860 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/index.html - 200 null text/html;charset=utf-8 4089.7602ms
+2026-10-01 08:40:48.241 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - 200 14924 application/javascript; charset=utf-8 2462.6668ms
+2026-10-01 08:40:48.616 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2837.161ms
+2026-10-01 08:40:49.176 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - null null
+2026-10-01 08:40:50.412 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 220.4581 ms
+2026-10-01 08:40:51.139 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1962.5902ms
+2026-10-01 08:43:55.803 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 08:43:55.803 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:43:55.804 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:43:55.829 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:55.830 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:55.834 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:55.990 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:43:55.990 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:55.990 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:43:56.073 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-01 08:43:56.073 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-01 08:43:56.073 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-01 08:43:59.167 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.167 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.167 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.180 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.182 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.184 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.196 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:43:59.200 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 08:43:59.202 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:43:59.206 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:59.225 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 3404.3024 ms
+2026-10-01 08:43:59.211 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 3390.3147 ms
+2026-10-01 08:43:59.215 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:43:59.219 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 3390.7839 ms
+2026-10-01 08:43:59.222 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:59.209 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:43:59.236 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 3433.2675ms
+2026-10-01 08:43:59.246 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 3442.9389ms
+2026-10-01 08:43:59.257 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:59.265 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 3460.4352ms
+2026-10-01 08:43:59.278 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:43:59.279 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:59.318 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:59.340 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:43:59.357 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.358 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.358 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.364 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.368 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.374 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.379 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:59.383 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:43:59.384 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:43:59.389 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:43:59.394 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 136.3830 ms
+2026-10-01 08:43:59.397 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 175.6711 ms
+2026-10-01 08:43:59.406 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:59.410 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 131.0363 ms
+2026-10-01 08:43:59.418 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 203.5925ms
+2026-10-01 08:43:59.426 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 226.8897ms
+2026-10-01 08:43:59.430 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:59.438 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 229.5536ms
+2026-10-01 08:43:59.478 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.490 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.496 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:59.500 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:43:59.501 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 94.8392 ms
+2026-10-01 08:43:59.514 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:43:59.534 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 149.8562ms
+2026-10-01 08:43:59.540 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:59.583 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:43:59.598 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:43:59.604 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:43:59.623 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 108.8290 ms
+2026-10-01 08:43:59.639 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 138.9999ms
+2026-10-01 08:44:53.330 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/auth/register - null null
+2026-10-01 08:44:53.341 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:44:53.349 +03:00 [INF] HTTP OPTIONS /api/auth/register responded 204 in 8.2488 ms
+2026-10-01 08:44:53.360 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/auth/register - 204 null null 29.6126ms
+2026-10-01 08:44:53.367 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7268/api/auth/register - application/json 137
+2026-10-01 08:44:53.385 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:44:53.388 +03:00 [INF] Executing endpoint 'HTTP: POST /api/auth/register'
+2026-10-01 08:44:54.372 +03:00 [WRN] Entity 'UserEntity' has a global query filter defined and is the required end of a relationship with the entity 'CartEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-10-01 08:44:54.379 +03:00 [WRN] Entity 'OrderEntity' has a global query filter defined and is the required end of a relationship with the entity 'OrderItemEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-10-01 08:44:54.386 +03:00 [WRN] Entity 'MotorcycleEntity' has a global query filter defined and is the required end of a relationship with the entity 'RentalEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-10-01 08:44:54.398 +03:00 [WRN] Entity 'MotorcycleEntity' has a global query filter defined and is the required end of a relationship with the entity 'ServiceBookingEntity'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-10-01 08:44:56.090 +03:00 [INF] Executed DbCommand (126ms) [Parameters=[@request_Email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[Email] = @request_Email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-10-01 08:44:58.157 +03:00 [INF] Executed DbCommand (127ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 150), @p2='?' (Size = 100), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 20), @p8='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [FullName], [IsDeleted], [PasswordHash], [PasswordResetToken], [PasswordResetTokenExpiry], [Role], [UpdatedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-10-01 08:44:58.742 +03:00 [INF] Executed DbCommand (136ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsDeleted", u."PasswordHash", u."PasswordResetToken", u."PasswordResetTokenExpiry", u."Role", u."UpdatedAt"
+FROM "Users" AS u
+WHERE u."Id" = @p
+LIMIT 1
+2026-10-01 08:44:58.876 +03:00 [ERR] Failed executing DbCommand (25ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?', @p3='?', @p4='?' (DbType = Boolean), @p5='?', @p6='?', @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "CreatedAt", "Email", "FullName", "IsDeleted", "PasswordHash", "PasswordResetToken", "PasswordResetTokenExpiry", "Role", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2026-10-01 08:44:58.986 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'MotoHM.Api.Data.BackupDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options, IDbTypeResolver dbTypeResolver)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(ReloadableState reloadableState, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options, IDbTypeResolver dbTypeResolver)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(ReloadableState reloadableState, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-10-01 08:44:59.138 +03:00 [WRN] Postgres backup yazması uğursuz oldu.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options, IDbTypeResolver dbTypeResolver)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(ReloadableState reloadableState, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at MotoHM.Api.Data.Interceptors.BackupWriteInterceptor.ReplicateToBackupAsync(List`1 changes) in C:\Users\Asus\Desktop\MotoHM\MotoHM\MotoHM.Api\Data\Interceptors\BackupWriteInterceptor.cs:line 104
+2026-10-01 08:44:59.270 +03:00 [INF] Setting HTTP status code 201.
+2026-10-01 08:44:59.278 +03:00 [INF] Writing value of type '<>f__AnonymousType22`1' as Json.
+2026-10-01 08:44:59.285 +03:00 [INF] Executed endpoint 'HTTP: POST /api/auth/register'
+2026-10-01 08:44:59.290 +03:00 [INF] HTTP POST /api/auth/register responded 201 in 5905.4643 ms
+2026-10-01 08:44:59.315 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7268/api/auth/register - 201 null application/json; charset=utf-8 5947.6114ms
+2026-10-01 08:45:08.075 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/auth/login - null null
+2026-10-01 08:45:08.118 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:08.135 +03:00 [INF] HTTP OPTIONS /api/auth/login responded 204 in 17.0509 ms
+2026-10-01 08:45:08.148 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/auth/login - 204 null null 73.3256ms
+2026-10-01 08:45:08.154 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7268/api/auth/login - application/json 64
+2026-10-01 08:45:08.180 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:08.185 +03:00 [INF] Executing endpoint 'HTTP: POST /api/auth/login'
+2026-10-01 08:45:08.461 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@request_Email='?' (Size = 150)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsDeleted], [u].[PasswordHash], [u].[PasswordResetToken], [u].[PasswordResetTokenExpiry], [u].[Role], [u].[UpdatedAt]
+FROM [Users] AS [u]
+WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[Email] = @request_Email
+2026-10-01 08:45:09.302 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:09.309 +03:00 [INF] Writing value of type 'LoginResponse' as Json.
+2026-10-01 08:45:09.314 +03:00 [INF] Executed endpoint 'HTTP: POST /api/auth/login'
+2026-10-01 08:45:09.332 +03:00 [INF] HTTP POST /api/auth/login responded 200 in 1152.6908 ms
+2026-10-01 08:45:09.342 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7268/api/auth/login - 200 null application/json; charset=utf-8 1187.8ms
+2026-10-01 08:45:09.414 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/cart - null null
+2026-10-01 08:45:09.415 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:09.424 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:09.426 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:45:09.427 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 08:45:09.429 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:09.430 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:09.432 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:45:09.436 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 08:45:09.452 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.461 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.474 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.485 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.493 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.504 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.512 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.562 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 50.2438 ms
+2026-10-01 08:45:09.580 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 150.2067ms
+2026-10-01 08:45:09.537 +03:00 [INF] HTTP OPTIONS /api/cart responded 204 in 85.4675 ms
+2026-10-01 08:45:09.541 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 79.9360 ms
+2026-10-01 08:45:09.545 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 71.6215 ms
+2026-10-01 08:45:09.551 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 66.1604 ms
+2026-10-01 08:45:09.555 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 62.3709 ms
+2026-10-01 08:45:09.559 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 54.9954 ms
+2026-10-01 08:45:09.522 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.531 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.600 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/cart - 204 null null 186.2876ms
+2026-10-01 08:45:09.601 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:09.629 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/cart - null null
+2026-10-01 08:45:09.635 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 219.6961ms
+2026-10-01 08:45:09.642 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 218.6499ms
+2026-10-01 08:45:09.651 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 225.7557ms
+2026-10-01 08:45:09.657 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 230.2453ms
+2026-10-01 08:45:09.657 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:45:09.662 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 08:45:09.664 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 235.3888ms
+2026-10-01 08:45:09.674 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 151.5942 ms
+2026-10-01 08:45:09.678 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 146.9000 ms
+2026-10-01 08:45:09.699 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.709 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.760 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.771 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:09.790 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 358.3665ms
+2026-10-01 08:45:09.799 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 362.8388ms
+2026-10-01 08:45:09.958 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:09.958 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:45:09.958 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:45:09.975 +03:00 [INF] Executing endpoint 'HTTP: GET /api/cart'
+2026-10-01 08:45:09.979 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:09.988 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:09.993 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:45:09.997 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:09.997 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:45:09.997 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:10.001 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 240.9705 ms
+2026-10-01 08:45:10.004 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.034 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:45:10.020 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.028 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 370.9362ms
+2026-10-01 08:45:10.015 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:10.038 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 08:45:10.040 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 269.2203 ms
+2026-10-01 08:45:10.044 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:10.049 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:10.064 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:45:10.069 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:10.092 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 430.8511ms
+2026-10-01 08:45:10.099 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 400.4081 ms
+2026-10-01 08:45:10.110 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:10.119 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:10.120 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:10.123 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:45:10.138 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 536.5812ms
+2026-10-01 08:45:10.145 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:10.153 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.182 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:45:10.160 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.189 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 173.8148 ms
+2026-10-01 08:45:10.194 +03:00 [INF] Executed endpoint 'HTTP: GET /api/cart'
+2026-10-01 08:45:10.201 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:10.202 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 204.3126ms
+2026-10-01 08:45:10.208 +03:00 [INF] HTTP GET /api/cart responded 200 in 498.7068 ms
+2026-10-01 08:45:10.213 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.272 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 08:45:10.267 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/cart - 200 null application/json; charset=utf-8 638.0952ms
+2026-10-01 08:45:10.248 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:10.277 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 207.8029 ms
+2026-10-01 08:45:10.301 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.307 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 269.1488ms
+2026-10-01 08:45:10.314 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:10.318 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:10.328 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 218.3387 ms
+2026-10-01 08:45:10.350 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:10.357 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 308.7467ms
+2026-10-01 08:45:10.361 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:10.383 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:10.421 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.427 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:10.430 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 08:45:10.439 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 89.0617 ms
+2026-10-01 08:45:10.448 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:10.454 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 136.6255ms
+2026-10-01 08:45:10.460 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:10.487 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:10.505 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:10.518 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 08:45:10.543 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 95.0653 ms
+2026-10-01 08:45:10.558 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 127.4048ms
+2026-10-01 08:45:56.195 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:45:56.218 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:56.224 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 6.1067 ms
+2026-10-01 08:45:56.231 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 35.965ms
+2026-10-01 08:45:56.237 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:45:56.257 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:45:56.263 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:45:56.314 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:45:56.318 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:45:56.322 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:45:56.326 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 68.6586 ms
+2026-10-01 08:45:56.336 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 99.5604ms
+2026-10-01 08:46:08.780 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:46:08.789 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:46:08.794 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 5.1231 ms
+2026-10-01 08:46:08.801 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 21.1502ms
+2026-10-01 08:46:08.805 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:46:08.832 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:46:08.836 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:46:08.846 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:46:08.848 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:46:08.853 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:46:08.856 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 24.0544 ms
+2026-10-01 08:46:08.864 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 58.1347ms
+2026-10-01 08:47:11.651 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:11.666 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:11.672 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 6.7305 ms
+2026-10-01 08:47:11.679 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 27.7128ms
+2026-10-01 08:47:11.685 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:11.706 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:11.710 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:11.726 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:47:11.731 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:47:11.747 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:11.759 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 53.6053 ms
+2026-10-01 08:47:11.771 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 85.6492ms
+2026-10-01 08:47:25.719 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:25.749 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:25.754 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 5.1012 ms
+2026-10-01 08:47:25.776 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 57.6576ms
+2026-10-01 08:47:25.781 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:25.815 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:25.821 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:25.833 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:47:25.838 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:47:25.842 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:25.851 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 36.0246 ms
+2026-10-01 08:47:25.857 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 75.7585ms
+2026-10-01 08:47:32.680 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:32.712 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:32.728 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 16.2120 ms
+2026-10-01 08:47:32.737 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 57.1346ms
+2026-10-01 08:47:32.745 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:32.772 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:32.775 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:32.797 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:47:32.808 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:47:32.813 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:32.840 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 67.9726 ms
+2026-10-01 08:47:32.850 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 104.9562ms
+2026-10-01 08:47:48.240 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:48.268 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:48.272 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 5.0359 ms
+2026-10-01 08:47:48.281 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 40.2684ms
+2026-10-01 08:47:48.287 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:47:48.308 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:47:48.316 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:48.328 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:47:48.340 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:47:48.353 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:47:48.370 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 62.0963 ms
+2026-10-01 08:47:48.379 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 92.1989ms
+2026-10-01 08:50:28.923 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 08:50:28.933 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:50:28.937 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 3.9997 ms
+2026-10-01 08:50:28.948 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 24.7363ms
+2026-10-01 08:50:28.954 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 08:50:28.968 +03:00 [INF] CORS policy execution successful.
+2026-10-01 08:50:28.972 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:50:28.980 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 08:50:28.985 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 08:50:28.989 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 08:50:28.993 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 25.5465 ms
+2026-10-01 08:50:29.003 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 48.5459ms
+2026-10-01 09:28:42.302 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:42.302 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:42.322 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.302 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:42.302 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 09:28:42.309 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.302 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 09:28:42.325 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 2.9198 ms
+2026-10-01 09:28:42.331 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.341 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.345 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 35.8481 ms
+2026-10-01 09:28:42.357 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.367 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 65.1216ms
+2026-10-01 09:28:42.372 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 40.2118 ms
+2026-10-01 09:28:42.375 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 34.0457 ms
+2026-10-01 09:28:42.391 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 88.9833ms
+2026-10-01 09:28:42.394 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 36.3235 ms
+2026-10-01 09:28:42.407 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 09:28:42.412 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 110.1471ms
+2026-10-01 09:28:42.422 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 119.508ms
+2026-10-01 09:28:42.434 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 09:28:42.439 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 136.977ms
+2026-10-01 09:28:42.453 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.515 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 61.7461 ms
+2026-10-01 09:28:42.492 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.478 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:42.521 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 114.0119ms
+2026-10-01 09:28:42.556 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 64.1574 ms
+2026-10-01 09:28:42.559 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.569 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:42.574 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 09:28:42.578 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 144.0917ms
+2026-10-01 09:28:42.586 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 27.7526 ms
+2026-10-01 09:28:42.593 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.610 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.620 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 09:28:42.626 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 148.24ms
+2026-10-01 09:28:42.642 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 09:28:42.642 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:42.642 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:42.681 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 09:28:42.961 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:42.962 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:42.966 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:42.968 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:42.971 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:42.976 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:42.980 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 09:28:42.987 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 09:28:42.987 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 09:28:42.992 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:42.995 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 352.8388 ms
+2026-10-01 09:28:43.002 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 392.3400 ms
+2026-10-01 09:28:43.010 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:43.014 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 420.4422 ms
+2026-10-01 09:28:43.023 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 402.8021ms
+2026-10-01 09:28:43.029 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 454.7179ms
+2026-10-01 09:28:43.037 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 09:28:43.042 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 473.2741ms
+2026-10-01 09:28:43.063 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 09:28:43.094 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:43.120 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:43.134 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:43.140 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 09:28:43.142 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:43.156 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:43.157 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:43.166 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:43.161 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:43.171 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:43.172 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 09:28:43.176 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 09:28:43.183 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:43.189 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 179.1467 ms
+2026-10-01 09:28:43.195 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 74.5815 ms
+2026-10-01 09:28:43.200 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:43.202 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:43.207 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 219.7739ms
+2026-10-01 09:28:43.217 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 153.6842ms
+2026-10-01 09:28:43.222 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 88.0154 ms
+2026-10-01 09:28:43.230 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:43.262 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 168.1375ms
+2026-10-01 09:28:43.270 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:43.302 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:43.306 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:43.311 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:43.315 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 09:28:43.323 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 93.4395 ms
+2026-10-01 09:28:43.329 +03:00 [INF] CORS policy execution successful.
+2026-10-01 09:28:43.338 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 135.1848ms
+2026-10-01 09:28:43.342 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:43.364 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 09:28:43.380 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 09:28:43.385 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 09:28:43.391 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 62.0923 ms
+2026-10-01 09:28:43.401 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 86.0995ms
+2026-10-01 10:15:08.672 +03:00 [INF] Executed DbCommand (116ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-01 10:15:10.018 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-01 10:15:10.356 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-10-01 10:15:10.391 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-10-01 10:15:10.410 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-10-01 10:15:10.420 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-01 10:15:10.442 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-10-01 10:15:10.757 +03:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-01 10:15:12.346 +03:00 [INF] Now listening on: https://localhost:7268
+2026-10-01 10:15:12.374 +03:00 [INF] Now listening on: http://localhost:5010
+2026-10-01 10:15:12.425 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-10-01 10:15:12.602 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-01 10:15:14.147 +03:00 [INF] Hosting environment: Development
+2026-10-01 10:15:14.307 +03:00 [INF] Content root path: C:\Users\Asus\Desktop\MotoHM\MotoHM\MotoHM.Api
+2026-10-01 10:15:14.815 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/index.html - null null
+2026-10-01 10:15:16.048 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Duplicate endpoint name 'GetAllMotorcycles' found on 'HTTP: GET /api/motorcycles' and 'HTTP: GET /api/motorcycles'. Endpoint names must be globally unique.
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|10_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-01 10:15:16.223 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/index.html - 500 null text/html; charset=utf-8 1417.9384ms
+2026-10-01 10:15:16.323 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - null null
+2026-10-01 10:15:16.331 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_vs/browserLink - null null
+2026-10-01 10:15:16.366 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - 200 14924 application/javascript; charset=utf-8 42.4886ms
+2026-10-01 10:15:16.637 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_vs/browserLink - 200 null text/javascript; charset=UTF-8 305.89ms
+2026-10-01 10:15:16.741 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/favicon.ico - null null
+2026-10-01 10:15:16.754 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Duplicate endpoint name 'GetAllMotorcycles' found on 'HTTP: GET /api/motorcycles' and 'HTTP: GET /api/motorcycles'. Endpoint names must be globally unique.
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|10_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-01 10:15:16.963 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/favicon.ico - 500 null application/problem+json 222.6905ms
+2026-10-01 10:17:45.176 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-01 10:17:45.938 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-01 10:17:46.148 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-10-01 10:17:46.184 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-10-01 10:17:46.197 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-10-01 10:17:46.205 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-01 10:17:46.227 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-10-01 10:17:46.448 +03:00 [INF] User profile is available. Using 'C:\Users\Asus\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-01 10:17:47.563 +03:00 [INF] Now listening on: https://localhost:7268
+2026-10-01 10:17:47.566 +03:00 [INF] Now listening on: http://localhost:5010
+2026-10-01 10:17:47.584 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-10-01 10:17:47.710 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-01 10:17:47.713 +03:00 [INF] Hosting environment: Development
+2026-10-01 10:17:47.716 +03:00 [INF] Content root path: C:\Users\Asus\Desktop\MotoHM\MotoHM\MotoHM.Api
+2026-10-01 10:17:48.021 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/index.html - null null
+2026-10-01 10:17:48.999 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 246.2329 ms
+2026-10-01 10:17:49.018 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - null null
+2026-10-01 10:17:49.027 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/index.html - 200 null text/html;charset=utf-8 1012.2109ms
+2026-10-01 10:17:49.035 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/_vs/browserLink - null null
+2026-10-01 10:17:49.094 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_framework/aspnetcore-browser-refresh.js - 200 14924 application/javascript; charset=utf-8 75.7918ms
+2026-10-01 10:17:49.235 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/_vs/browserLink - 200 null text/javascript; charset=UTF-8 200.3121ms
+2026-10-01 10:17:49.363 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - null null
+2026-10-01 10:17:49.566 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 193.3973 ms
+2026-10-01 10:17:49.641 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 278.624ms
+2026-10-01 10:19:10.532 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:10.532 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:19:10.533 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:19:10.557 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:10.560 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:10.560 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:10.682 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:10.682 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:10.683 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:10.767 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-01 10:19:10.767 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-01 10:19:10.767 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-10-01 10:19:13.559 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:13.641 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:13.702 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:13.708 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:13.717 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:13.717 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:13.723 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 3171.7130 ms
+2026-10-01 10:19:13.723 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 3164.8719 ms
+2026-10-01 10:19:13.728 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 3195.2823ms
+2026-10-01 10:19:13.732 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 3199.5037ms
+2026-10-01 10:19:13.733 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:19:13.736 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:19:13.787 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:13.788 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:13.800 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:13.800 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:13.831 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:13.833 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:13.843 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:13.853 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:13.857 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:13.859 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:13.863 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 76.5620 ms
+2026-10-01 10:19:13.866 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 77.7414 ms
+2026-10-01 10:19:13.870 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 137.5585ms
+2026-10-01 10:19:13.875 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 138.6497ms
+2026-10-01 10:19:13.896 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:13.947 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:14.002 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:14.004 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 3453.5351 ms
+2026-10-01 10:19:14.020 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:14.053 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 3520.6207ms
+2026-10-01 10:19:14.074 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:14.128 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:14.140 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:14.143 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:14.208 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:14.211 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:14.225 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 151.4722 ms
+2026-10-01 10:19:14.235 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:14.238 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 218.6717ms
+2026-10-01 10:19:14.241 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:14.267 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:14.334 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:14.431 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:14.436 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:14.445 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 209.4747 ms
+2026-10-01 10:19:14.450 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:14.453 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 242.0725ms
+2026-10-01 10:19:14.456 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:14.468 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:14.471 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:14.476 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:14.480 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 30.3846 ms
+2026-10-01 10:19:14.486 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 49.8507ms
+2026-10-01 10:19:24.840 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:24.840 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:19:24.840 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:19:24.867 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:24.872 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:24.883 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:24.881 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:24.879 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:24.890 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:24.924 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:24.932 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:24.941 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:24.964 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:24.975 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:24.981 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:24.987 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:24.992 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:24.993 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:19:24.995 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:24.997 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:19:25.001 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 129.4004 ms
+2026-10-01 10:19:25.010 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 131.4464 ms
+2026-10-01 10:19:25.013 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:25.024 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:25.029 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 161.1603 ms
+2026-10-01 10:19:25.042 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:25.045 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 204.6433ms
+2026-10-01 10:19:25.069 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 228.9467ms
+2026-10-01 10:19:25.088 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:25.090 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:25.095 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 255.6267ms
+2026-10-01 10:19:25.098 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:25.122 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:25.162 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:25.165 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:25.170 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:25.201 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:25.204 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:25.208 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:25.212 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:19:25.215 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:19:25.218 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:25.220 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 199.9922 ms
+2026-10-01 10:19:25.223 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 181.7665 ms
+2026-10-01 10:19:25.228 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 139.0589 ms
+2026-10-01 10:19:25.231 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 237.8883ms
+2026-10-01 10:19:25.236 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 238.5718ms
+2026-10-01 10:19:25.238 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:25.240 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 226.9121ms
+2026-10-01 10:19:25.262 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:25.293 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:25.307 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:25.312 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:25.320 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:25.326 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:19:25.332 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 69.9337 ms
+2026-10-01 10:19:25.338 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:19:25.343 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 105.2039ms
+2026-10-01 10:19:25.346 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:25.362 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:19:25.368 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:19:25.372 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:19:25.380 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 41.8694 ms
+2026-10-01 10:19:25.386 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 59.2371ms
+2026-10-01 10:20:24.663 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:24.663 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/cart - null null
+2026-10-01 10:20:24.665 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:24.675 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:24.675 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:24.683 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.689 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.694 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.700 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.708 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.712 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 29.6427 ms
+2026-10-01 10:20:24.712 +03:00 [INF] HTTP OPTIONS /api/cart responded 204 in 23.1909 ms
+2026-10-01 10:20:24.715 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 20.7100 ms
+2026-10-01 10:20:24.717 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 17.3189 ms
+2026-10-01 10:20:24.720 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 12.7152 ms
+2026-10-01 10:20:24.726 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 62.0964ms
+2026-10-01 10:20:24.730 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/cart - 204 null null 66.7268ms
+2026-10-01 10:20:24.736 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 70.8151ms
+2026-10-01 10:20:24.742 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 67.1153ms
+2026-10-01 10:20:24.747 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 72.2089ms
+2026-10-01 10:20:24.764 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:24.773 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:24.780 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:24.791 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:24.862 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.893 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.910 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.924 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:24.926 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 64.3387 ms
+2026-10-01 10:20:24.929 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 35.8649 ms
+2026-10-01 10:20:24.933 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 23.3244 ms
+2026-10-01 10:20:24.938 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 13.7095 ms
+2026-10-01 10:20:24.944 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 179.8367ms
+2026-10-01 10:20:24.949 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 176.4822ms
+2026-10-01 10:20:24.959 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 178.4337ms
+2026-10-01 10:20:24.995 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 204.2671ms
+2026-10-01 10:20:25.003 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/cart - null null
+2026-10-01 10:20:25.033 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:25.033 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/cart - null null
+2026-10-01 10:20:25.034 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.050 +03:00 [INF] HTTP OPTIONS /api/cart responded 204 in 16.0661 ms
+2026-10-01 10:20:25.041 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.048 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.037 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:25.055 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/cart - 204 null null 52.1089ms
+2026-10-01 10:20:25.067 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.088 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:25.109 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.237 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.237 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.237 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.237 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.309 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.320 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.361 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.380 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.399 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:25.395 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:25.385 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:25.411 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-10-01 10:20:25.417 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:25.419 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:25.423 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:25.426 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:25.429 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:25.429 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:25.432 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:25.433 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-10-01 10:20:25.435 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:25.438 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 329.5193 ms
+2026-10-01 10:20:25.441 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 374.5363 ms
+2026-10-01 10:20:25.445 +03:00 [INF] HTTP GET /api/cart responded 401 in 397.7011 ms
+2026-10-01 10:20:25.450 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:25.459 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 370.9976ms
+2026-10-01 10:20:25.465 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 428.3171ms
+2026-10-01 10:20:25.471 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/cart - 401 0 null 437.8635ms
+2026-10-01 10:20:25.476 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 434.4716 ms
+2026-10-01 10:20:25.501 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/cart - null null
+2026-10-01 10:20:25.505 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:25.523 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:25.569 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.539 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.563 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.531 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 497.6506ms
+2026-10-01 10:20:25.574 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.576 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.583 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.666 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:25.732 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.733 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.744 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.750 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:25.756 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:25.764 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:25.766 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-10-01 10:20:25.767 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:25.939 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-10-01 10:20:25.946 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:25.949 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:25.982 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:25.991 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:25.971 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:25.959 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:25'.
+2026-10-01 10:20:25.961 +03:00 [INF] HTTP GET /api/cart responded 401 in 421.7849 ms
+2026-10-01 10:20:25.995 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 432.5650 ms
+2026-10-01 10:20:26.030 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:26.036 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:26.050 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/cart - 401 0 null 549.2692ms
+2026-10-01 10:20:26.063 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 558.392ms
+2026-10-01 10:20:26.074 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 504.7066 ms
+2026-10-01 10:20:26.104 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 581.0873ms
+2026-10-01 10:20:26.124 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:26.129 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:26.132 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:26.140 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:26.144 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 394.1590 ms
+2026-10-01 10:20:26.156 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:26.162 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 496.4027ms
+2026-10-01 10:20:26.164 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:26'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:26.183 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:26'.
+2026-10-01 10:20:26.191 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:26.197 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:26.205 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:26.208 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:26.210 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:26.212 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 56.3099 ms
+2026-10-01 10:20:26.219 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:26.226 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 86.614ms
+2026-10-01 10:20:26.229 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:26'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:26.251 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '1.10.2026 06:45:09', Current time (UTC): '1.10.2026 07:20:26'.
+2026-10-01 10:20:26.256 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:26.262 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:26.265 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:26.268 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:26.274 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 54.1791 ms
+2026-10-01 10:20:26.279 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 68.5527ms
+2026-10-01 10:20:29.548 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:29.548 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:29.548 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:29.562 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.569 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.576 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.579 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.582 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:29.585 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:29.601 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.604 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.605 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.607 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.611 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.614 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.624 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:29.618 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:29.635 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 58.7476 ms
+2026-10-01 10:20:29.624 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.632 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.622 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:29.640 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 91.8215ms
+2026-10-01 10:20:29.643 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 82.7694 ms
+2026-10-01 10:20:29.646 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:29.650 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 81.0035 ms
+2026-10-01 10:20:29.661 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:29.665 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:29.667 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 118.8348ms
+2026-10-01 10:20:29.677 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 128.9746ms
+2026-10-01 10:20:29.691 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.694 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.702 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.728 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.731 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:29.733 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.738 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:29.749 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 117.2625 ms
+2026-10-01 10:20:29.754 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.755 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 131.6937ms
+2026-10-01 10:20:29.756 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.759 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.773 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.776 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:29.780 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.782 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 89.6037 ms
+2026-10-01 10:20:29.783 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:29.786 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 84.4251 ms
+2026-10-01 10:20:29.792 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 130.8158ms
+2026-10-01 10:20:29.799 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.806 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 140.6629ms
+2026-10-01 10:20:29.819 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.890 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.895 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.900 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.904 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:29.909 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 110.9977 ms
+2026-10-01 10:20:29.916 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:29.921 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 137.6276ms
+2026-10-01 10:20:29.925 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.946 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:29.950 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:29.953 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:29.956 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 40.9747 ms
+2026-10-01 10:20:29.962 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 57.952ms
+2026-10-01 10:20:31.546 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:31.546 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:31.548 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:31.581 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.590 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.597 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.600 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:31.603 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:31.607 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:31.628 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:31.631 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:31.640 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:31.642 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:31.645 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:31.648 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:31.653 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:31.658 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:31.671 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 73.4782 ms
+2026-10-01 10:20:31.661 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:31.662 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:31.688 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.664 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 74.0028 ms
+2026-10-01 10:20:31.660 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:31.710 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.680 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 99.7081 ms
+2026-10-01 10:20:31.720 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 173.906ms
+2026-10-01 10:20:31.693 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:31.699 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 153.027ms
+2026-10-01 10:20:31.676 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 128.3861ms
+2026-10-01 10:20:31.713 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:31.663 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:31.797 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:31.803 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:31.816 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.819 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:31.822 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:31.825 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:31.829 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:31.838 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 149.6660 ms
+2026-10-01 10:20:31.831 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:31.847 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 136.5055 ms
+2026-10-01 10:20:31.843 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 181.0479ms
+2026-10-01 10:20:31.853 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 193.4717ms
+2026-10-01 10:20:31.859 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:31.877 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:31.881 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:31.887 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 70.6439 ms
+2026-10-01 10:20:31.888 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:31.894 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 230.7681ms
+2026-10-01 10:20:31.907 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.925 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:31.932 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:31.940 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:31.944 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:31.947 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:31.950 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 42.6763 ms
+2026-10-01 10:20:31.956 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:31.964 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:31.960 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 72.6569ms
+2026-10-01 10:20:31.969 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:32.047 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:32.051 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:32.055 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 99.0820 ms
+2026-10-01 10:20:32.060 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 113.3449ms
+2026-10-01 10:20:36.165 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:36.165 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:36.165 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:36.275 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:36.282 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:36.291 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:36.303 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:36.297 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:36.294 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:36.424 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:36.433 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:36.433 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:36.504 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:36.506 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:36.515 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:36.519 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 227.5655 ms
+2026-10-01 10:20:36.509 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:36.512 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:36.522 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:36.522 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:36.523 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 358.1749ms
+2026-10-01 10:20:36.527 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:36.529 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 246.5469 ms
+2026-10-01 10:20:36.592 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 426.9635ms
+2026-10-01 10:20:36.544 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:36.556 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:36.566 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 290.5969 ms
+2026-10-01 10:20:36.629 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 463.8571ms
+2026-10-01 10:20:36.616 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:36.622 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:36.532 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:36.691 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:36.696 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:36.886 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:36.910 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:36.927 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:36.979 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:36.977 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:36.985 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:36.982 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:36.990 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 298.9891 ms
+2026-10-01 10:20:36.987 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 431.3138 ms
+2026-10-01 10:20:36.988 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:36.974 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:36.994 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 462.192ms
+2026-10-01 10:20:37.000 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 477.56ms
+2026-10-01 10:20:37.008 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:37.049 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:37.032 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:37.054 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 510.2431 ms
+2026-10-01 10:20:37.059 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 536.7167ms
+2026-10-01 10:20:37.093 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:37.263 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:37.265 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:37.273 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:37.276 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 267.7135 ms
+2026-10-01 10:20:37.279 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:37.285 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 296.0485ms
+2026-10-01 10:20:37.293 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:37.319 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:37.324 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:37.327 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:37.398 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 119.1715 ms
+2026-10-01 10:20:37.411 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 137.2302ms
+2026-10-01 10:20:48.205 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:48.211 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:48.211 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:48.212 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:48.224 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.241 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.288 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.322 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.332 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 9.6829 ms
+2026-10-01 10:20:48.326 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 84.8675 ms
+2026-10-01 10:20:48.329 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 40.7872 ms
+2026-10-01 10:20:48.324 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 100.0357 ms
+2026-10-01 10:20:48.351 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 146.1642ms
+2026-10-01 10:20:48.359 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:48.365 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.368 +03:00 [INF] HTTP OPTIONS /api/part-categories responded 204 in 2.5803 ms
+2026-10-01 10:20:48.372 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 12.5036ms
+2026-10-01 10:20:48.344 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/part-categories - 204 null null 132.9893ms
+2026-10-01 10:20:48.336 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 123.6974ms
+2026-10-01 10:20:48.340 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 129.1004ms
+2026-10-01 10:20:48.379 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:48.395 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:48.407 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/cart - null null
+2026-10-01 10:20:48.417 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:48.425 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.434 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.441 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.450 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.454 +03:00 [INF] HTTP OPTIONS /api/testimonials responded 204 in 28.7539 ms
+2026-10-01 10:20:48.456 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 21.9853 ms
+2026-10-01 10:20:48.458 +03:00 [INF] HTTP OPTIONS /api/cart responded 204 in 17.8709 ms
+2026-10-01 10:20:48.460 +03:00 [INF] HTTP OPTIONS /api/motorcycles responded 204 in 10.1036 ms
+2026-10-01 10:20:48.468 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/testimonials - 204 null null 88.2732ms
+2026-10-01 10:20:48.475 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 79.5675ms
+2026-10-01 10:20:48.479 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/cart - 204 null null 72.3566ms
+2026-10-01 10:20:48.488 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/motorcycles - 204 null null 71.1296ms
+2026-10-01 10:20:48.497 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7268/api/cart - null null
+2026-10-01 10:20:48.526 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:48.527 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:48.538 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:48.546 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.557 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.566 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.578 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.580 +03:00 [INF] HTTP OPTIONS /api/cart responded 204 in 34.2461 ms
+2026-10-01 10:20:48.588 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:48.591 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:48.593 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:48.605 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7268/api/cart - 204 null null 107.5493ms
+2026-10-01 10:20:48.625 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:48.645 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:48.662 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:48.673 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/cart - null null
+2026-10-01 10:20:48.678 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:48.687 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:48.692 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:48.702 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:48.717 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:48.738 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:48.753 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-10-01 10:20:48.758 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-10-01 10:20:48.761 +03:00 [INF] HTTP GET /api/cart responded 401 in 59.7351 ms
+2026-10-01 10:20:48.767 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/cart - 401 0 null 94.2962ms
+2026-10-01 10:20:48.778 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:48.783 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/cart - null null
+2026-10-01 10:20:48.794 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:48.824 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:49.827 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:49.862 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:49.902 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:49.906 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:49.910 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:49.913 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:49.922 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:49.925 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:49.928 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 1363.6240 ms
+2026-10-01 10:20:49.946 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:49.950 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 1372.8232 ms
+2026-10-01 10:20:49.954 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 1397.5594 ms
+2026-10-01 10:20:49.959 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 1431.4659ms
+2026-10-01 10:20:49.964 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-10-01 10:20:49.969 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 1430.6785ms
+2026-10-01 10:20:49.973 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 1447.0512ms
+2026-10-01 10:20:49.990 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-10-01 10:20:50.013 +03:00 [INF] HTTP GET /api/cart responded 401 in 151.1830 ms
+2026-10-01 10:20:50.020 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/cart - 499 null null 1236.5471ms
+2026-10-01 10:20:51.212 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:51.223 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.226 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.235 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:51.240 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:51.244 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.251 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.252 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/cart - null null
+2026-10-01 10:20:51.257 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.263 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:51.266 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.273 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.276 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.302 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.303 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.320 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.325 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:51.342 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.350 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:51.361 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-10-01 10:20:51.367 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-10-01 10:20:51.370 +03:00 [INF] HTTP GET /api/cart responded 401 in 96.6935 ms
+2026-10-01 10:20:51.374 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:51.375 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/cart - 401 0 null 123.1318ms
+2026-10-01 10:20:51.376 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:51.378 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:51.382 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/cart - null null
+2026-10-01 10:20:51.383 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:51.392 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:51.396 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:51.399 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:51.403 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.406 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:51.410 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:51.431 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 179.8563 ms
+2026-10-01 10:20:51.415 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:51.421 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.424 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.428 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:51.413 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 155.8379 ms
+2026-10-01 10:20:51.432 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:51.436 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 200.4648ms
+2026-10-01 10:20:51.446 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.449 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.465 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.468 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 245.5243 ms
+2026-10-01 10:20:51.473 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 232.4077ms
+2026-10-01 10:20:51.481 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:51.493 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.542 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.801 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-10-01 10:20:51.802 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 590.0801ms
+2026-10-01 10:20:51.816 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-10-01 10:20:51.842 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.847 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:51.851 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-10-01 10:20:51.880 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'OYpwI_Ax4paAGEcv5gH9w22j5-7syEmDjKmZIy11Fmk'. , KeyId: \r\n'.
+Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'.
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-10-01 10:20:51.886 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:51.901 +03:00 [INF] HTTP GET /api/cart responded 401 in 498.2973 ms
+2026-10-01 10:20:51.906 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:51.916 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/cart - 499 null null 534.2821ms
+2026-10-01 10:20:51.928 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:51.937 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:51.945 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:51.955 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 473.8409 ms
+2026-10-01 10:20:51.964 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:51.969 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:51.974 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 499 null application/json; charset=utf-8 541.4796ms
+2026-10-01 10:20:51.976 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:51.979 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:51.992 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:51.998 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:52.005 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 559.1157 ms
+2026-10-01 10:20:52.010 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 499 null application/json; charset=utf-8 594.7572ms
+2026-10-01 10:20:52.001 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 579.9664 ms
+2026-10-01 10:20:52.024 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 499 null application/json; charset=utf-8 624.9849ms
+2026-10-01 10:20:57.140 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:57.142 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:57.142 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:57.166 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.173 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:57.153 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.178 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.159 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.186 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:57.212 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.215 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.216 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.217 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.218 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:57.222 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.223 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/part-categories - null null
+2026-10-01 10:20:57.224 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.227 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 68.6285 ms
+2026-10-01 10:20:57.230 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:57.237 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.239 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/testimonials - null null
+2026-10-01 10:20:57.240 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.243 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:57.244 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 101.9938ms
+2026-10-01 10:20:57.246 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 80.3400 ms
+2026-10-01 10:20:57.249 +03:00 [INF] Executing endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:57.256 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.259 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 105.9445 ms
+2026-10-01 10:20:57.264 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.276 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 134.1488ms
+2026-10-01 10:20:57.281 +03:00 [INF] Executing endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:57.287 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 146.8374ms
+2026-10-01 10:20:57.291 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.330 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.334 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.338 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.341 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.343 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.346 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.354 +03:00 [INF] Executed endpoint 'HTTP: GET /api/part-categories'
+2026-10-01 10:20:57.356 +03:00 [INF] HTTP GET /api/part-categories responded 200 in 119.7248 ms
+2026-10-01 10:20:57.349 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.375 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 111.1026 ms
+2026-10-01 10:20:57.368 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:57.352 +03:00 [INF] Executed endpoint 'HTTP: GET /api/testimonials'
+2026-10-01 10:20:57.379 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/part-categories - 200 null application/json; charset=utf-8 155.5008ms
+2026-10-01 10:20:57.394 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 151.3627ms
+2026-10-01 10:20:57.410 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.417 +03:00 [INF] HTTP GET /api/testimonials responded 200 in 159.9605 ms
+2026-10-01 10:20:57.457 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.462 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/testimonials - 200 null application/json; charset=utf-8 223.6881ms
+2026-10-01 10:20:57.492 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.507 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.518 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.522 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7268/api/motorcycles - null null
+2026-10-01 10:20:57.529 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 119.4203 ms
+2026-10-01 10:20:57.536 +03:00 [INF] CORS policy execution successful.
+2026-10-01 10:20:57.550 +03:00 [INF] Executing endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.541 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 172.7591ms
+2026-10-01 10:20:57.606 +03:00 [INF] Setting HTTP status code 200.
+2026-10-01 10:20:57.611 +03:00 [INF] Writing value of type 'List`1' as Json.
+2026-10-01 10:20:57.619 +03:00 [INF] Executed endpoint 'HTTP: GET /api/motorcycles'
+2026-10-01 10:20:57.623 +03:00 [INF] HTTP GET /api/motorcycles responded 200 in 86.9443 ms
+2026-10-01 10:20:57.636 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7268/api/motorcycles - 200 null application/json; charset=utf-8 113.5435ms

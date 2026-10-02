@@ -732,6 +732,42 @@
     "EndpointName": "DeleteMotorcycle"
   },
   {
+    "ContainingType": "MotoHM.Api.Modules.Motorcycles.GetMotorcycleFilters\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__8_0",
+    "RelativePath": "api/motorcycles/filters",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "brand",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "model",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Motorcycles"
+    ],
+    "EndpointName": "GetMotorcycleFilters"
+  },
+  {
     "ContainingType": "MotoHM.Api.Modules.Orders.CreateOrder\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__3_0",
     "RelativePath": "api/orders",
@@ -1416,5 +1452,31 @@
       "Testimonials"
     ],
     "EndpointName": "DeleteTestimonial"
+  },
+  {
+    "ContainingType": "MotoHM.Api.Modules.Uploads.UploadImage\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__2_0",
+    "RelativePath": "api/uploads/image",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Uploads"
+    ],
+    "EndpointName": "UploadImage"
   }
 ]

@@ -17,6 +17,7 @@ using MotoHM.Api.Modules.Parts;
 using MotoHM.Api.Modules.Rentals;
 using MotoHM.Api.Modules.Service;
 using MotoHM.Api.Modules.Testimonials;
+using MotoHM.Api.Modules.Uploads;
 using MotoHM.Api.Modules.Users;
 using System.Text.Json.Serialization;
 using MotoHM.Api.Shared.Behaviors;
@@ -110,6 +111,7 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod());
 });
 
+
 // ---- JWT Authentication ----
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var jwtKey = jwtSettings["Key"]!;
@@ -156,6 +158,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowFrontend");
 
+app.UseStaticFiles(); // wwwroot/uploads/... altındakı şəkilləri servis etmək üçün
+
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -166,6 +170,7 @@ app.UseHttpsRedirection();
 // Motorcycles
 CreateMotorcycle.MapEndpoint(app);
 GetAllMotorcycles.MapEndpoint(app);
+GetMotorcycleFilters.MapEndpoint(app);
 GetMotorcycleById.MapEndpoint(app);
 UpdateMotorcycle.MapEndpoint(app);
 DeleteMotorcycle.MapEndpoint(app);
@@ -240,5 +245,8 @@ GetAccessoryById.MapEndpoint(app);
 CreateAccessory.MapEndpoint(app);
 UpdateAccessory.MapEndpoint(app);
 DeleteAccessory.MapEndpoint(app);
+
+// Uploads
+UploadImage.MapEndpoint(app);
 
 app.Run();
