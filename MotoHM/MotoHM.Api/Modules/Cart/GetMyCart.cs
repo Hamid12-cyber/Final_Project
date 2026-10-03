@@ -11,7 +11,7 @@ public static class GetMyCart
     public record Query(int UserId) : IRequest<List<CartItemDto>>;
 
     public record CartItemDto(int Id, int? MotorcycleId, string? MotorcycleName, int? PartId,
-        string? PartName, decimal UnitPrice, int Quantity);
+        string? PartName, int? AccessoryId, string? AccessoryName, decimal UnitPrice, int Quantity);
 
     public class Handler : IRequestHandler<Query, List<CartItemDto>>
     {
@@ -24,11 +24,13 @@ public static class GetMyCart
 
             const string sql = """
                 SELECT ci.Id, ci.MotorcycleId, m.Name AS MotorcycleName, ci.PartId, p.Name AS PartName,
-                       COALESCE(m.Price, p.Price) AS UnitPrice, ci.Quantity
+                       ci.AccessoryId, a.Name AS AccessoryName,
+                       COALESCE(m.Price, p.Price, a.Price) AS UnitPrice, ci.Quantity
                 FROM CartItems ci
                 INNER JOIN Carts c ON c.Id = ci.CartId
                 LEFT JOIN Motorcycles m ON m.Id = ci.MotorcycleId
                 LEFT JOIN Parts p ON p.Id = ci.PartId
+                LEFT JOIN Accessories a ON a.Id = ci.AccessoryId
                 WHERE c.UserId = @UserId
                 """;
 

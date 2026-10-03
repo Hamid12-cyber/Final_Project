@@ -12,7 +12,7 @@ public static class GetMotorcycleFilters
 
     public record Response(List<Option> Brands, List<Option> Models, List<Option> Years, List<Option> PriceRanges);
 
-    private record Row(string Brand, string? Model, int Year, decimal Price);
+    public record Row(string Brand, string? Model, int Year, decimal Price);
 
     private record PriceRange(string Value, string Label, decimal Min, decimal Max);
 

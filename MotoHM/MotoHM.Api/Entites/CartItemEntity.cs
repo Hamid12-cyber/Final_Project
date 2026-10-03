@@ -11,5 +11,8 @@ public class CartItemEntity : BaseEntity
     public int? PartId { get; set; }
     public PartEntity? Part { get; set; }
 
+    public int? AccessoryId { get; set; }
+    public AccessoryEntity? Accessory { get; set; }
+
     public int Quantity { get; set; }
 }

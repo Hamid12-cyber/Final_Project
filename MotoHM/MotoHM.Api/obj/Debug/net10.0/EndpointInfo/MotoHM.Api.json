@@ -300,6 +300,68 @@
         }
       }
     },
+    "/api/admin/orders": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "operationId": "GetAllOrdersAdmin",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/admin/orders/{id}": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "operationId": "GetOrderByIdAdmin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/admin/backup/resync": {
       "post": {
         "tags": [
@@ -1316,6 +1378,11 @@
             "nullable": true
           },
           "partId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "accessoryId": {
             "type": "integer",
             "format": "int32",
             "nullable": true

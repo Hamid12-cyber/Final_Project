@@ -22,5 +22,10 @@ public class CartItemConfiguration : IEntityTypeConfiguration<CartItemEntity>
             .WithMany()
             .HasForeignKey(ci => ci.PartId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(ci => ci.Accessory)
+            .WithMany()
+            .HasForeignKey(ci => ci.AccessoryId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

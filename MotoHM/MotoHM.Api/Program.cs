@@ -143,7 +143,14 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var backupDb = scope.ServiceProvider.GetRequiredService<BackupDbContext>();
-    backupDb.Database.Migrate();
+    try
+    {
+        backupDb.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        app.Logger.LogWarning(ex, "Postgres backup bazası əlçatmazdır, migration tətbiq olunmadı.");
+    }
 }
 
 // ---- Pipeline ----
@@ -219,6 +226,8 @@ RejectPart.MapEndpoint(app);
 GetPendingAccessories.MapEndpoint(app);
 ApproveAccessory.MapEndpoint(app);
 RejectAccessory.MapEndpoint(app);
+GetAllOrders.MapEndpoint(app);
+GetOrderByIdAdmin.MapEndpoint(app);
 ResyncBackup.MapEndpoint(app);
 
 // Auth / Users
@@ -248,5 +257,7 @@ DeleteAccessory.MapEndpoint(app);
 
 // Uploads
 UploadImage.MapEndpoint(app);
+
+
 
 app.Run();

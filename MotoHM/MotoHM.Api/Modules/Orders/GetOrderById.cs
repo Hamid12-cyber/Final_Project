@@ -15,7 +15,7 @@ public static class GetOrderById
         string ContactPhone, DateTime CreatedAt, List<OrderItemDto> Items);
 
     public record OrderItemDto(int? MotorcycleId, string? MotorcycleName, int? PartId, string? PartName,
-        int Quantity, decimal UnitPriceAtOrderTime);
+        int? AccessoryId, string? AccessoryName, int Quantity, decimal UnitPriceAtOrderTime);
 
     public class Handler : IRequestHandler<Query, OrderDetailDto>
     {
@@ -29,7 +29,7 @@ public static class GetOrderById
             const string orderSql = """
                 SELECT Id, Status, TotalAmount, ShippingAddress, ContactPhone, CreatedAt
                 FROM Orders
-                WHERE Id = @Id AND UserId = @UserId
+                WHERE Id = @Id AND UserId = @UserId AND IsDeleted = 0
                 """;
 
             var order = await connection.QueryFirstOrDefaultAsync(orderSql, new { request.Id, request.UserId });
@@ -40,17 +40,19 @@ public static class GetOrderById
 
             const string itemsSql = """
                 SELECT oi.MotorcycleId, m.Name AS MotorcycleName, oi.PartId, p.Name AS PartName,
+                       oi.AccessoryId, a.Name AS AccessoryName,
                        oi.Quantity, oi.UnitPriceAtOrderTime
                 FROM OrderItems oi
                 LEFT JOIN Motorcycles m ON m.Id = oi.MotorcycleId
                 LEFT JOIN Parts p ON p.Id = oi.PartId
+                LEFT JOIN Accessories a ON a.Id = oi.AccessoryId
                 WHERE oi.OrderId = @Id
                 """;
 
             var items = (await connection.QueryAsync<OrderItemDto>(itemsSql, new { request.Id })).ToList();
 
-            return new OrderDetailDto(order.Id, order.Status, order.TotalAmount, order.ShippingAddress,
-                order.ContactPhone, order.CreatedAt, items);
+            return new OrderDetailDto((int)order.Id, (string)order.Status, (decimal)order.TotalAmount,
+                (string)order.ShippingAddress, (string)order.ContactPhone, (DateTime)order.CreatedAt, items);
         }
     }
 

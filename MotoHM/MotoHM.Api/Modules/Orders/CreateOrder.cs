@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 using MotoHM.Api.Entites;
+using MotoHM.Api.Entites.Enums;
 using MotoHM.Api.Shared.Exceptions.Common;
 using MotoHM.Api.Shared.Extensions;
 using System.Security.Claims;
@@ -23,6 +24,7 @@ public static class CreateOrder
             var cart = await _db.Carts
                 .Include(c => c.Items).ThenInclude(i => i.Motorcycle)
                 .Include(c => c.Items).ThenInclude(i => i.Part)
+                .Include(c => c.Items).ThenInclude(i => i.Accessory)
                 .FirstOrDefaultAsync(c => c.UserId == request.UserId, cancellationToken);
 
             if (cart is null || cart.Items.Count == 0)
@@ -41,7 +43,19 @@ public static class CreateOrder
 
             foreach (var cartItem in cart.Items)
             {
-                var unitPrice = cartItem.Motorcycle?.Price ?? cartItem.Part?.Price
+                // Aksesuar üçün sifariş anında yenidən yoxlayırıq: təsdiqlənib və stok kifayətdir
+                if (cartItem.Accessory is not null)
+                {
+                    if (cartItem.Accessory.Status != ApprovalStatus.Approved)
+                        throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
+                            $"'{cartItem.Accessory.Name}' aksesuarı hazırda satışda deyil.");
+
+                    if (cartItem.Quantity > cartItem.Accessory.StockQty)
+                        throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
+                            $"'{cartItem.Accessory.Name}' üçün stokda yalnız {cartItem.Accessory.StockQty} ədəd var.");
+                }
+
+                var unitPrice = cartItem.Motorcycle?.Price ?? cartItem.Part?.Price ?? cartItem.Accessory?.Price
                     ?? throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
                         "Səbətdəki bir məhsulun qiyməti tapılmadı.");
 
@@ -49,6 +63,7 @@ public static class CreateOrder
                 {
                     MotorcycleId = cartItem.MotorcycleId,
                     PartId = cartItem.PartId,
+                    AccessoryId = cartItem.AccessoryId,
                     Quantity = cartItem.Quantity,
                     UnitPriceAtOrderTime = unitPrice
                 });
@@ -84,6 +99,7 @@ public static class CreateOrder
         .WithName("CreateOrder")
         .WithTags("Orders");
     }
+
     public class Validator : AbstractValidator<CreateOrderCommand>
     {
         public Validator()

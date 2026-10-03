@@ -11,8 +11,11 @@ public class OrderItemEntity : BaseEntity
     public int? PartId { get; set; }
     public PartEntity? Part { get; set; }
 
+    public int? AccessoryId { get; set; }
+    public AccessoryEntity? Accessory { get; set; }
+
     public int Quantity { get; set; }
-        
+
     // məhsulun qiyməti dəyişsə belə, keçmiş sifarişin qiyməti dəyişməməlidir
     public decimal UnitPriceAtOrderTime { get; set; }
 }
