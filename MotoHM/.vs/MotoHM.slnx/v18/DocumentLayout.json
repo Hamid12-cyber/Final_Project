@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\admin\\getadminstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\admin\\getadminstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\cart\\removefromcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\cart\\removefromcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\cart\\updatecartitemquantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\cart\\updatecartitemquantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\motorcycles\\getmotorcyclefilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -169,11 +173,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 37,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "GetAdminStats.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\GetAdminStats.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Admin\\GetAdminStats.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\GetAdminStats.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Admin\\GetAdminStats.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAuwI4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T20:58:16.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UpdateCartItemQuantity.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\UpdateCartItemQuantity.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Cart\\UpdateCartItemQuantity.cs",
@@ -181,12 +198,11 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Cart\\UpdateCartItemQuantity.cs",
               "ViewState": "AgIAAEQAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-05T05:51:44.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-05T05:51:44.398Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "RemoveFromCart.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\RemoveFromCart.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Cart\\RemoveFromCart.cs",
@@ -199,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "20261003070155_AddAccessory.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\MigrationsBackup\\20261003070155_AddAccessory.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\MigrationsBackup\\20261003070155_AddAccessory.cs",
@@ -211,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "20261003070046_AddAccessory.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Migrations\\20261003070046_AddAccessory.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\Migrations\\20261003070046_AddAccessory.cs",
@@ -223,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GetOrderByIdAdmin.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\GetOrderByIdAdmin.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Admin\\GetOrderByIdAdmin.cs",
@@ -235,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GetAllOrders.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\GetAllOrders.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Admin\\GetAllOrders.cs",
@@ -247,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GetOrderById.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Orders\\GetOrderById.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Orders\\GetOrderById.cs",
@@ -259,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CreateOrder.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Orders\\CreateOrder.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Orders\\CreateOrder.cs",
@@ -271,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "GetMyCart.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\GetMyCart.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Cart\\GetMyCart.cs",
@@ -283,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "AddToCart.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\AddToCart.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Cart\\AddToCart.cs",
@@ -295,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "OrderItemConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Configurations\\OrderItemConfiguration.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\Configurations\\OrderItemConfiguration.cs",
@@ -307,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "CartItemConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Configurations\\CartItemConfiguration.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\Configurations\\CartItemConfiguration.cs",
@@ -319,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "OrderItemEntity.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Entites\\OrderItemEntity.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Entites\\OrderItemEntity.cs",
@@ -331,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "CartItemEntity.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Entites\\CartItemEntity.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Entites\\CartItemEntity.cs",
@@ -343,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "UploadImage.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Uploads\\UploadImage.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Uploads\\UploadImage.cs",
@@ -355,7 +371,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GetMotorcycleFilters.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Motorcycles\\GetMotorcycleFilters.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Motorcycles\\GetMotorcycleFilters.cs",
@@ -367,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "MotorcycleCatalog.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Motorcycles\\MotorcycleCatalog.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Motorcycles\\MotorcycleCatalog.cs",
@@ -379,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "20260929052845_AddPasswordResetFields.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\MigrationsBackup\\20260929052845_AddPasswordResetFields.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\MigrationsBackup\\20260929052845_AddPasswordResetFields.cs",
@@ -391,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "20260929052658_AddPasswordResetFields.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Migrations\\20260929052658_AddPasswordResetFields.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\Migrations\\20260929052658_AddPasswordResetFields.cs",
@@ -403,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "secrets.json",
               "DocumentMoniker": "C:\\Users\\Asus\\AppData\\Roaming\\Microsoft\\UserSecrets\\2a19a754-d729-4bff-abd9-a72bfaa0605d\\secrets.json",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\2a19a754-d729-4bff-abd9-a72bfaa0605d\\secrets.json",
@@ -415,7 +431,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "ResetPassword.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Users\\ResetPassword.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Users\\ResetPassword.cs",
@@ -427,7 +443,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "ForgotPassword.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Users\\ForgotPassword.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Users\\ForgotPassword.cs",
@@ -439,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "SmtpEmailSender.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Shared\\Email\\SmtpEmailSender.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Shared\\Email\\SmtpEmailSender.cs",
@@ -451,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "IEmailSender.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Shared\\Email\\IEmailSender.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Shared\\Email\\IEmailSender.cs",
@@ -463,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "UserEntity.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Entites\\UserEntity.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Entites\\UserEntity.cs",
@@ -475,7 +491,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "GetAllServiceBookings.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\GetAllServiceBookings.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Service\\GetAllServiceBookings.cs",
@@ -487,7 +503,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "UpdateServiceBooking.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\UpdateServiceBooking.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Service\\UpdateServiceBooking.cs",
@@ -499,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "DeleteServiceBooking.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Service\\DeleteServiceBooking.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Service\\DeleteServiceBooking.cs",
@@ -511,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "GetAllRentals.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\GetAllRentals.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Rentals\\GetAllRentals.cs",
@@ -523,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "DeleteRental.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\DeleteRental.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Rentals\\DeleteRental.cs",
@@ -535,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "UpdateRental.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Rentals\\UpdateRental.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Rentals\\UpdateRental.cs",
@@ -547,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "GetAllMotorcycles.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Motorcycles\\GetAllMotorcycles.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Motorcycles\\GetAllMotorcycles.cs",
@@ -559,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "MotoHM.Api\\Properties\\launchSettings.json",
@@ -571,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "20260920200852_FixTimestampColumns.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\MigrationsBackup\\20260920200852_FixTimestampColumns.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\MigrationsBackup\\20260920200852_FixTimestampColumns.cs",
@@ -583,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "ResyncBackup.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Admin\\ResyncBackup.cs",
@@ -595,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "BackupWriteInterceptor.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Interceptors\\BackupWriteInterceptor.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\Interceptors\\BackupWriteInterceptor.cs",
@@ -607,20 +623,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Program.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Program.cs",
               "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Program.cs",
               "RelativeToolTip": "MotoHM.Api\\Program.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAYwJsAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAYwOwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-20T13:19:07.261Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "BackupDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\BackupDbContext.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\BackupDbContext.cs",
@@ -632,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\appsettings.json",
               "RelativeDocumentMoniker": "MotoHM.Api\\appsettings.json",
@@ -644,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "MotoHM.Api.csproj",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\MotoHM.Api.csproj",
               "RelativeDocumentMoniker": "MotoHM.Api\\MotoHM.Api.csproj",

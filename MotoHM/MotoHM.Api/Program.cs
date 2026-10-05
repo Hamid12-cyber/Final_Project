@@ -228,6 +228,7 @@ ApproveAccessory.MapEndpoint(app);
 RejectAccessory.MapEndpoint(app);
 GetAllOrders.MapEndpoint(app);
 GetOrderByIdAdmin.MapEndpoint(app);
+GetAdminStats.MapEndpoint(app);
 ResyncBackup.MapEndpoint(app);
 
 // Auth / Users
