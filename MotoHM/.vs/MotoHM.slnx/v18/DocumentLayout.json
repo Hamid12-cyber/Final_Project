@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\cart\\removefromcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\cart\\removefromcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\cart\\updatecartitemquantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\modules\\cart\\updatecartitemquantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\MigrationsBackup\\20261003070155_AddAccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MotoHM.Api\\Data\\MigrationsBackup\\20261003070155_AddAccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Migrations\\20261003070046_AddAccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MotoHM.Api\\Data\\Migrations\\20261003070046_AddAccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\modules\\motorcycles\\getmotorcyclefilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -152,6 +152,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\data\\migrations\\20260929052658_addpasswordresetfields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\data\\migrations\\20260929052658_addpasswordresetfields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\data\\migrationsbackup\\20261003070155_addaccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\data\\migrationsbackup\\20261003070155_addaccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|c:\\users\\asus\\desktop\\motohm\\motohm\\motohm.api\\data\\migrations\\20261003070046_addaccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DF63BB-6FBF-43FE-F751-46CFE370F0E7}|MotoHM.Api\\MotoHM.Api.csproj|solutionrelative:motohm.api\\data\\migrations\\20261003070046_addaccessory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -161,11 +169,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 34,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "UpdateCartItemQuantity.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\UpdateCartItemQuantity.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Cart\\UpdateCartItemQuantity.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\UpdateCartItemQuantity.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Cart\\UpdateCartItemQuantity.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T05:51:44.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RemoveFromCart.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\RemoveFromCart.cs",
+              "RelativeDocumentMoniker": "MotoHM.Api\\Modules\\Cart\\RemoveFromCart.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Modules\\Cart\\RemoveFromCart.cs",
+              "RelativeToolTip": "MotoHM.Api\\Modules\\Cart\\RemoveFromCart.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwCwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T05:51:05.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
               "Title": "20261003070155_AddAccessory.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\MigrationsBackup\\20261003070155_AddAccessory.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\MigrationsBackup\\20261003070155_AddAccessory.cs",
@@ -173,12 +207,11 @@
               "RelativeToolTip": "MotoHM.Api\\Data\\MigrationsBackup\\20261003070155_AddAccessory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T07:01:55.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T07:01:55.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 39,
               "Title": "20261003070046_AddAccessory.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Data\\Migrations\\20261003070046_AddAccessory.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Data\\Migrations\\20261003070046_AddAccessory.cs",
@@ -186,8 +219,7 @@
               "RelativeToolTip": "MotoHM.Api\\Data\\Migrations\\20261003070046_AddAccessory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T07:00:47.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T07:00:47.496Z"
             },
             {
               "$type": "Document",
@@ -199,8 +231,7 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Admin\\GetOrderByIdAdmin.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAwEIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:34:07.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:34:07.862Z"
             },
             {
               "$type": "Document",
@@ -212,8 +243,7 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Admin\\GetAllOrders.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:32:23.235Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:32:23.235Z"
             },
             {
               "$type": "Document",
@@ -225,8 +255,7 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Orders\\GetOrderById.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAAwEYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:30:56.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:30:56.44Z"
             },
             {
               "$type": "Document",
@@ -238,8 +267,7 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Orders\\CreateOrder.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:30:14.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:30:14.743Z"
             },
             {
               "$type": "Document",
@@ -251,8 +279,7 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Cart\\GetMyCart.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:29:23.957Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:29:23.957Z"
             },
             {
               "$type": "Document",
@@ -264,8 +291,7 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Cart\\AddToCart.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:28:53.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:28:53.838Z"
             },
             {
               "$type": "Document",
@@ -277,8 +303,7 @@
               "RelativeToolTip": "MotoHM.Api\\Data\\Configurations\\OrderItemConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:28:07.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:28:07.311Z"
             },
             {
               "$type": "Document",
@@ -290,8 +315,7 @@
               "RelativeToolTip": "MotoHM.Api\\Data\\Configurations\\CartItemConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:27:32.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:27:32.107Z"
             },
             {
               "$type": "Document",
@@ -303,8 +327,7 @@
               "RelativeToolTip": "MotoHM.Api\\Entites\\OrderItemEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:26:48.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:26:48.108Z"
             },
             {
               "$type": "Document",
@@ -316,8 +339,7 @@
               "RelativeToolTip": "MotoHM.Api\\Entites\\CartItemEntity.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAgwBEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T06:26:23.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T06:26:23.4Z"
             },
             {
               "$type": "Document",
@@ -341,8 +363,7 @@
               "RelativeToolTip": "MotoHM.Api\\Modules\\Motorcycles\\GetMotorcycleFilters.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T07:10:16.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-01T07:10:16.735Z"
             },
             {
               "$type": "Document",
@@ -586,7 +607,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\MotoHM\\MotoHM\\MotoHM.Api\\Program.cs",
               "RelativeDocumentMoniker": "MotoHM.Api\\Program.cs",
