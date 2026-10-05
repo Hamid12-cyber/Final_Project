@@ -75,7 +75,8 @@ export default function AdminPage() {
     <div className="page-wrap">
       <h1 className="page-title">Admin panel</h1>
 
-      <p style={{ marginBottom: 20 }}>
+            <p style={{ marginBottom: 20, display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+        <Link to="/admin/dashboard" className="see-all">Statistika →</Link>
         <Link to="/admin/orders" className="see-all">Bütün sifarişlərə bax →</Link>
       </p>
 
