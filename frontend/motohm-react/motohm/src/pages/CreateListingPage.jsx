@@ -9,6 +9,11 @@ const TYPES = [
   { key: 'accessory', label: 'Aksesuar' },
 ];
 
+// Siyahıda olmayan marka/model üçün "Digər" seçimi
+const OTHER = '__other__';
+
+const byLabel = (a, b) => a.label.localeCompare(b.label, 'az');
+
 export default function CreateListingPage() {
   const { user } = useAuth();
   const [type, setType] = useState('motorcycle');
@@ -16,13 +21,18 @@ export default function CreateListingPage() {
 
   const [name, setName] = useState('');
   const [brand, setBrand] = useState('');
+  const [customBrand, setCustomBrand] = useState('');
   const [price, setPrice] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [model, setModel] = useState('');
+  const [customModel, setCustomModel] = useState('');
   const [cc, setCc] = useState('');
   const [year, setYear] = useState('');
   const [stockQty, setStockQty] = useState('');
   const [partCategoryId, setPartCategoryId] = useState('');
+
+  const [brandOptions, setBrandOptions] = useState([]);
+  const [modelOptions, setModelOptions] = useState([]);
 
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState(null);
@@ -39,6 +49,31 @@ export default function CreateListingPage() {
     }
   }, [type]);
 
+  // Motosiklet üçün marka siyahısı backend-dən gəlir
+  useEffect(() => {
+    if (type !== 'motorcycle') return;
+    apiClient.get('/motorcycles/filters')
+      .then((res) => setBrandOptions([...res.data.brands].sort(byLabel)))
+      .catch(() => setBrandOptions([]));
+  }, [type]);
+
+  // Marka seçiləndə həmin markanın modelləri gəlir
+  useEffect(() => {
+    if (type !== 'motorcycle' || !brand || brand === OTHER) {
+      setModelOptions([]);
+      return;
+    }
+    apiClient.get('/motorcycles/filters', { params: { brand } })
+      .then((res) =>
+        setModelOptions(
+          res.data.models
+            .filter((m) => m.label.toLowerCase() !== 'digər')
+            .sort(byLabel)
+        )
+      )
+      .catch(() => setModelOptions([]));
+  }, [type, brand]);
+
   if (!user) {
     return (
       <div className="page-wrap">
@@ -50,30 +85,56 @@ export default function CreateListingPage() {
     );
   }
 
+  const clearBrandModel = () => {
+    setBrand(''); setCustomBrand('');
+    setModel(''); setCustomModel('');
+  };
+
+  const changeType = (key) => {
+    setType(key);
+    clearBrandModel();
+  };
+
+  const handleBrandChange = (value) => {
+    setBrand(value);
+    setModel('');
+    setCustomModel('');
+  };
+
   const resetForm = () => {
-    setName(''); setBrand(''); setPrice(''); setImageUrl('');
-    setModel(''); setCc(''); setYear(''); setStockQty('');
+    setName(''); setPrice(''); setImageUrl('');
+    setCc(''); setYear(''); setStockQty('');
+    clearBrandModel();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError(null);
+
+    const finalBrand = type === 'motorcycle' && brand === OTHER ? customBrand.trim() : brand;
+    const finalModel = brand === OTHER || model === OTHER ? customModel.trim() : model;
+
+    if (type === 'motorcycle' && (!finalBrand || !finalModel)) {
+      setFormError('Marka və modeli seçin (və ya "Digər" seçib yazın).');
+      return;
+    }
+
     setSubmitting(true);
     try {
       let res;
       if (type === 'motorcycle') {
         res = await apiClient.post('/motorcycles', {
-          name, brand, model, cc: Number(cc), year: Number(year),
+          name, brand: finalBrand, model: finalModel, cc: Number(cc), year: Number(year),
           price: Number(price), imageUrl: imageUrl || null,
         });
       } else if (type === 'part') {
         res = await apiClient.post('/parts', {
-          name, brand, price: Number(price), stockQty: Number(stockQty),
+          name, brand: finalBrand, price: Number(price), stockQty: Number(stockQty),
           imageUrl: imageUrl || null, partCategoryId: Number(partCategoryId),
         });
       } else {
         res = await apiClient.post('/accessories', {
-          name, brand, price: Number(price), stockQty: Number(stockQty),
+          name, brand: finalBrand, price: Number(price), stockQty: Number(stockQty),
           imageUrl: imageUrl || null,
         });
       }
@@ -110,7 +171,7 @@ export default function CreateListingPage() {
             key={t.key}
             type="button"
             className={`filter-chip ${type === t.key ? 'active' : ''}`}
-            onClick={() => setType(t.key)}
+            onClick={() => changeType(t.key)}
           >
             {t.label}
           </button>
@@ -123,17 +184,46 @@ export default function CreateListingPage() {
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} required maxLength={150} />
         </label>
 
-        <label className="form-field">
-          <span>Marka</span>
-          <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} required maxLength={80} />
-        </label>
-
-        {type === 'motorcycle' && (
+        {type === 'motorcycle' ? (
           <>
             <label className="form-field">
-              <span>Model</span>
-              <input type="text" value={model} onChange={(e) => setModel(e.target.value)} required maxLength={80} />
+              <span>Marka</span>
+              <select value={brand} onChange={(e) => handleBrandChange(e.target.value)} required>
+                <option value="">Marka seçin</option>
+                {brandOptions.map((o) => (
+                  <option key={o.value} value={o.value}>{o.label}</option>
+                ))}
+                <option value={OTHER}>Digər (özüm yazacağam)</option>
+              </select>
             </label>
+
+            {brand === OTHER && (
+              <label className="form-field">
+                <span>Markanın adı</span>
+                <input type="text" value={customBrand} onChange={(e) => setCustomBrand(e.target.value)} required maxLength={80} />
+              </label>
+            )}
+
+            {brand !== OTHER && (
+              <label className="form-field">
+                <span>Model</span>
+                <select value={model} onChange={(e) => setModel(e.target.value)} required disabled={!brand}>
+                  <option value="">Model seçin</option>
+                  {modelOptions.map((o) => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
+                  <option value={OTHER}>Digər (özüm yazacağam)</option>
+                </select>
+              </label>
+            )}
+
+            {(brand === OTHER || model === OTHER) && (
+              <label className="form-field">
+                <span>Modelin adı</span>
+                <input type="text" value={customModel} onChange={(e) => setCustomModel(e.target.value)} required maxLength={80} />
+              </label>
+            )}
+
             <label className="form-field">
               <span>Həcm (cc)</span>
               <input type="number" value={cc} onChange={(e) => setCc(e.target.value)} required min={1} />
@@ -143,6 +233,11 @@ export default function CreateListingPage() {
               <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required min={1980} max={new Date().getFullYear() + 1} />
             </label>
           </>
+        ) : (
+          <label className="form-field">
+            <span>Marka</span>
+            <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} required maxLength={80} />
+          </label>
         )}
 
         {type === 'part' && (
