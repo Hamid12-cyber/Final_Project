@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import apiClient from '../api/client.js';
 
@@ -73,6 +74,10 @@ export default function AdminPage() {
   return (
     <div className="page-wrap">
       <h1 className="page-title">Admin panel</h1>
+
+      <p style={{ marginBottom: 20 }}>
+        <Link to="/admin/orders" className="see-all">Bütün sifarişlərə bax →</Link>
+      </p>
 
       <div className="category-filters">
         {TABS.map((t) => (

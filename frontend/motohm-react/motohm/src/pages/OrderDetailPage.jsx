@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
 import { STATUS_LABELS, STATUS_CLASS } from './OrdersPage.jsx';
+import { itemName, itemType } from '../utils/itemInfo.js';
 
 export default function OrderDetailPage() {
   const { id } = useParams();
@@ -53,9 +54,9 @@ export default function OrderDetailPage() {
         {order.items.map((item, idx) => (
           <div className="cart-row" key={idx}>
             <div className="cart-item-info">
-              <p className="cart-item-name">{item.motorcycleName ?? item.partName}</p>
+              <p className="cart-item-name">{itemName(item)}</p>
               <p className="cart-item-type">
-                {item.motorcycleId ? 'Motosiklet' : 'Ehtiyat hissəsi'} · {item.quantity} ədəd
+                {itemType(item)} · {item.quantity} ədəd
               </p>
             </div>
             <p className="cart-item-price">
