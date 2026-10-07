@@ -26,6 +26,8 @@ using MotoHM.Api.Shared.Handlers;
 using Serilog;
 using System.Reflection;
 using System.Text;
+using Microsoft.Extensions.FileProviders;
+using MotoHM.Api.Modules.Uploads;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -164,6 +166,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowFrontend");
+
+var uploadsPath = Path.Combine(app.Environment.ContentRootPath, "uploads");
+Directory.CreateDirectory(uploadsPath);
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(uploadsPath),
+    RequestPath = "/uploads"
+});
 
 app.UseStaticFiles(); // wwwroot/uploads/... altındakı şəkilləri servis etmək üçün
 

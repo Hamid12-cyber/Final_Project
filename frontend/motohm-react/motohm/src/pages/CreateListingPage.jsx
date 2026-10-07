@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
+import ImageUpload from '../components/ImageUpload.jsx';
 
 const TYPES = [
   { key: 'motorcycle', label: 'Motosiklet' },
@@ -269,10 +270,7 @@ export default function CreateListingPage() {
           <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required min={0.01} step="0.01" />
         </label>
 
-        <label className="form-field">
-          <span>Şəkil URL-i (istəyə görə)</span>
-          <input type="text" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="https://..." />
-        </label>
+        <ImageUpload value={imageUrl} onChange={setImageUrl} />
 
         {formError && <p className="form-error">{formError}</p>}
 
