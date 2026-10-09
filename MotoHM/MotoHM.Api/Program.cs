@@ -29,6 +29,7 @@ using System.Text;
 using Microsoft.Extensions.FileProviders;
 using MotoHM.Api.Modules.Uploads;
 using MotoHM.Api.Modules.Reviews;
+using MotoHM.Api.Modules.Favorites;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -274,6 +275,10 @@ UploadImage.MapEndpoint(app);
 CreateOrUpdateReview.MapEndpoint(app);
 GetReviews.MapEndpoint(app);
 DeleteReview.MapEndpoint(app);
+
+// Favorites
+AddFavorite.MapEndpoint(app);
+RemoveFavorite.MapEndpoint(app);
 
 
 app.Run();

@@ -20,6 +20,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<OrderItemEntity> OrderItems => Set<OrderItemEntity>();
     public DbSet<AccessoryEntity> Accessories => Set<AccessoryEntity>();
     public DbSet<ReviewEntity> Reviews => Set<ReviewEntity>();
+    public DbSet<FavoriteEntity> Favorites => Set<FavoriteEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
