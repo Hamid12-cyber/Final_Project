@@ -8,7 +8,8 @@ public static class GetAllMotorcycles
 {
     public record Query : IRequest<List<MotorcycleDto>>;
 
-    public record MotorcycleDto(int Id, string Name, string Brand, string Model, int Cc, int Year, decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale);
+    public record MotorcycleDto(int Id, string Name, string Brand, string Model, int Cc, int Year, decimal Price,
+        string? ImageUrl, bool IsForRent, bool IsForSale, double AverageRating, int ReviewCount);
 
     public class Handler : IRequestHandler<Query, List<MotorcycleDto>>
     {
@@ -20,10 +21,14 @@ public static class GetAllMotorcycles
             using var connection = _connectionFactory.CreateConnection();
 
             const string sql = """
-                SELECT Id, Name, Brand, Model, Cc, Year, Price, ImageUrl, IsForRent, IsForSale
-                FROM Motorcycles
-                WHERE Status = 'Approved' AND IsDeleted = 0
-                ORDER BY Id DESC
+                SELECT m.Id, m.Name, m.Brand, m.Model, m.Cc, m.Year, m.Price, m.ImageUrl, m.IsForRent, m.IsForSale,
+                       COALESCE((SELECT AVG(CAST(r.Rating AS float)) FROM Reviews r
+                                 WHERE r.MotorcycleId = m.Id AND r.IsDeleted = 0), 0) AS AverageRating,
+                       (SELECT COUNT(*) FROM Reviews r
+                        WHERE r.MotorcycleId = m.Id AND r.IsDeleted = 0) AS ReviewCount
+                FROM Motorcycles m
+                WHERE m.Status = 'Approved' AND m.IsDeleted = 0
+                ORDER BY m.Id DESC
                 """;
 
             var result = await connection.QueryAsync<MotorcycleDto>(sql);

@@ -19,6 +19,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<OrderEntity> Orders => Set<OrderEntity>();
     public DbSet<OrderItemEntity> OrderItems => Set<OrderItemEntity>();
     public DbSet<AccessoryEntity> Accessories => Set<AccessoryEntity>();
+    public DbSet<ReviewEntity> Reviews => Set<ReviewEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -72,6 +72,9 @@ public class BackupWriteInterceptor : SaveChangesInterceptor
             foreach (var (state, entity, entityType) in changes)
             {
                 var idProperty = entityType.GetProperty("Id");
+                // Backup modelində olmayan entity-ləri (Cart, CartItem, Review) keçirik
+                if (backupDb.Model.FindEntityType(entityType) is null)
+                    continue;
                 var idValue = idProperty?.GetValue(entity);
                 if (idValue is null) continue;
 

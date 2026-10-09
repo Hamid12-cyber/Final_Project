@@ -2,18 +2,21 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MotoHM.Api.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace MotoHM.Api.Migrations
+namespace MotoHM.Api.Data.MigrationsBackup
 {
     [DbContext(typeof(BackupDbContext))]
-    partial class BackupDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261009021909_AddAccessoryToOrderItems")]
+    partial class AddAccessoryToOrderItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -326,51 +329,6 @@ namespace MotoHM.Api.Migrations
                     b.ToTable("Rentals");
                 });
 
-            modelBuilder.Entity("MotoHM.Api.Entites.ReviewEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("AccessoryId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<int?>("MotorcycleId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("PartId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccessoryId");
-
-                    b.HasIndex("MotorcycleId");
-
-                    b.HasIndex("PartId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Reviews");
-                });
-
             modelBuilder.Entity("MotoHM.Api.Entites.ServiceBookingEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -572,35 +530,6 @@ namespace MotoHM.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Motorcycle");
-                });
-
-            modelBuilder.Entity("MotoHM.Api.Entites.ReviewEntity", b =>
-                {
-                    b.HasOne("MotoHM.Api.Entites.AccessoryEntity", "Accessory")
-                        .WithMany()
-                        .HasForeignKey("AccessoryId");
-
-                    b.HasOne("MotoHM.Api.Entites.MotorcycleEntity", "Motorcycle")
-                        .WithMany()
-                        .HasForeignKey("MotorcycleId");
-
-                    b.HasOne("MotoHM.Api.Entites.PartEntity", "Part")
-                        .WithMany()
-                        .HasForeignKey("PartId");
-
-                    b.HasOne("MotoHM.Api.Entites.UserEntity", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Accessory");
-
-                    b.Navigation("Motorcycle");
-
-                    b.Navigation("Part");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MotoHM.Api.Entites.ServiceBookingEntity", b =>
