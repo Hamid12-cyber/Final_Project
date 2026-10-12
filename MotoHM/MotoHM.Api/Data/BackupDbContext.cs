@@ -17,6 +17,7 @@ public class BackupDbContext(DbContextOptions<BackupDbContext> options) : DbCont
     public DbSet<OrderEntity> Orders => Set<OrderEntity>();
     public DbSet<OrderItemEntity> OrderItems => Set<OrderItemEntity>();
     public DbSet<ReviewEntity> Reviews => Set<ReviewEntity>();
+    public DbSet<FavoriteEntity> Favorites => Set<FavoriteEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -66,6 +66,35 @@ namespace MotoHM.Api.Migrations
                     b.ToTable("Accessories");
                 });
 
+            modelBuilder.Entity("MotoHM.Api.Entites.FavoriteEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("MotorcycleId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MotorcycleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("MotoHM.Api.Entites.MotorcycleEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -491,6 +520,25 @@ namespace MotoHM.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("MotoHM.Api.Entites.FavoriteEntity", b =>
+                {
+                    b.HasOne("MotoHM.Api.Entites.MotorcycleEntity", "Motorcycle")
+                        .WithMany()
+                        .HasForeignKey("MotorcycleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MotoHM.Api.Entites.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Motorcycle");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MotoHM.Api.Entites.MotorcycleEntity", b =>

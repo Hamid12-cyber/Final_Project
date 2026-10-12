@@ -146,6 +146,39 @@ namespace MotoHM.Api.Data.Migrations
                     b.ToTable("CartItems");
                 });
 
+            modelBuilder.Entity("MotoHM.Api.Entites.FavoriteEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MotorcycleId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MotorcycleId");
+
+                    b.HasIndex("UserId", "MotorcycleId")
+                        .IsUnique();
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("MotoHM.Api.Entites.MotorcycleEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -688,6 +721,25 @@ namespace MotoHM.Api.Data.Migrations
                     b.Navigation("Motorcycle");
 
                     b.Navigation("Part");
+                });
+
+            modelBuilder.Entity("MotoHM.Api.Entites.FavoriteEntity", b =>
+                {
+                    b.HasOne("MotoHM.Api.Entites.MotorcycleEntity", "Motorcycle")
+                        .WithMany()
+                        .HasForeignKey("MotorcycleId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MotoHM.Api.Entites.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Motorcycle");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MotoHM.Api.Entites.MotorcycleEntity", b =>

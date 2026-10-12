@@ -17,5 +17,6 @@ public interface IAppDbContext
     DbSet<OrderItemEntity> OrderItems { get; }
     DbSet<AccessoryEntity> Accessories { get; }
     DbSet<ReviewEntity> Reviews { get; }
+    DbSet<FavoriteEntity> Favorites { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

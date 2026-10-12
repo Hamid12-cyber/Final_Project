@@ -3,6 +3,8 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import apiClient from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
+import Reviews from '../components/Reviews.jsx';
+import FavoriteButton from '../components/FavoriteButton.jsx';
 
 export default function MotorcycleDetailPage() {
   const { id } = useParams();
@@ -77,7 +79,7 @@ export default function MotorcycleDetailPage() {
             {bike.price.toLocaleString('az-AZ')} AZN
           </p>
 
-          <div style={{ display: 'flex', gap: 12 }}>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             {bike.isForSale && (
               <button className="checkout-btn" disabled={adding} onClick={handleAddToCart}>
                 {adding ? 'Əlavə olunur...' : 'Səbətə at'}
@@ -88,9 +90,12 @@ export default function MotorcycleDetailPage() {
                 Kirayə et
               </Link>
             )}
+            <FavoriteButton motorcycleId={bike.id} className="inline" />
           </div>
         </div>
       </div>
+
+      <Reviews motorcycleId={bike.id} />
     </div>
   );
 }
