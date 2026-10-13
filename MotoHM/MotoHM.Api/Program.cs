@@ -215,6 +215,7 @@ DeleteTestimonial.MapEndpoint(app);
 
 // Rentals
 GetAllRentals.MapEndpoint(app);
+GetBookedRentalDates.MapEndpoint(app);
 GetRentalById.MapEndpoint(app);
 CreateRental.MapEndpoint(app);
 UpdateRental.MapEndpoint(app);

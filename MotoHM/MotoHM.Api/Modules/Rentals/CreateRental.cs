@@ -31,6 +31,16 @@ public static class CreateRental
                 throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
                     "Bu motosiklet kirayə üçün deyil.");
 
+            // Tarix toqquşması: bitmə günü təhvil günüdür, ona görə sərhəd gününün üst-üstə düşməsi icazəlidir.
+            var hasOverlap = await _db.Rentals.AnyAsync(r =>
+                r.MotorcycleId == request.MotorcycleId &&
+                r.StartDate < request.EndDate &&
+                r.EndDate > request.StartDate, cancellationToken);
+
+            if (hasOverlap)
+                throw new AppException("CONFLICT", StatusCodes.Status409Conflict,
+                    "Bu motosiklet seçilmiş tarixlərdə artıq kirayədədir.");
+
             var totalPrice = CalculatePrice(request.StartDate, request.EndDate, request.Period);
 
             var entity = new RentalEntity
@@ -80,7 +90,8 @@ public static class CreateRental
         public Validator()
         {
             RuleFor(x => x.MotorcycleId).GreaterThan(0);
-            RuleFor(x => x.StartDate).NotEmpty();
+            RuleFor(x => x.StartDate).NotEmpty()
+                .Must(d => d.Date >= DateTime.Today).WithMessage("Başlanğıc tarixi keçmişdə ola bilməz.");
             RuleFor(x => x.EndDate).GreaterThan(x => x.StartDate);
             RuleFor(x => x.CustomerName).NotEmpty().MaximumLength(100);
             RuleFor(x => x.CustomerPhone).NotEmpty().MaximumLength(30);

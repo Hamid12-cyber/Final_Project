@@ -24,6 +24,16 @@ public static class UpdateRental
             if (entity is null)
                 return false;
 
+            var hasOverlap = await _db.Rentals.AnyAsync(r =>
+                r.Id != request.Id &&
+                r.MotorcycleId == entity.MotorcycleId &&
+                r.StartDate < request.EndDate &&
+                r.EndDate > request.StartDate, cancellationToken);
+
+            if (hasOverlap)
+                throw new AppException("CONFLICT", StatusCodes.Status409Conflict,
+                    "Bu motosiklet seçilmiş tarixlərdə artıq kirayədədir.");
+
             entity.StartDate = request.StartDate;
             entity.EndDate = request.EndDate;
             entity.Period = request.Period;
