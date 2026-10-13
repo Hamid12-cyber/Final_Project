@@ -43,7 +43,24 @@ public static class CreateOrder
 
             foreach (var cartItem in cart.Items)
             {
-                // Aksesuar üçün sifariş anında yenidən yoxlayırıq: təsdiqlənib və stok kifayətdir
+                // Sifariş anında hər məhsul yenidən yoxlanılır: təsdiqlənib və stok kifayətdir
+                if (cartItem.Motorcycle is not null && cartItem.Motorcycle.Status != ApprovalStatus.Approved)
+                    throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
+                        $"'{cartItem.Motorcycle.Name}' motosikleti hazırda satışda deyil.");
+
+                if (cartItem.Part is not null)
+                {
+                    if (cartItem.Part.Status != ApprovalStatus.Approved)
+                        throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
+                            $"'{cartItem.Part.Name}' hissəsi hazırda satışda deyil.");
+
+                    if (cartItem.Quantity > cartItem.Part.StockQty)
+                        throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
+                            $"'{cartItem.Part.Name}' üçün stokda yalnız {cartItem.Part.StockQty} ədəd var.");
+
+                    cartItem.Part.StockQty -= cartItem.Quantity;
+                }
+
                 if (cartItem.Accessory is not null)
                 {
                     if (cartItem.Accessory.Status != ApprovalStatus.Approved)
@@ -53,6 +70,8 @@ public static class CreateOrder
                     if (cartItem.Quantity > cartItem.Accessory.StockQty)
                         throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
                             $"'{cartItem.Accessory.Name}' üçün stokda yalnız {cartItem.Accessory.StockQty} ədəd var.");
+
+                    cartItem.Accessory.StockQty -= cartItem.Quantity;
                 }
 
                 var unitPrice = cartItem.Motorcycle?.Price ?? cartItem.Part?.Price ?? cartItem.Accessory?.Price

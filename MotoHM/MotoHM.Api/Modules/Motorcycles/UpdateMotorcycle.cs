@@ -1,11 +1,14 @@
-﻿using FluentValidation;
+﻿using System.Security.Claims;
+using MotoHM.Api.Shared.Extensions;
+using FluentValidation;
 
 namespace MotoHM.Api.Modules.Motorcycles;
 
 public static class UpdateMotorcycle
 {
     public record UpdateMotorcycleCommand(int Id, string Name, string Brand, string Model, int Cc, int Year,
-    decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale) : IRequest<bool>;
+    decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale,
+    int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<UpdateMotorcycleCommand, bool>
     {
@@ -14,7 +17,7 @@ public static class UpdateMotorcycle
 
         public async Task<bool> Handle(UpdateMotorcycleCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _db.Motorcycles.FirstOrDefaultAsync(m => m.Id == request.Id, cancellationToken);
+            var entity = await _db.Motorcycles.FirstOrDefaultAsync(m => m.Id == request.Id && (request.IsAdmin || m.SellerId == request.UserId), cancellationToken);
 
             if (entity is null)
                 return false;
@@ -37,14 +40,16 @@ public static class UpdateMotorcycle
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPut("/api/motorcycles/{id:int}", async (int id, UpdateMotorcycleBody body, ISender sender) =>
+        app.MapPut("/api/motorcycles/{id:int}", async (int id, UpdateMotorcycleBody body, ClaimsPrincipal user, ISender sender) =>
         {
             var command = new UpdateMotorcycleCommand(id, body.Name, body.Brand, body.Model, body.Cc, body.Year,
-                body.Price, body.ImageUrl, body.IsForRent, body.IsForSale);
+                body.Price, body.ImageUrl, body.IsForRent, body.IsForSale,
+                user.GetUserId(), user.IsInRole("Admin"));
 
             var success = await sender.Send(command);
             return success ? Results.NoContent() : Results.NotFound();
         })
+        .RequireAuthorization()
         .WithName("UpdateMotorcycle")
         .WithTags("Motorcycles");
     }

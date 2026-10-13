@@ -20,6 +20,8 @@ using MotoHM.Api.Modules.Testimonials;
 using MotoHM.Api.Modules.Uploads;
 using MotoHM.Api.Modules.Users;
 using System.Text.Json.Serialization;
+using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.RateLimiting;
 using MotoHM.Api.Shared.Behaviors;
 using MotoHM.Api.Shared.Email;
 using MotoHM.Api.Shared.Handlers;
@@ -141,6 +143,21 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
+// ---- Rate limiting (brute-force qarşısı: auth endpoint-ləri üçün IP başına dəqiqədə 10 sorğu) ----
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.AddPolicy("auth", httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 10,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0
+            }));
+});
+
 var app = builder.Build();
 
 // ---- Postgres backup DB-nin cədvəllərini (yoxdursa) avtomatik yarat ----
@@ -179,6 +196,7 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseStaticFiles(); // wwwroot/uploads/... altındakı şəkilləri servis etmək üçün
 
+app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 

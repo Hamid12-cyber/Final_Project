@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using System.Security.Claims;
+using MotoHM.Api.Shared.Extensions;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
@@ -8,7 +10,7 @@ namespace MotoHM.Api.Modules.Parts;
 public static class UpdatePart
 {
     public record UpdatePartCommand(int Id, string Name, string Brand, decimal Price, int StockQty,
-        string? ImageUrl, int PartCategoryId) : IRequest<bool>;
+        string? ImageUrl, int PartCategoryId, int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<UpdatePartCommand, bool>
     {
@@ -17,7 +19,7 @@ public static class UpdatePart
 
         public async Task<bool> Handle(UpdatePartCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _db.Parts.FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+            var entity = await _db.Parts.FirstOrDefaultAsync(p => p.Id == request.Id && (request.IsAdmin || p.SellerId == request.UserId), cancellationToken);
 
             if (entity is null)
                 return false;
@@ -37,14 +39,15 @@ public static class UpdatePart
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPut("/api/parts/{id:int}", async (int id, UpdatePartBody body, ISender sender) =>
+        app.MapPut("/api/parts/{id:int}", async (int id, UpdatePartBody body, ClaimsPrincipal user, ISender sender) =>
         {
             var command = new UpdatePartCommand(id, body.Name, body.Brand, body.Price, body.StockQty,
-                body.ImageUrl, body.PartCategoryId);
+                body.ImageUrl, body.PartCategoryId, user.GetUserId(), user.IsInRole("Admin"));
 
             var success = await sender.Send(command);
             return success ? Results.NoContent() : Results.NotFound();
         })
+        .RequireAuthorization()
         .WithName("UpdatePart")
         .WithTags("Parts");
     }

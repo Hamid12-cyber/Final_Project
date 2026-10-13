@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Microsoft.AspNetCore.RateLimiting;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
@@ -47,7 +48,8 @@ public static class Register
             return Results.Created($"/api/users/{id}", new { id });
         })
         .WithName("Register")
-        .WithTags("Auth");
+        .WithTags("Auth")
+        .RequireRateLimiting("auth");
     }
     public class Validator : AbstractValidator<RegisterCommand>
     {

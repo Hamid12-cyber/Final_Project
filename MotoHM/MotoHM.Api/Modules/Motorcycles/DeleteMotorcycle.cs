@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using System.Security.Claims;
+using MotoHM.Api.Shared.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 
@@ -6,7 +8,7 @@ namespace MotoHM.Api.Modules.Motorcycles;
 
 public static class DeleteMotorcycle
 {
-    public record DeleteMotorcycleCommand(int Id) : IRequest<bool>;
+    public record DeleteMotorcycleCommand(int Id, int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<DeleteMotorcycleCommand, bool>
     {
@@ -14,7 +16,7 @@ public static class DeleteMotorcycle
         public Handler(IAppDbContext db) => _db = db;
         public async Task<bool> Handle(DeleteMotorcycleCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _db.Motorcycles.FirstOrDefaultAsync(m => m.Id == request.Id, cancellationToken);
+            var entity = await _db.Motorcycles.FirstOrDefaultAsync(m => m.Id == request.Id && (request.IsAdmin || m.SellerId == request.UserId), cancellationToken);
 
             if (entity is null)
                 return false;
@@ -29,11 +31,12 @@ public static class DeleteMotorcycle
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapDelete("/api/motorcycles/{id:int}", async (int id, ISender sender) =>
+        app.MapDelete("/api/motorcycles/{id:int}", async (int id, ClaimsPrincipal user, ISender sender) =>
         {
-            var success = await sender.Send(new DeleteMotorcycleCommand(id));
+            var success = await sender.Send(new DeleteMotorcycleCommand(id, user.GetUserId(), user.IsInRole("Admin")));
             return success ? Results.NoContent() : Results.NotFound();
         })
+        .RequireAuthorization()
         .WithName("DeleteMotorcycle")
         .WithTags("Motorcycles");
     }

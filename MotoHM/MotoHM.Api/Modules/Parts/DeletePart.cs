@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using System.Security.Claims;
+using MotoHM.Api.Shared.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 
@@ -6,7 +8,7 @@ namespace MotoHM.Api.Modules.Parts;
 
 public static class DeletePart
 {
-    public record DeletePartCommand(int Id) : IRequest<bool>;
+    public record DeletePartCommand(int Id, int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<DeletePartCommand, bool>
     {
@@ -14,7 +16,7 @@ public static class DeletePart
         public Handler(IAppDbContext db) => _db = db;
         public async Task<bool> Handle(DeletePartCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _db.Parts.FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+            var entity = await _db.Parts.FirstOrDefaultAsync(p => p.Id == request.Id && (request.IsAdmin || p.SellerId == request.UserId), cancellationToken);
 
             if (entity is null)
                 return false;
@@ -29,11 +31,12 @@ public static class DeletePart
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapDelete("/api/parts/{id:int}", async (int id, ISender sender) =>
+        app.MapDelete("/api/parts/{id:int}", async (int id, ClaimsPrincipal user, ISender sender) =>
         {
-            var success = await sender.Send(new DeletePartCommand(id));
+            var success = await sender.Send(new DeletePartCommand(id, user.GetUserId(), user.IsInRole("Admin")));
             return success ? Results.NoContent() : Results.NotFound();
         })
+        .RequireAuthorization()
         .WithName("DeletePart")
         .WithTags("Parts");
     }
