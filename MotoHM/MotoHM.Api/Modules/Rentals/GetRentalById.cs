@@ -40,6 +40,7 @@ public static class GetRentalById
             return result is not null ? Results.Ok(result) : Results.NotFound();
         })
         .WithName("GetRentalById")
-        .WithTags("Rentals");
+        .WithTags("Rentals")
+        .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 }

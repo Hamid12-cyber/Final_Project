@@ -80,7 +80,8 @@ public static class CreateRental
         app.MapPost("/api/rentals", async (CreateRentalCommand command, ISender sender) =>
         {
             var id = await sender.Send(command);
-            return Results.Created($"/api/rentals/{id}", new { id });
+            var detail = await sender.Send(new GetRentalById.Query(id));
+            return Results.Created($"/api/rentals/{id}", detail);
         })
         .WithName("CreateRental")
         .WithTags("Rentals");

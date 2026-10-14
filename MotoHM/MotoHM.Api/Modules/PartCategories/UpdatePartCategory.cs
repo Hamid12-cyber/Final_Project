@@ -38,6 +38,7 @@ public static class UpdatePartCategory
             var success = await sender.Send(command);
             return success ? Results.NoContent() : Results.NotFound();
         })
+        .RequireAuthorization(policy => policy.RequireRole("Admin"))
         .WithName("UpdatePartCategory")
         .WithTags("PartCategories");
     }

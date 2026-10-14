@@ -40,6 +40,7 @@ public static class GetServiceBookingById
             return result is not null ? Results.Ok(result) : Results.NotFound();
         })
         .WithName("GetServiceBookingById")
-        .WithTags("Service");
+        .WithTags("Service")
+        .RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 }

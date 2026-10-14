@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using System.Security.Claims;
+using MotoHM.Api.Shared.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
 
@@ -6,7 +8,7 @@ namespace MotoHM.Api.Modules.Accessories;
 
 public static class DeleteAccessory
 {
-    public record DeleteAccessoryCommand(int Id) : IRequest<bool>;
+    public record DeleteAccessoryCommand(int Id, int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<DeleteAccessoryCommand, bool>
     {
@@ -15,7 +17,7 @@ public static class DeleteAccessory
 
         public async Task<bool> Handle(DeleteAccessoryCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _db.Accessories.FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken);
+            var entity = await _db.Accessories.FirstOrDefaultAsync(a => a.Id == request.Id && (request.IsAdmin || a.SellerId == request.UserId), cancellationToken);
 
             if (entity is null)
                 return false;
@@ -30,9 +32,9 @@ public static class DeleteAccessory
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapDelete("/api/accessories/{id:int}", async (int id, ISender sender) =>
+        app.MapDelete("/api/accessories/{id:int}", async (int id, ClaimsPrincipal user, ISender sender) =>
         {
-            var success = await sender.Send(new DeleteAccessoryCommand(id));
+            var success = await sender.Send(new DeleteAccessoryCommand(id, user.GetUserId(), user.IsInRole("Admin")));
             return success ? Results.NoContent() : Results.NotFound();
         })
         .RequireAuthorization()

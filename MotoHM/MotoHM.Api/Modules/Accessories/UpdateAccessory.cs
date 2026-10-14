@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using System.Security.Claims;
+using MotoHM.Api.Shared.Extensions;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
@@ -8,7 +10,7 @@ namespace MotoHM.Api.Modules.Accessories;
 public static class UpdateAccessory
 {
     public record UpdateAccessoryCommand(int Id, string Name, string Brand, decimal Price,
-        int StockQty, string? ImageUrl) : IRequest<bool>;
+        int StockQty, string? ImageUrl, int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<UpdateAccessoryCommand, bool>
     {
@@ -17,7 +19,7 @@ public static class UpdateAccessory
 
         public async Task<bool> Handle(UpdateAccessoryCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _db.Accessories.FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken);
+            var entity = await _db.Accessories.FirstOrDefaultAsync(a => a.Id == request.Id && (request.IsAdmin || a.SellerId == request.UserId), cancellationToken);
 
             if (entity is null)
                 return false;
@@ -38,9 +40,10 @@ public static class UpdateAccessory
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPut("/api/accessories/{id:int}", async (int id, UpdateAccessoryBody body, ISender sender) =>
+        app.MapPut("/api/accessories/{id:int}", async (int id, UpdateAccessoryBody body, ClaimsPrincipal user, ISender sender) =>
         {
-            var command = new UpdateAccessoryCommand(id, body.Name, body.Brand, body.Price, body.StockQty, body.ImageUrl);
+            var command = new UpdateAccessoryCommand(id, body.Name, body.Brand, body.Price, body.StockQty, body.ImageUrl,
+                user.GetUserId(), user.IsInRole("Admin"));
             var success = await sender.Send(command);
             return success ? Results.NoContent() : Results.NotFound();
         })

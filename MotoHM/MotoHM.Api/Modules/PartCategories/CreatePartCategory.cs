@@ -30,6 +30,7 @@ public static class CreatePartCategory
             var id = await sender.Send(command);
             return Results.Created($"/api/part-categories/{id}", new { id });
         })
+        .RequireAuthorization(policy => policy.RequireRole("Admin"))
         .WithName("CreatePartCategory")
         .WithTags("PartCategories");
     }

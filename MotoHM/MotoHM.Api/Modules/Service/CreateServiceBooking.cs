@@ -51,7 +51,8 @@ public static class CreateServiceBooking
         app.MapPost("/api/service-bookings", async (CreateServiceBookingCommand command, ISender sender) =>
         {
             var id = await sender.Send(command);
-            return Results.Created($"/api/service-bookings/{id}", new { id });
+            var detail = await sender.Send(new GetServiceBookingById.Query(id));
+            return Results.Created($"/api/service-bookings/{id}", detail);
         })
         .WithName("CreateServiceBooking")
         .WithTags("Service");

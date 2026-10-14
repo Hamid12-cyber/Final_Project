@@ -33,6 +33,7 @@ public static class DeletePartCategory
             var success = await sender.Send(new DeletePartCategoryCommand(id));
             return success ? Results.NoContent() : Results.NotFound();
         })
+        .RequireAuthorization(policy => policy.RequireRole("Admin"))
         .WithName("DeletePartCategory")
         .WithTags("PartCategories");
     }
