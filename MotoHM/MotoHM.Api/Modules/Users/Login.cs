@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Microsoft.AspNetCore.RateLimiting;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -73,7 +74,8 @@ public static class Login
             return Results.Ok(result);
         })
         .WithName("Login")
-        .WithTags("Auth");
+        .WithTags("Auth")
+        .RequireRateLimiting("auth");
     }
     public class Validator : AbstractValidator<LoginCommand>
     {

@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Microsoft.AspNetCore.RateLimiting;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
@@ -41,7 +42,8 @@ public static class ResetPassword
             return Results.Ok(new { message = "Şifrəniz uğurla yeniləndi." });
         })
         .WithName("ResetPassword")
-        .WithTags("Auth");
+        .WithTags("Auth")
+        .RequireRateLimiting("auth");
     }
 
     public class Validator : AbstractValidator<ResetPasswordCommand>
