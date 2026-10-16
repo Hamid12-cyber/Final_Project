@@ -1,10 +1,18 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import apiClient from '../api/client.js';
+import { useAuth } from '../context/AuthContext.jsx';
+import { useCart } from '../context/CartContext.jsx';
 
 export default function AccessoriesPage() {
   const [accessories, setAccessories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [addingId, setAddingId] = useState(null);
+
+  const { user } = useAuth();
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     apiClient.get('/accessories')
@@ -17,6 +25,21 @@ export default function AccessoriesPage() {
         setLoading(false);
       });
   }, []);
+
+  const handleAddToCart = async (accessoryId) => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    setAddingId(accessoryId);
+    try {
+      await addToCart({ accessoryId, quantity: 1 });
+    } catch (err) {
+      alert(err.response?.data?.message ?? 'Səbətə əlavə etmək mümkün olmadı.');
+    } finally {
+      setAddingId(null);
+    }
+  };
 
   if (loading) return <div className="state-msg">Yüklənir...</div>;
   if (error) return <div className="state-msg">Xəta: {error}</div>;
@@ -41,10 +64,12 @@ export default function AccessoriesPage() {
                 <p className={`product-stock ${a.stockQty === 0 ? 'low' : ''}`}>
                   {a.stockQty > 0 ? `Stokda: ${a.stockQty} ədəd` : 'Stokda yoxdur'}
                 </p>
-                {/* Backend-də CartItem yalnız MotorcycleId/PartId qəbul edir, AccessoryId sahəsi yoxdur.
-                    Bu düymə backend-ə migration əlavə olunana qədər deaktivdir. */}
-                <button className="details-btn" disabled title="Aksesuarlar üçün səbət dəstəyi hələ backend-də yoxdur">
-                  Tezliklə səbətdə
+                <button
+                  className="details-btn"
+                  disabled={a.stockQty === 0 || addingId === a.id}
+                  onClick={() => handleAddToCart(a.id)}
+                >
+                  {addingId === a.id ? 'Əlavə olunur...' : 'Səbətə at'}
                 </button>
               </div>
             </div>

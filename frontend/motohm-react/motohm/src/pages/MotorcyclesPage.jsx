@@ -3,6 +3,9 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import apiClient from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
+import { matchesFilters } from '../utils/motorcycleFilter.js';
+import StarRating from '../components/StarRating.jsx';
+import FavoriteButton from '../components/FavoriteButton.jsx';
 
 export default function MotorcyclesPage() {
   const [motorcycles, setMotorcycles] = useState([]);
@@ -11,6 +14,13 @@ export default function MotorcyclesPage() {
   const [addingId, setAddingId] = useState(null);
   const [searchParams] = useSearchParams();
   const searchQuery = (searchParams.get('search') ?? '').toLowerCase();
+  const filters = {
+    brand: searchParams.get('brand') ?? '',
+    model: searchParams.get('model') ?? '',
+    year: searchParams.get('year') ?? '',
+    price: searchParams.get('price') ?? '',
+  };
+  const hasFilters = Object.values(filters).some(Boolean);
 
   const { user } = useAuth();
   const { addToCart } = useCart();
@@ -46,17 +56,27 @@ export default function MotorcyclesPage() {
   if (loading) return <div className="state-msg">Yüklənir...</div>;
   if (error) return <div className="state-msg">Xəta: {error}</div>;
 
-  const filtered = searchQuery
-    ? motorcycles.filter((m) =>
-        m.name.toLowerCase().includes(searchQuery) || m.brand.toLowerCase().includes(searchQuery)
-      )
-    : motorcycles;
+  const filtered = motorcycles
+    .filter((m) => matchesFilters(m, filters))
+    .filter((m) =>
+      !searchQuery ||
+      m.name.toLowerCase().includes(searchQuery) ||
+      m.brand.toLowerCase().includes(searchQuery)
+    );
 
   return (
     <div className="page-wrap">
       <h1 className="page-title">
-        {searchQuery ? `Axtarış: "${searchParams.get('search')}"` : 'Motosikletlər'}
+        {searchQuery
+          ? `Axtarış: "${searchParams.get('search')}"`
+          : hasFilters ? `Axtarış nəticələri (${filtered.length})` : 'Motosikletlər'}
       </h1>
+      {(hasFilters || searchQuery) && (
+        <p className="product-meta" style={{ marginBottom: 16 }}>
+          {[filters.brand, filters.model, filters.year].filter(Boolean).join(' · ')}
+          {(hasFilters || searchQuery) && <> · <Link to="/motorcycles" className="accent">Filtrləri təmizlə</Link></>}
+        </p>
+      )}
 
       {filtered.length === 0 ? (
         <div className="state-msg">Nəticə tapılmadı.</div>
@@ -64,6 +84,7 @@ export default function MotorcyclesPage() {
         <div className="product-grid">
           {filtered.map((m) => (
             <div className="product-card" key={m.id}>
+              <FavoriteButton motorcycleId={m.id} />
               <Link to={`/motorcycles/${m.id}`}>
                 <div className="product-image">
                   {m.imageUrl && <img src={m.imageUrl} alt={m.name} />}
@@ -74,6 +95,7 @@ export default function MotorcyclesPage() {
                   <p className="product-name">{m.name}</p>
                 </Link>
                 <p className="product-meta">{m.brand} · {m.year}</p>
+                <StarRating value={m.averageRating} count={m.reviewCount} />
                 <p className="product-price">{m.price.toLocaleString('az-AZ')} AZN</p>
                 <button
                   className="details-btn"

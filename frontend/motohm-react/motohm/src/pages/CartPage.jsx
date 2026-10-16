@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
+import { itemName, itemType } from '../utils/itemInfo.js';
 
 export default function CartPage() {
   const { user } = useAuth();
@@ -77,8 +78,8 @@ export default function CartPage() {
             {items.map((item) => (
               <div className="cart-row" key={item.id}>
                 <div className="cart-item-info">
-                  <p className="cart-item-name">{item.motorcycleName ?? item.partName}</p>
-                  <p className="cart-item-type">{item.motorcycleId ? 'Motosiklet' : 'Ehtiyat hissəsi'}</p>
+                  <p className="cart-item-name">{itemName(item)}</p>
+                  <p className="cart-item-type">{itemType(item)}</p>
                 </div>
 
                 <div className="qty-control">

@@ -72,8 +72,7 @@ export default function ServicePage() {
         customerPhone,
         notes: notes || null,
       });
-      const detail = await apiClient.get(`/service-bookings/${res.data.id}`);
-      setConfirmation(detail.data);
+      setConfirmation(res.data);
     } catch (err) {
       setFormError(err.response?.data?.message ?? 'Bron göndərilmədi.');
     } finally {

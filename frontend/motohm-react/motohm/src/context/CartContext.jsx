@@ -26,8 +26,9 @@ export function CartProvider({ children }) {
     refreshCart();
   }, [refreshCart]);
 
-  const addToCart = async ({ motorcycleId = null, partId = null, quantity = 1 }) => {
-    await apiClient.post('/cart/items', { motorcycleId, partId, quantity });
+  // motorcycleId, partId, accessoryId-dən yalnız biri göndərilməlidir
+  const addToCart = async ({ motorcycleId = null, partId = null, accessoryId = null, quantity = 1 }) => {
+    await apiClient.post('/cart/items', { motorcycleId, partId, accessoryId, quantity });
     await refreshCart();
   };
 
