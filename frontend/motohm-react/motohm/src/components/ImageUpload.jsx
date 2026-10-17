@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import apiClient from '../api/client.js';
 
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
-const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
+const ALLOWED = ['image/jpeg', 'image/png', 'image/webp'];
+const MAX_SIZE = 5 * 1024 * 1024; // backend limiti ilə eyni: 5 MB
 
-// value: şəklin URL-i, onChange(url): yeni URL (və ya boş sətir) göndərilir
+// props: value (şəkil URL-i), onChange(url)
 export default function ImageUpload({ value, onChange }) {
   const inputRef = useRef(null);
   const [uploading, setUploading] = useState(false);
@@ -15,9 +15,7 @@ export default function ImageUpload({ value, onChange }) {
     e.target.value = ''; // eyni faylı yenidən seçmək mümkün olsun
     if (!file) return;
 
-    setError(null);
-
-    if (!ALLOWED_TYPES.includes(file.type)) {
+    if (!ALLOWED.includes(file.type)) {
       setError('Yalnız JPG, PNG və ya WebP şəkilləri qəbul olunur.');
       return;
     }
@@ -26,12 +24,12 @@ export default function ImageUpload({ value, onChange }) {
       return;
     }
 
-    const formData = new FormData();
-    formData.append('file', file);
-
+    setError(null);
     setUploading(true);
     try {
-      const res = await apiClient.post('/uploads/images', formData);
+      const form = new FormData();
+      form.append('file', file);
+      const res = await apiClient.post('/uploads/images', form);
       onChange(res.data.url);
     } catch (err) {
       setError(err.response?.data?.message ?? 'Şəkil yüklənmədi.');
@@ -41,49 +39,24 @@ export default function ImageUpload({ value, onChange }) {
   };
 
   return (
-    <div className="form-field">
-      <span>Şəkil (istəyə görə)</span>
-
-      <div className="image-upload">
-        {value ? (
-          <div className="image-upload-preview">
-            <img src={value} alt="Önizləmə" />
-          </div>
-        ) : (
-          <div className="image-upload-empty">Şəkil seçilməyib</div>
-        )}
-
-        <div className="image-upload-actions">
-          <input
-            ref={inputRef}
-            type="file"
-            accept="image/jpeg,image/png,image/webp"
-            style={{ display: 'none' }}
-            onChange={handleFile}
-          />
-          <button
-            type="button"
-            className="filter-chip"
-            disabled={uploading}
-            onClick={() => inputRef.current?.click()}
-          >
+    <div className="img-upload">
+      <span className="img-upload-label">Şəkil</span>
+      <div className="img-upload-row">
+        <div className="img-upload-preview">
+          {value ? <img src={value} alt="Önizləmə" /> : <span>🏍️</span>}
+        </div>
+        <div className="img-upload-actions">
+          <button type="button" className="seller-btn" onClick={() => inputRef.current?.click()} disabled={uploading}>
             {uploading ? 'Yüklənir...' : value ? 'Şəkli dəyiş' : 'Şəkil seç'}
           </button>
-          {value && (
-            <button type="button" className="filter-chip" disabled={uploading} onClick={() => onChange('')}>
+          {value && !uploading && (
+            <button type="button" className="seller-btn seller-btn-danger" onClick={() => onChange('')}>
               Sil
             </button>
           )}
         </div>
-
-        <input
-          type="text"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder="və ya şəkil URL-i yaz: https://..."
-        />
+        <input ref={inputRef} type="file" accept="image/jpeg,image/png,image/webp" hidden onChange={handleFile} />
       </div>
-
       {error && <p className="form-error">{error}</p>}
     </div>
   );

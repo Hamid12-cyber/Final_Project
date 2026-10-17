@@ -11,11 +11,9 @@ import AccessoriesPage from './pages/AccessoriesPage.jsx';
 import OrdersPage from './pages/OrdersPage.jsx';
 import OrderDetailPage from './pages/OrderDetailPage.jsx';
 import AdminPage from './pages/AdminPage.jsx';
-import AdminOrdersPage from './pages/AdminOrdersPage.jsx';
-import AdminDashboardPage from './pages/AdminDashboardPage.jsx';
-import FavoritesPage from './pages/FavoritesPage.jsx';
 import MotorcycleDetailPage from './pages/MotorcycleDetailPage.jsx';
 import CreateListingPage from './pages/CreateListingPage.jsx';
+import SellerPage from './pages/SellerPage.jsx';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import DeliveryPage from './pages/DeliveryPage.jsx';
@@ -45,16 +43,14 @@ export default function App() {
 
       <Route element={<ProtectedRoute />}>
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/orders/:id" element={<OrderDetailPage />} />
         <Route path="/sell" element={<CreateListingPage />} />
+        <Route path="/seller" element={<SellerPage />} />
       </Route>
 
       <Route element={<ProtectedRoute roles={['Admin']} />}>
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/admin/orders" element={<AdminOrdersPage />} />
-        <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
       </Route>
     </Routes>
   );
