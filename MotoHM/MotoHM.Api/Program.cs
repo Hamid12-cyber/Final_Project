@@ -15,6 +15,7 @@ using MotoHM.Api.Modules.Orders;
 using MotoHM.Api.Modules.PartCategories;
 using MotoHM.Api.Modules.Parts;
 using MotoHM.Api.Modules.Rentals;
+using MotoHM.Api.Modules.Seller;
 using MotoHM.Api.Modules.Service;
 using MotoHM.Api.Modules.Testimonials;
 using MotoHM.Api.Modules.Uploads;
@@ -234,6 +235,7 @@ DeleteTestimonial.MapEndpoint(app);
 // Rentals
 GetAllRentals.MapEndpoint(app);
 GetBookedRentalDates.MapEndpoint(app);
+GetMyListings.MapEndpoint(app);
 GetRentalById.MapEndpoint(app);
 CreateRental.MapEndpoint(app);
 UpdateRental.MapEndpoint(app);
