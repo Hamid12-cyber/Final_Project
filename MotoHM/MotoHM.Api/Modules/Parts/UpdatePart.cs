@@ -30,6 +30,13 @@ public static class UpdatePart
             entity.StockQty = request.StockQty;
             entity.ImageUrl = request.ImageUrl;
             entity.PartCategoryId = request.PartCategoryId;
+            // Satıcı elanı dəyişəndə (rədd edilmiş də olsa, təsdiqlənmiş də) yenidən admin təsdiqinə göndərilir
+            if (!request.IsAdmin)
+            {
+                entity.Status = MotoHM.Api.Entites.Enums.ApprovalStatus.Pending;
+                entity.RejectionReason = null;
+            }
+
             entity.UpdatedAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync(cancellationToken);

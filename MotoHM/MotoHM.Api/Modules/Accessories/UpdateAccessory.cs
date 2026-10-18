@@ -29,6 +29,12 @@ public static class UpdateAccessory
             entity.Price = request.Price;
             entity.StockQty = request.StockQty;
             entity.ImageUrl = request.ImageUrl;
+            if (!request.IsAdmin)
+            {
+                entity.Status = MotoHM.Api.Entites.Enums.ApprovalStatus.Pending;
+                entity.RejectionReason = null;
+            }
+
             entity.UpdatedAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync(cancellationToken);

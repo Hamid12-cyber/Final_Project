@@ -31,6 +31,13 @@ public static class UpdateMotorcycle
             entity.ImageUrl = request.ImageUrl;
             entity.IsForRent = request.IsForRent;
             entity.IsForSale = request.IsForSale;
+            // Satıcı elanı dəyişəndə (rədd edilmiş də olsa, təsdiqlənmiş də) yenidən admin təsdiqinə göndərilir
+            if (!request.IsAdmin)
+            {
+                entity.Status = MotoHM.Api.Entites.Enums.ApprovalStatus.Pending;
+                entity.RejectionReason = null;
+            }
+
             entity.UpdatedAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync(cancellationToken);
