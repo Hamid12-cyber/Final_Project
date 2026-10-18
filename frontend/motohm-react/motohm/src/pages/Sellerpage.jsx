@@ -115,6 +115,7 @@ export default function SellerPage() {
           ? {
               ...i,
               name: body.name, brand: body.brand, price: body.price, imageUrl: body.imageUrl,
+              status: 'Pending', rejectionReason: null,
               ...(editing.type === 'motorcycle'
                 ? { model: body.model, cc: body.cc, year: body.year, isForRent: body.isForRent, isForSale: body.isForSale }
                 : { stockQty: body.stockQty }),
@@ -122,7 +123,7 @@ export default function SellerPage() {
             }
           : i));
       setEditing(null);
-      setNotice('Elan yeniləndi.');
+      setNotice('Elan yeniləndi və yenidən admin təsdiqinə göndərildi.');
     } catch (err) {
       const errors = err.response?.data?.errors;
       const firstValidation = errors ? Object.values(errors).flat()[0] : null;
@@ -219,6 +220,11 @@ export default function SellerPage() {
                     {item.brand} · {TYPE_LABELS[item.type]}
                     {item.stockQty !== null && item.stockQty !== undefined && ` · Stok: ${item.stockQty}`}
                   </p>
+                  {item.status === 'Rejected' && item.rejectionReason && (
+                    <p className="seller-reject-reason">
+                      <strong>Rədd səbəbi:</strong> {item.rejectionReason}
+                    </p>
+                  )}
                 </div>
                 <span className={`status-badge ${meta.cls}`}>{meta.label}</span>
                 <p className="cart-item-price">{item.price.toLocaleString('az-AZ')} AZN</p>
@@ -243,6 +249,7 @@ export default function SellerPage() {
         <div className="modal-backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget && !saving) setEditing(null); }}>
           <form className="modal-card checkout-form" onSubmit={handleSave}>
             <h2 className="modal-title">{TYPE_LABELS[editing.type]} elanını redaktə et</h2>
+            <p className="modal-hint">Yadda saxladıqdan sonra elan yenidən admin təsdiqinə göndəriləcək və təsdiqlənənə qədər saytda görünməyəcək.</p>
 
             <label className="form-field">
               <span>Ad</span>

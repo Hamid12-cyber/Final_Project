@@ -18,6 +18,9 @@ export default function AdminPage() {
   const [busyId, setBusyId] = useState(null);
   const [resyncing, setResyncing] = useState(false);
   const [resyncReport, setResyncReport] = useState(null);
+  const [rejecting, setRejecting] = useState(null); // rədd edilən elan
+  const [reason, setReason] = useState('');
+  const [rejectError, setRejectError] = useState(null);
 
   const load = useCallback(() => {
     setLoading(true);
@@ -53,6 +56,33 @@ export default function AdminPage() {
       setItems((prev) => prev.filter((i) => i.id !== id));
     } catch (err) {
       alert(err.response?.data?.message ?? 'Əməliyyat uğursuz oldu.');
+    } finally {
+      setBusyId(null);
+    }
+  };
+
+  const openReject = (item) => {
+    setRejecting(item);
+    setReason('');
+    setRejectError(null);
+  };
+
+  const handleReject = async (e) => {
+    e.preventDefault();
+    if (!reason.trim()) {
+      setRejectError('Rədd səbəbi yazılmalıdır.');
+      return;
+    }
+    setBusyId(rejecting.id);
+    setRejectError(null);
+    try {
+      await apiClient.put(`/admin/${tab}/${rejecting.id}/reject`, { reason: reason.trim() });
+      setItems((prev) => prev.filter((i) => i.id !== rejecting.id));
+      setRejecting(null);
+    } catch (err) {
+      const errors = err.response?.data?.errors;
+      const firstValidation = errors ? Object.values(errors).flat()[0] : null;
+      setRejectError(firstValidation ?? err.response?.data?.message ?? 'Əməliyyat uğursuz oldu.');
     } finally {
       setBusyId(null);
     }
@@ -118,7 +148,7 @@ export default function AdminPage() {
                 <button
                   className="admin-reject-btn"
                   disabled={busyId === item.id}
-                  onClick={() => handleDecision(item.id, 'reject')}
+                  onClick={() => openReject(item)}
                 >
                   Rədd et
                 </button>
@@ -144,6 +174,33 @@ export default function AdminPage() {
           </div>
         )}
       </div>
+
+      {rejecting && (
+        <div className="modal-backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget && busyId === null) setRejecting(null); }}>
+          <form className="modal-card" onSubmit={handleReject}>
+            <h2 className="modal-title">Elanı rədd et</h2>
+            <p className="cart-item-type">{rejecting.name} · Satıcı: {rejecting.sellerName}</p>
+            <label className="form-field">
+              <span>Rədd səbəbi (satıcı görəcək)</span>
+              <textarea
+                className="reject-textarea"
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
+                maxLength={500}
+                rows={4}
+                autoFocus
+                placeholder="Məs.: Şəkil keyfiyyətsizdir, qiymət səhvdir..."
+              />
+              <span style={{ alignSelf: 'flex-end', fontSize: 12 }}>{reason.length}/500</span>
+            </label>
+            {rejectError && <p className="form-error">{rejectError}</p>}
+            <div className="seller-modal-buttons">
+              <button type="button" className="seller-btn" onClick={() => setRejecting(null)} disabled={busyId !== null}>Ləğv et</button>
+              <button type="submit" className="admin-reject-btn" disabled={busyId !== null}>Rədd et</button>
+            </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
