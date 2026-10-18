@@ -24,6 +24,7 @@ public static class ApproveMotorcycle
                     $"Motorcycle (Id={request.Id}) tapılmadı.");
 
             entity.Status = ApprovalStatus.Approved;
+            entity.RejectionReason = null;
             entity.UpdatedAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync(cancellationToken);

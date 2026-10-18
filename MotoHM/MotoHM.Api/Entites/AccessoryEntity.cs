@@ -14,4 +14,8 @@ public class AccessoryEntity : BaseEntity
     public UserEntity Seller { get; set; } = null!;
     public ApprovalStatus Status { get; set; } = ApprovalStatus.Pending;
 
+    // Admin elanı rədd edəndə yazdığı səbəb (satıcı görür)
+    [System.ComponentModel.DataAnnotations.MaxLength(500)]
+    public string? RejectionReason { get; set; }
+
 }
