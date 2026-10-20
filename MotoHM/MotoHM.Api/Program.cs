@@ -281,6 +281,7 @@ CreateOrder.MapEndpoint(app);
 GetMyOrders.MapEndpoint(app);
 GetOrderById.MapEndpoint(app);
 UpdateOrderStatus.MapEndpoint(app);
+CancelOrder.MapEndpoint(app);
 
 // Accessories
 GetAllAccessories.MapEndpoint(app);

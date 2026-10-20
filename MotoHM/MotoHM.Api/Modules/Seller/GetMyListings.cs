@@ -9,8 +9,6 @@ namespace MotoHM.Api.Modules.Seller;
 public static class GetMyListings
 {
     public record Query(int UserId) : IRequest<List<ListingDto>>;
-
-    // Type: motorcycle | part | accessory. Redaktə formu üçün lazım olan əlavə sahələr tipə görə null ola bilər.
     public record ListingDto(string Type, int Id, string Name, string Brand, decimal Price, int? StockQty,
         string? ImageUrl, string Status, DateTime CreatedAt,
         string? Model, int? Cc, int? Year, bool? IsForRent, bool? IsForSale, int? PartCategoryId,
