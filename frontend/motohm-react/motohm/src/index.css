@@ -793,3 +793,53 @@ a { text-decoration: none; color: inherit; }
   font: inherit; font-size: 14px;
 }
 .reject-textarea:focus { outline: none; border-color: var(--accent); }
+/* index.css-in sonuna əlavə et (seller-panel.css-dəki .seller-btn və .seller-notice stilləri də lazımdır) */
+
+.tracker { display: flex; list-style: none; padding: 0; margin: 0 0 28px; }
+.tracker-step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; text-align: center; }
+.tracker-step::before {
+  content: ''; position: absolute; top: 15px; left: -50%; width: 100%; height: 2px;
+  background: var(--border); z-index: 0;
+}
+.tracker-step:first-child::before { display: none; }
+.tracker-dot {
+  width: 32px; height: 32px; border-radius: 50%; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--card); border: 2px solid var(--border); color: var(--muted);
+  font-size: 13px; font-weight: 700;
+}
+.tracker-label { font-size: 12px; color: var(--muted); }
+.tracker-step.done::before, .tracker-step.active::before { background: var(--accent); }
+.tracker-step.done .tracker-dot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tracker-step.active .tracker-dot { border-color: var(--accent); color: var(--accent); }
+.tracker-step.done .tracker-label, .tracker-step.active .tracker-label { color: var(--text); }
+.tracker-cancelled {
+  margin-bottom: 24px; padding: 12px 16px; border-radius: 10px; font-size: 14px;
+  color: var(--accent); background: rgba(229,57,53,0.10); border: 1px solid rgba(229,57,53,0.25);
+}
+
+.admin-search {
+  width: 100%; margin: 4px 0 16px; padding: 10px 14px; font: inherit; font-size: 14px;
+  background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 10px;
+}
+.admin-search:focus { outline: none; border-color: var(--accent); }
+
+.admin-order {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px; display: flex; flex-direction: column; gap: 12px;
+}
+.admin-order-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.admin-order-head .cart-item-info { flex: 1; min-width: 200px; }
+.admin-order-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.seller-btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.seller-btn-primary:hover:not(:disabled) { filter: brightness(1.1); }
+.admin-order-detail { border-top: 1px solid var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.admin-order-items { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; }
+.admin-order-items li { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+.admin-order-items em { color: var(--muted); font-style: normal; font-size: 12px; }
+.admin-pager { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 20px; }
+
+@media (max-width: 600px) {
+  .tracker-label { font-size: 11px; }
+  .admin-order-items li { flex-direction: column; gap: 2px; }
+}

@@ -1,179 +1,204 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
-import { useAuth } from '../context/AuthContext.jsx';
-import { STATUS_LABELS, STATUS_CLASS } from './OrdersPage.jsx';
+import { STATUS_LABELS, STATUS_CLASS, NEXT_ACTIONS } from '../utils/orderStatus.js';
 import { itemName, itemType } from '../utils/itemInfo.js';
 
-const STATUSES = ['Pending', 'Confirmed', 'Shipped', 'Delivered', 'Cancelled'];
 const PAGE_SIZE = 20;
 
+const FILTERS = [
+  { key: '', label: 'Hamısı' },
+  { key: 'Pending', label: STATUS_LABELS.Pending },
+  { key: 'Confirmed', label: STATUS_LABELS.Confirmed },
+  { key: 'Shipped', label: STATUS_LABELS.Shipped },
+  { key: 'Delivered', label: STATUS_LABELS.Delivered },
+  { key: 'Cancelled', label: STATUS_LABELS.Cancelled },
+];
+
 export default function AdminOrdersPage() {
-  const { user } = useAuth();
-  const [status, setStatus] = useState('');
+  const [orders, setOrders] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
-  const [data, setData] = useState({ items: [], totalCount: 0 });
+  const [statusFilter, setStatusFilter] = useState('');
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [openId, setOpenId] = useState(null);
-  const [details, setDetails] = useState({});
-  const [busyId, setBusyId] = useState(null);
 
-  const load = useCallback(() => {
+  const [busyId, setBusyId] = useState(null);
+  const [notice, setNotice] = useState(null);
+
+  const [openId, setOpenId] = useState(null);
+  const [details, setDetails] = useState({}); // id -> detail
+  const [detailLoading, setDetailLoading] = useState(false);
+
+  const load = () => {
     setLoading(true);
     setError(null);
-    apiClient.get('/admin/orders', {
-      params: { status: status || undefined, page, pageSize: PAGE_SIZE },
-    })
-      .then((res) => setData(res.data))
-      .catch((err) => setError(err.response?.data?.message ?? err.message))
+    const params = { page, pageSize: PAGE_SIZE };
+    if (statusFilter) params.status = statusFilter;
+    apiClient.get('/admin/orders', { params })
+      .then((res) => {
+        setOrders(res.data.items);
+        setTotalCount(res.data.totalCount);
+      })
+      .catch((err) => setError(err.response?.data?.message ?? 'Sifarişlər yüklənmədi.'))
       .finally(() => setLoading(false));
-  }, [status, page]);
+  };
 
-  useEffect(() => {
-    load();
-  }, [load]);
+  useEffect(load, [page, statusFilter]);
 
-  if (!user || user.role !== 'Admin') {
-    return (
-      <div className="page-wrap">
-        <h1 className="page-title">Bütün sifarişlər</h1>
-        <div className="state-msg">Bu səhifəyə giriş icazəniz yoxdur.</div>
-      </div>
-    );
-  }
-
-  const changeFilter = (s) => {
-    setStatus(s);
+  const changeFilter = (key) => {
+    setStatusFilter(key);
     setPage(1);
     setOpenId(null);
   };
 
-  const toggleDetails = async (id) => {
-    if (openId === id) {
+  const visible = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return orders;
+    return orders.filter((o) =>
+      String(o.id) === q.replace('#', '') ||
+      o.customerName.toLowerCase().includes(q) ||
+      o.customerEmail.toLowerCase().includes(q));
+  }, [orders, search]);
+
+  const toggleDetails = async (order) => {
+    if (openId === order.id) {
       setOpenId(null);
       return;
     }
-    setOpenId(id);
-    if (details[id]) return;
+    setOpenId(order.id);
+    if (details[order.id]) return;
+    setDetailLoading(true);
     try {
-      const res = await apiClient.get(`/admin/orders/${id}`);
-      setDetails((prev) => ({ ...prev, [id]: res.data }));
-    } catch (err) {
-      alert(err.response?.data?.message ?? 'Sifariş detalları yüklənmədi.');
-      setOpenId(null);
+      const res = await apiClient.get(`/admin/orders/${order.id}`);
+      setDetails((prev) => ({ ...prev, [order.id]: res.data }));
+    } catch {
+      setNotice('Sifariş detalları yüklənmədi.');
+    } finally {
+      setDetailLoading(false);
     }
   };
 
-  const changeStatus = async (id, newStatus) => {
-    setBusyId(id);
+  const changeStatus = async (order, action) => {
+    if (action.danger && !window.confirm(`Sifariş #${order.id} ləğv edilsin? Stok geri qaytarılacaq.`)) return;
+    setBusyId(order.id);
+    setNotice(null);
     try {
-      await apiClient.put(`/admin/orders/${id}/status`, { status: newStatus });
-      setDetails((prev) => (prev[id] ? { ...prev, [id]: { ...prev[id], status: newStatus } } : prev));
-      load();
+      await apiClient.put(`/admin/orders/${order.id}/status`, { status: action.status });
+
+      // Filtr aktivdirsə və yeni status filtrə uyğun deyilsə, siyahıdan çıxar
+      if (statusFilter && statusFilter !== action.status) {
+        setOrders((prev) => prev.filter((o) => o.id !== order.id));
+        setTotalCount((c) => Math.max(0, c - 1));
+      } else {
+        setOrders((prev) => prev.map((o) => (o.id === order.id ? { ...o, status: action.status } : o)));
+      }
+      setDetails((prev) => (prev[order.id] ? { ...prev, [order.id]: { ...prev[order.id], status: action.status } } : prev));
+      setNotice(`Sifariş #${order.id}: ${STATUS_LABELS[action.status]}.`);
     } catch (err) {
-      alert(err.response?.data?.message ?? 'Status dəyişmədi.');
+      const errors = err.response?.data?.errors;
+      const firstValidation = errors ? Object.values(errors).flat()[0] : null;
+      setNotice(firstValidation ?? err.response?.data?.message ?? 'Status dəyişmədi.');
     } finally {
       setBusyId(null);
     }
   };
 
-  const totalPages = Math.max(1, Math.ceil(data.totalCount / PAGE_SIZE));
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
 
   return (
     <div className="page-wrap">
-      <Link to="/admin" className="see-all">← Admin panelə qayıt</Link>
-      <h1 className="page-title" style={{ marginTop: 16 }}>Bütün sifarişlər ({data.totalCount})</h1>
+      <Link to="/admin" className="see-all">← Admin panelinə qayıt</Link>
+      <h1 className="page-title" style={{ marginTop: 16 }}>Sifarişlər</h1>
 
       <div className="category-filters">
-        <button className={`filter-chip ${status === '' ? 'active' : ''}`} onClick={() => changeFilter('')}>
-          Hamısı
-        </button>
-        {STATUSES.map((s) => (
+        {FILTERS.map((f) => (
           <button
-            key={s}
-            className={`filter-chip ${status === s ? 'active' : ''}`}
-            onClick={() => changeFilter(s)}
+            key={f.key || 'all'}
+            type="button"
+            className={`filter-chip ${statusFilter === f.key ? 'active' : ''}`}
+            onClick={() => changeFilter(f.key)}
           >
-            {STATUS_LABELS[s]}
+            {f.label}
           </button>
         ))}
       </div>
 
+      <input
+        className="admin-search"
+        type="text"
+        placeholder="Sifariş nömrəsi, ad və ya email ilə axtar..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {notice && <p className="seller-notice" onClick={() => setNotice(null)}>{notice}</p>}
+
       {loading ? (
         <div className="state-msg">Yüklənir...</div>
       ) : error ? (
-        <div className="state-msg">Xəta: {error}</div>
-      ) : data.items.length === 0 ? (
+        <div className="state-msg">
+          Xəta: {error} <button type="button" className="seller-btn" onClick={load}>Yenidən yoxla</button>
+        </div>
+      ) : visible.length === 0 ? (
         <div className="state-msg">Sifariş tapılmadı.</div>
       ) : (
         <div className="cart-list">
-          {data.items.map((o) => {
-            const d = details[o.id];
+          {visible.map((o) => {
+            const actions = NEXT_ACTIONS[o.status] ?? [];
+            const detail = details[o.id];
             return (
-              <div key={o.id}>
-                <div className="cart-row">
+              <div className="admin-order" key={o.id}>
+                <div className="admin-order-head">
                   <div className="cart-item-info">
-                    <p className="cart-item-name">Sifariş #{o.id} · {o.customerName}</p>
+                    <p className="cart-item-name">Sifariş #{o.id}</p>
                     <p className="cart-item-type">
-                      {o.customerEmail} · {new Date(o.createdAt).toLocaleDateString('az-AZ')} · {o.itemCount} ədəd
+                      {o.customerName} · {o.customerEmail}
+                    </p>
+                    <p className="cart-item-type">
+                      {new Date(o.createdAt).toLocaleString('az-AZ')} · {o.itemCount} ədəd
                     </p>
                   </div>
                   <span className={`status-badge ${STATUS_CLASS[o.status] ?? ''}`}>
                     {STATUS_LABELS[o.status] ?? o.status}
                   </span>
                   <p className="cart-item-price">{o.totalAmount.toLocaleString('az-AZ')} AZN</p>
-                  <button className="filter-chip" onClick={() => toggleDetails(o.id)}>
-                    {openId === o.id ? 'Bağla' : 'Ətraflı'}
+                </div>
+
+                <div className="admin-order-actions">
+                  <button type="button" className="seller-btn" onClick={() => toggleDetails(o)}>
+                    {openId === o.id ? 'Detalları gizlət' : 'Detallara bax'}
                   </button>
+                  {actions.map((a) => (
+                    <button
+                      key={a.status}
+                      type="button"
+                      className={`seller-btn ${a.danger ? 'seller-btn-danger' : 'seller-btn-primary'}`}
+                      onClick={() => changeStatus(o, a)}
+                      disabled={busyId === o.id}
+                    >
+                      {busyId === o.id ? '...' : a.label}
+                    </button>
+                  ))}
                 </div>
 
                 {openId === o.id && (
-                  <div style={{ padding: '16px 4px 24px' }}>
-                    {!d ? (
-                      <div className="state-msg">Yüklənir...</div>
-                    ) : (
-                      <>
-                        <div className="cart-summary" style={{ marginBottom: 16 }}>
-                          <div>
-                            <p className="cart-item-type">Ünvan</p>
-                            <p className="cart-item-name">{d.shippingAddress}</p>
-                          </div>
-                          <div>
-                            <p className="cart-item-type">Əlaqə</p>
-                            <p className="cart-item-name">{d.contactPhone}</p>
-                          </div>
-                        </div>
-
-                        <div className="cart-list" style={{ marginBottom: 16 }}>
-                          {d.items.map((item, idx) => (
-                            <div className="cart-row" key={idx}>
-                              <div className="cart-item-info">
-                                <p className="cart-item-name">{itemName(item)}</p>
-                                <p className="cart-item-type">{itemType(item)} · {item.quantity} ədəd</p>
-                              </div>
-                              <p className="cart-item-price">
-                                {(item.unitPriceAtOrderTime * item.quantity).toLocaleString('az-AZ')} AZN
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-
-                        <p className="cart-item-type" style={{ marginBottom: 8 }}>Statusu dəyiş:</p>
-                        <div className="category-filters" style={{ marginBottom: 0 }}>
-                          {STATUSES.map((s) => (
-                            <button
-                              key={s}
-                              className={`filter-chip ${d.status === s ? 'active' : ''}`}
-                              disabled={busyId === o.id || d.status === s}
-                              onClick={() => changeStatus(o.id, s)}
-                            >
-                              {STATUS_LABELS[s]}
-                            </button>
-                          ))}
-                        </div>
-                      </>
-                    )}
+                  <div className="admin-order-detail">
+                    <p className="cart-item-type">Ünvan: <strong>{o.shippingAddress}</strong></p>
+                    <p className="cart-item-type">Telefon: <strong>{o.contactPhone}</strong></p>
+                    {detailLoading && !detail ? (
+                      <p className="cart-item-type">Yüklənir...</p>
+                    ) : detail ? (
+                      <ul className="admin-order-items">
+                        {detail.items.map((item, idx) => (
+                          <li key={idx}>
+                            <span>{itemName(item)} <em>({itemType(item)})</em></span>
+                            <span>{item.quantity} × {item.unitPriceAtOrderTime.toLocaleString('az-AZ')} AZN</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </div>
                 )}
               </div>
@@ -183,14 +208,10 @@ export default function AdminOrdersPage() {
       )}
 
       {totalPages > 1 && (
-        <div className="category-filters" style={{ marginTop: 24, alignItems: 'center' }}>
-          <button className="filter-chip" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
-            ← Əvvəlki
-          </button>
+        <div className="admin-pager">
+          <button type="button" className="seller-btn" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>‹ Əvvəlki</button>
           <span className="cart-item-type">{page} / {totalPages}</span>
-          <button className="filter-chip" disabled={page >= totalPages} onClick={() => setPage((p) => p + 1)}>
-            Sonrakı →
-          </button>
+          <button type="button" className="seller-btn" disabled={page >= totalPages} onClick={() => setPage((p) => p + 1)}>Növbəti ›</button>
         </div>
       )}
     </div>

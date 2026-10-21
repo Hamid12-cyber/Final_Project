@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
-import { STATUS_LABELS, STATUS_CLASS } from './OrdersPage.jsx';
+import OrderTracker from '../components/OrderTracker.jsx';
+import { STATUS_LABELS, STATUS_CLASS } from '../utils/orderStatus.js';
 import { itemName, itemType } from '../utils/itemInfo.js';
 
 export default function OrderDetailPage() {
@@ -9,6 +10,8 @@ export default function OrderDetailPage() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cancelling, setCancelling] = useState(false);
+  const [cancelError, setCancelError] = useState(null);
 
   useEffect(() => {
     apiClient.get(`/orders/${id}`)
@@ -21,6 +24,20 @@ export default function OrderDetailPage() {
         setLoading(false);
       });
   }, [id]);
+
+  const handleCancel = async () => {
+    if (!window.confirm('Bu sifarişi ləğv etmək istəyirsən?')) return;
+    setCancelling(true);
+    setCancelError(null);
+    try {
+      await apiClient.put(`/orders/${id}/cancel`);
+      setOrder((prev) => ({ ...prev, status: 'Cancelled' }));
+    } catch (err) {
+      setCancelError(err.response?.data?.message ?? 'Sifariş ləğv edilmədi.');
+    } finally {
+      setCancelling(false);
+    }
+  };
 
   if (loading) return <div className="state-msg">Yüklənir...</div>;
   if (error) return <div className="state-msg">Xəta: {error}</div>;
@@ -38,6 +55,8 @@ export default function OrderDetailPage() {
         </span>
         <span className="cart-item-type">{new Date(order.createdAt).toLocaleDateString('az-AZ')}</span>
       </div>
+
+      <OrderTracker status={order.status} />
 
       <div className="cart-summary" style={{ marginBottom: 24 }}>
         <div>
@@ -71,7 +90,14 @@ export default function OrderDetailPage() {
           <p className="cart-item-type">Cəmi</p>
           <p className="cart-total-value">{order.totalAmount.toLocaleString('az-AZ')} AZN</p>
         </div>
+        {order.status === 'Pending' && (
+          <button type="button" className="seller-btn seller-btn-danger" onClick={handleCancel} disabled={cancelling}>
+            {cancelling ? 'Ləğv edilir...' : 'Sifarişi ləğv et'}
+          </button>
+        )}
       </div>
+
+      {cancelError && <p className="form-error">{cancelError}</p>}
     </div>
   );
 }
