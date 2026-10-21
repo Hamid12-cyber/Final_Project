@@ -92,6 +92,7 @@ export default function Header() {
             {user.role === 'Admin' && <Link to="/admin" className="nav-link">Admin panel</Link>}
             <Link to="/seller" className="nav-link">Elanlarım</Link>
             <Link to="/sell" className="nav-link">Elan yerləşdir</Link>
+            <Link to="/favorites" className="nav-link">Sevimlilər</Link>
             <Link to="/orders" className="nav-link">Sifarişlərim</Link>
             <span style={{ color: '#c8c8cc', fontSize: 14 }}>👤 {user.fullName}</span>
             <button className="login-btn" onClick={handleLogout}>Çıxış</button>

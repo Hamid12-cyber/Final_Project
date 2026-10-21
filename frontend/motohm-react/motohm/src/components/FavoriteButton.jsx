@@ -3,50 +3,40 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useFavorites } from '../context/FavoritesContext.jsx';
 
-// className="inline" verilsə düymə kartın üstündə yox, öz yerində durur
+// props: motorcycleId, className ('inline' = səbət düyməsinin yanında)
 export default function FavoriteButton({ motorcycleId, className = '' }) {
   const { user } = useAuth();
   const { isFavorite, toggleFavorite } = useFavorites();
   const navigate = useNavigate();
   const [busy, setBusy] = useState(false);
 
-  const active = isFavorite(motorcycleId);
+  const active = !!user && isFavorite(motorcycleId);
 
-  const handleClick = async (e) => {
-    // Düymə link içində ola bilər, səhifəyə keçməsin
-    e.preventDefault();
-    e.stopPropagation();
-
+  const handleClick = async () => {
     if (!user) {
       navigate('/login');
       return;
     }
-
     setBusy(true);
     try {
       await toggleFavorite(motorcycleId);
-    } catch (err) {
-      alert(err.response?.data?.message ?? 'Əməliyyat alınmadı.');
+    } catch {
+      // səssiz: vəziyyət dəyişmir, istifadəçi yenidən cəhd edə bilər
     } finally {
       setBusy(false);
     }
   };
 
-  const label = active ? 'Favorilərdən çıxar' : 'Favorilərə əlavə et';
-
   return (
     <button
       type="button"
-      className={`fav-btn ${active ? 'active' : ''} ${className}`}
-      disabled={busy}
+      className={`fav-btn ${className} ${active ? 'active' : ''}`}
       onClick={handleClick}
-      aria-label={label}
-      title={label}
+      disabled={busy}
+      aria-pressed={active}
     >
-      <svg width="18" height="18" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'}
-        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
+      <span aria-hidden="true">{active ? '♥' : '♡'}</span>{' '}
+      {active ? 'Sevimlilərdə' : 'Sevimlilərə əlavə et'}
     </button>
   );
 }

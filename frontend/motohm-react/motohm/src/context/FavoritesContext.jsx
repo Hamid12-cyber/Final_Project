@@ -6,44 +6,40 @@ const FavoritesContext = createContext(null);
 
 export function FavoritesProvider({ children }) {
   const { user } = useAuth();
-  const [favorites, setFavorites] = useState([]);
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const refreshFavorites = useCallback(() => {
+  const refresh = useCallback(() => {
     if (!user) {
-      setFavorites([]);
+      setItems([]);
       return Promise.resolve();
     }
     setLoading(true);
     return apiClient.get('/favorites')
-      .then((res) => setFavorites(res.data))
-      .catch(() => setFavorites([]))
+      .then((res) => setItems(res.data))
+      .catch(() => setItems([]))
       .finally(() => setLoading(false));
   }, [user]);
 
-  // İstifadəçi login/logout olanda favorilər yenilənir
-  useEffect(() => {
-    refreshFavorites();
-  }, [refreshFavorites]);
+  // Login/logout olanda siyahını yenilə
+  useEffect(() => { refresh(); }, [refresh]);
 
-  const ids = useMemo(() => new Set(favorites.map((f) => f.id)), [favorites]);
+  const ids = useMemo(() => new Set(items.map((i) => i.id)), [items]);
 
   const isFavorite = (motorcycleId) => ids.has(motorcycleId);
 
   const toggleFavorite = async (motorcycleId) => {
     if (ids.has(motorcycleId)) {
       await apiClient.delete(`/favorites/${motorcycleId}`);
-      setFavorites((prev) => prev.filter((f) => f.id !== motorcycleId));
+      setItems((prev) => prev.filter((i) => i.id !== motorcycleId));
     } else {
       await apiClient.put(`/favorites/${motorcycleId}`);
-      await refreshFavorites();
+      await refresh(); // yeni elementin tam məlumatı (ad, şəkil) üçün
     }
   };
 
   return (
-    <FavoritesContext.Provider
-      value={{ favorites, loading, count: favorites.length, isFavorite, toggleFavorite, refreshFavorites }}
-    >
+    <FavoritesContext.Provider value={{ items, loading, isFavorite, toggleFavorite, refresh }}>
       {children}
     </FavoritesContext.Provider>
   );
