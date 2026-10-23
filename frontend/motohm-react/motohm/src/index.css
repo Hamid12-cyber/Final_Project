@@ -852,3 +852,8 @@ a { text-decoration: none; color: inherit; }
 .fav-btn:hover:not(:disabled) { border-color: var(--accent); }
 .fav-btn:disabled { opacity: 0.6; cursor: default; }
 .fav-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(229,57,53,0.10); }
+/* ---- Dil seçimi (AZ / EN / RU) ---- */
+.lang-switch { display: flex; gap: 2px; background: #0e0e11; border: 1px solid var(--border); border-radius: 16px; padding: 2px; }
+.lang-btn { background: none; color: var(--muted); font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 14px; cursor: pointer; border: none; }
+.lang-btn:hover { color: #fff; }
+.lang-btn.active { background: var(--accent); color: #fff; }

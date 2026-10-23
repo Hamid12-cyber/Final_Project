@@ -1,0 +1,108 @@
+{
+  "lang": { "label": "Язык" },
+  "nav": {
+    "home": "Главная",
+    "motorcycles": "Мотоциклы",
+    "parts": "Запчасти",
+    "rentals": "Аренда",
+    "service": "Сервис",
+    "accessories": "Аксессуары"
+  },
+  "header": {
+    "searchPlaceholder": "Поиск мотоцикла...",
+    "searchAria": "Поиск",
+    "cartAria": "Корзина",
+    "adminPanel": "Админ-панель",
+    "myListings": "Мои объявления",
+    "createListing": "Разместить объявление",
+    "favorites": "Избранное",
+    "myOrders": "Мои заказы",
+    "logout": "Выйти",
+    "loginRegister": "Вход / Регистрация"
+  },
+  "footer": {
+    "tagline": "Скорость, свобода, приключения!",
+    "menu": "Меню",
+    "info": "Информация",
+    "contact": "Контакты",
+    "about": "О нас",
+    "delivery": "Доставка",
+    "returns": "Возврат и обмен",
+    "terms": "Условия использования",
+    "address": "Баку, Наримановский р-н, ул. Ахмеда Раджабли 25",
+    "rights": "Все права защищены."
+  },
+  "hero": {
+    "eyebrow": "В МИРЕ МОТОЦИКЛОВ",
+    "title1": "ВСЁ",
+    "title2": "В ОДНОМ МЕСТЕ",
+    "desc": "Купите мотоцикл, возьмите в аренду, закажите запчасти, воспользуйтесь нашим сервисом — всё в MotoHM.",
+    "brand": "Выберите марку",
+    "model": "Модель",
+    "year": "Год",
+    "price": "Диапазон цен",
+    "search": "Найти"
+  },
+  "features": {
+    "deliveryTitle": "Быстрая доставка",
+    "deliverySub": "По Баку",
+    "warrantyTitle": "Товары с гарантией",
+    "warrantySub": "Официальный дистрибьютор",
+    "supportTitle": "Профессиональная поддержка",
+    "supportSub": "24/7",
+    "secureTitle": "Безопасные покупки",
+    "secureSub": "SSL-защита"
+  },
+  "categories": {
+    "bikesTitle": "Мотоциклы",
+    "bikesSub": "Новые и б/у",
+    "partsTitle": "Запчасти",
+    "partsSub": "Для любой марки",
+    "accessoriesTitle": "Аксессуары",
+    "accessoriesSub": "Экипировка и защита",
+    "rentalTitle": "Аренда",
+    "rentalSub": "Сутки / Неделя / Месяц"
+  },
+  "home": {
+    "partsTitle": "Запчасти",
+    "partsSeeAll": "Все запчасти →",
+    "popularTitle": "Популярные мотоциклы",
+    "popularSeeAll": "Смотреть все →",
+    "sliderTitle": "Избранные модели",
+    "sliderPrev": "Назад",
+    "sliderNext": "Вперёд"
+  },
+  "rentalBanner": {
+    "eyebrow": "АРЕНДА",
+    "title": "Аренда мотоциклов",
+    "desc": "Аренда на сутки, неделю и месяц — почувствуйте приключение сами!",
+    "btn": "Смотреть каталог →",
+    "daily": "В сутки",
+    "weekly": "В неделю",
+    "monthly": "В месяц"
+  },
+  "serviceBanner": {
+    "eyebrow": "СЕРВИС",
+    "title": "Профессиональный сервис",
+    "desc": "С нашими опытными мастерами ваш мотоцикл всегда в идеальном состоянии.",
+    "btn": "Записаться на сервис →",
+    "oil": "Замена масла",
+    "repair": "Ремонт",
+    "diagnostics": "Диагностика",
+    "tuning": "Тюнинг"
+  },
+  "currency": { "azn": "AZN" },
+  "orderStatus": {
+    "Pending": "В ожидании",
+    "Confirmed": "Подтверждён",
+    "Shipped": "Отправлен",
+    "Delivered": "Доставлен",
+    "Cancelled": "Отменён"
+  },
+  "orderActions": {
+    "confirm": "Подтвердить",
+    "cancel": "Отменить",
+    "shipped": "Отправлен",
+    "delivered": "Доставлен"
+  }
+}

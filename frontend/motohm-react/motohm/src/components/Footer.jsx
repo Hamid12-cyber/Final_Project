@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="footer">
       <div className="footer-grid">
@@ -11,35 +13,35 @@ export default function Footer() {
               Moto<span className="accent">HM</span>
             </span>
           </div>
-          <p className="footer-tagline">Sürət, azadlıq, macəra!</p>
+          <p className="footer-tagline">{t('footer.tagline')}</p>
         </div>
 
         <div>
-          <p className="footer-heading">Menyu</p>
-          <Link to="/" className="footer-link">Ana səhifə</Link>
-          <Link to="/motorcycles" className="footer-link">Motosikletlər</Link>
-          <Link to="/parts" className="footer-link">Ehtiyat hissələri</Link>
-          <Link to="/rentals" className="footer-link">Kirayə</Link>
-          <Link to="/service" className="footer-link">Servis</Link>
+          <p className="footer-heading">{t('footer.menu')}</p>
+          <Link to="/" className="footer-link">{t('nav.home')}</Link>
+          <Link to="/motorcycles" className="footer-link">{t('nav.motorcycles')}</Link>
+          <Link to="/parts" className="footer-link">{t('nav.parts')}</Link>
+          <Link to="/rentals" className="footer-link">{t('nav.rentals')}</Link>
+          <Link to="/service" className="footer-link">{t('nav.service')}</Link>
         </div>
 
         <div>
-          <p className="footer-heading">Məlumat</p>
-          <Link to="/about" className="footer-link">Haqqımızda</Link>
-          <Link to="/delivery" className="footer-link">Çatdırılma</Link>
-          <Link to="/returns" className="footer-link">Qaytarma və dəyişdirmə</Link>
-          <Link to="/terms" className="footer-link">İstifadə şərtləri</Link>
+          <p className="footer-heading">{t('footer.info')}</p>
+          <Link to="/about" className="footer-link">{t('footer.about')}</Link>
+          <Link to="/delivery" className="footer-link">{t('footer.delivery')}</Link>
+          <Link to="/returns" className="footer-link">{t('footer.returns')}</Link>
+          <Link to="/terms" className="footer-link">{t('footer.terms')}</Link>
         </div>
 
         <div>
-          <p className="footer-heading">Əlaqə</p>
+          <p className="footer-heading">{t('footer.contact')}</p>
           <p className="footer-contact-item">📞 +994 50 123 45 67</p>
           <p className="footer-contact-item">✉️ info@motohm.az</p>
-          <p className="footer-contact-item">📍 Bakı, Nərimanov r., Əhməd Racabli 25</p>
+          <p className="footer-contact-item">📍 {t('footer.address')}</p>
         </div>
       </div>
 
-      <p className="footer-bottom">© {new Date().getFullYear()} MotoHM. Bütün hüquqlar qorunur.</p>
+      <p className="footer-bottom">© {new Date().getFullYear()} MotoHM. {t('footer.rights')}</p>
     </footer>
   );
 }

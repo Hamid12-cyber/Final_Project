@@ -9,6 +9,8 @@ apiClient.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  // Seçilmiş dili backend-ə göndəririk (API xəta mesajlarını bu dildə qaytara bilsin)
+  config.headers['Accept-Language'] = localStorage.getItem('lang') || 'az';
   return config;
 });
 

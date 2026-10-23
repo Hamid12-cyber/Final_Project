@@ -1,0 +1,108 @@
+{
+  "lang": { "label": "Language" },
+  "nav": {
+    "home": "Home",
+    "motorcycles": "Motorcycles",
+    "parts": "Spare parts",
+    "rentals": "Rentals",
+    "service": "Service",
+    "accessories": "Accessories"
+  },
+  "header": {
+    "searchPlaceholder": "Search motorcycles...",
+    "searchAria": "Search",
+    "cartAria": "Cart",
+    "adminPanel": "Admin panel",
+    "myListings": "My listings",
+    "createListing": "Post a listing",
+    "favorites": "Favorites",
+    "myOrders": "My orders",
+    "logout": "Log out",
+    "loginRegister": "Log in / Sign up"
+  },
+  "footer": {
+    "tagline": "Speed, freedom, adventure!",
+    "menu": "Menu",
+    "info": "Information",
+    "contact": "Contact",
+    "about": "About us",
+    "delivery": "Delivery",
+    "returns": "Returns and exchanges",
+    "terms": "Terms of use",
+    "address": "Baku, Narimanov district, 25 Ahmad Rajabli St.",
+    "rights": "All rights reserved."
+  },
+  "hero": {
+    "eyebrow": "IN THE WORLD OF MOTORCYCLES",
+    "title1": "EVERYTHING",
+    "title2": "IN ONE PLACE",
+    "desc": "Buy a motorcycle, rent one, order spare parts, use our service — all at MotoHM.",
+    "brand": "Select brand",
+    "model": "Model",
+    "year": "Year",
+    "price": "Price range",
+    "search": "Search"
+  },
+  "features": {
+    "deliveryTitle": "Fast delivery",
+    "deliverySub": "Within Baku",
+    "warrantyTitle": "Warrantied products",
+    "warrantySub": "Official distributor",
+    "supportTitle": "Professional support",
+    "supportSub": "24/7",
+    "secureTitle": "Safe shopping",
+    "secureSub": "SSL protection"
+  },
+  "categories": {
+    "bikesTitle": "Motorcycles",
+    "bikesSub": "New and used",
+    "partsTitle": "Spare parts",
+    "partsSub": "For every brand",
+    "accessoriesTitle": "Accessories",
+    "accessoriesSub": "Gear and protection",
+    "rentalTitle": "Rentals",
+    "rentalSub": "Daily / Weekly / Monthly"
+  },
+  "home": {
+    "partsTitle": "Spare parts",
+    "partsSeeAll": "See all parts →",
+    "popularTitle": "Popular motorcycles",
+    "popularSeeAll": "See all →",
+    "sliderTitle": "Featured models",
+    "sliderPrev": "Previous",
+    "sliderNext": "Next"
+  },
+  "rentalBanner": {
+    "eyebrow": "RENTALS",
+    "title": "Motorcycle rental",
+    "desc": "Daily, weekly and monthly rentals — live the adventure yourself!",
+    "btn": "Browse catalog →",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly"
+  },
+  "serviceBanner": {
+    "eyebrow": "SERVICE",
+    "title": "Professional service",
+    "desc": "With our experienced mechanics, your motorcycle stays in perfect shape.",
+    "btn": "Book a service →",
+    "oil": "Oil change",
+    "repair": "Repair",
+    "diagnostics": "Diagnostics",
+    "tuning": "Tuning"
+  },
+  "currency": { "azn": "AZN" },
+  "orderStatus": {
+    "Pending": "Pending",
+    "Confirmed": "Confirmed",
+    "Shipped": "Shipped",
+    "Delivered": "Delivered",
+    "Cancelled": "Cancelled"
+  },
+  "orderActions": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "shipped": "Shipped",
+    "delivered": "Delivered"
+  }
+}

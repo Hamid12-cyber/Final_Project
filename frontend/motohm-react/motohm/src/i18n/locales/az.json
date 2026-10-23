@@ -1,0 +1,108 @@
+{
+  "lang": { "label": "Dil" },
+  "nav": {
+    "home": "Ana səhifə",
+    "motorcycles": "Motosikletlər",
+    "parts": "Ehtiyat hissələri",
+    "rentals": "Kirayə",
+    "service": "Servis",
+    "accessories": "Aksesuarlar"
+  },
+  "header": {
+    "searchPlaceholder": "Motosiklet axtar...",
+    "searchAria": "Axtar",
+    "cartAria": "Səbət",
+    "adminPanel": "Admin panel",
+    "myListings": "Elanlarım",
+    "createListing": "Elan yerləşdir",
+    "favorites": "Sevimlilər",
+    "myOrders": "Sifarişlərim",
+    "logout": "Çıxış",
+    "loginRegister": "Giriş / Qeydiyyat"
+  },
+  "footer": {
+    "tagline": "Sürət, azadlıq, macəra!",
+    "menu": "Menyu",
+    "info": "Məlumat",
+    "contact": "Əlaqə",
+    "about": "Haqqımızda",
+    "delivery": "Çatdırılma",
+    "returns": "Qaytarma və dəyişdirmə",
+    "terms": "İstifadə şərtləri",
+    "address": "Bakı, Nərimanov r., Əhməd Racabli 25",
+    "rights": "Bütün hüquqlar qorunur."
+  },
+  "hero": {
+    "eyebrow": "MOTOSİKLET DÜNYASINDA",
+    "title1": "HƏR ŞEY",
+    "title2": "BİR YERDƏ",
+    "desc": "Motosiklet al, kirayə götür, ehtiyat hissələri sifariş et, servis xidmətlərimizdən yararlan — hamısı MotoHM-də.",
+    "brand": "Marka seçin",
+    "model": "Model",
+    "year": "İl",
+    "price": "Qiymət aralığı",
+    "search": "Axtar"
+  },
+  "features": {
+    "deliveryTitle": "Sürətli çatdırılma",
+    "deliverySub": "Bakı daxilində",
+    "warrantyTitle": "Zəmanətli məhsullar",
+    "warrantySub": "Rəsmi distribyutor",
+    "supportTitle": "Peşəkar dəstək",
+    "supportSub": "24/7",
+    "secureTitle": "Təhlükəsiz alış-veriş",
+    "secureSub": "SSL qorunması"
+  },
+  "categories": {
+    "bikesTitle": "Motosikletlər",
+    "bikesSub": "Yeni və ikinci əl",
+    "partsTitle": "Ehtiyat hissələri",
+    "partsSub": "Hər markaya uyğun",
+    "accessoriesTitle": "Aksesuarlar",
+    "accessoriesSub": "Dəstək və qorunma",
+    "rentalTitle": "Kirayə",
+    "rentalSub": "Günlük / Həftəlik / Aylıq"
+  },
+  "home": {
+    "partsTitle": "Ehtiyat hissələri",
+    "partsSeeAll": "Bütün hissələrə bax →",
+    "popularTitle": "Populyar motosikletlər",
+    "popularSeeAll": "Hamısına bax →",
+    "sliderTitle": "Seçilmiş modellər",
+    "sliderPrev": "Əvvəlki",
+    "sliderNext": "Növbəti"
+  },
+  "rentalBanner": {
+    "eyebrow": "KİRAYƏ",
+    "title": "Motosiklet kirayəsi",
+    "desc": "Günlük, həftəlik və aylıq kirayə imkanları ilə macəranı sən də yaşa!",
+    "btn": "Kataloqa bax →",
+    "daily": "Günlük",
+    "weekly": "Həftəlik",
+    "monthly": "Aylıq"
+  },
+  "serviceBanner": {
+    "eyebrow": "SERVİS",
+    "title": "Peşəkar servis xidməti",
+    "desc": "Təcrübəli ustalarımızla motosiklətiniz həmişə ideal vəziyyətdə olsun.",
+    "btn": "Servisə yazıl →",
+    "oil": "Yağ dəyişimi",
+    "repair": "Təmir",
+    "diagnostics": "Diaqnostika",
+    "tuning": "Tüninq"
+  },
+  "currency": { "azn": "AZN" },
+  "orderStatus": {
+    "Pending": "Gözləmədə",
+    "Confirmed": "Təsdiqləndi",
+    "Shipped": "Göndərildi",
+    "Delivered": "Çatdırıldı",
+    "Cancelled": "Ləğv edildi"
+  },
+  "orderActions": {
+    "confirm": "Təsdiqlə",
+    "cancel": "Ləğv et",
+    "shipped": "Göndərildi",
+    "delivered": "Çatdırıldı"
+  }
+}
