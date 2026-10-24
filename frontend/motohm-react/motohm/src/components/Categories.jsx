@@ -1,11 +1,15 @@
+import { useTranslation } from 'react-i18next';
+
 const categories = [
-  { id: 'bikes', title: 'Motosikletlər', subtitle: 'Yeni və ikinci əl' },
-  { id: 'parts', title: 'Ehtiyat hissələri', subtitle: 'Hər markaya uyğun' },
-  { id: 'accessories', title: 'Aksesuarlar', subtitle: 'Dəstək və qorunma' },
-  { id: 'rental', title: 'Kirayə', subtitle: 'Günlük / Həftəlik / Aylıq' }
+  { id: 'bikes', title: 'categories.bikesTitle', subtitle: 'categories.bikesSub' },
+  { id: 'parts', title: 'categories.partsTitle', subtitle: 'categories.partsSub' },
+  { id: 'accessories', title: 'categories.accessoriesTitle', subtitle: 'categories.accessoriesSub' },
+  { id: 'rental', title: 'categories.rentalTitle', subtitle: 'categories.rentalSub' }
 ];
 
 export default function Categories({ onSelect }) {
+  const { t } = useTranslation();
+
   return (
     <section className="categories">
       {categories.map((c) => (
@@ -14,8 +18,8 @@ export default function Categories({ onSelect }) {
           className="category-card"
           onClick={() => onSelect && onSelect(c.id)}
         >
-          <p className="category-title">{c.title}</p>
-          <p className="category-subtitle">{c.subtitle}</p>
+          <p className="category-title">{t(c.title)}</p>
+          <p className="category-subtitle">{t(c.subtitle)}</p>
         </button>
       ))}
     </section>

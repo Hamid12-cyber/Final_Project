@@ -1,26 +1,28 @@
+import { useTranslation } from 'react-i18next';
+
 const services = [
-  { icon: '📅', name: 'Yağ dəyişimi' },
-  { icon: '🛠️', name: 'Təmir' },
-  { icon: '📟', name: 'Diaqnostika' },
-  { icon: '⚙️', name: 'Tüninq' }
+  { icon: '📅', name: 'serviceBanner.oil' },
+  { icon: '🛠️', name: 'serviceBanner.repair' },
+  { icon: '📟', name: 'serviceBanner.diagnostics' },
+  { icon: '⚙️', name: 'serviceBanner.tuning' }
 ];
 
 export default function ServiceBanner() {
+  const { t } = useTranslation();
+
   return (
     <section className="banner service-banner">
       <div className="service-text">
-        <p className="banner-eyebrow">SERVİS</p>
-        <h3 className="banner-title">Peşəkar servis xidməti</h3>
-        <p className="banner-desc">
-          Təcrübəli ustalarımızla motosiklətiniz həmişə ideal vəziyyətdə olsun.
-        </p>
-        <button className="banner-btn">Servisə yazıl →</button>
+        <p className="banner-eyebrow">{t('serviceBanner.eyebrow')}</p>
+        <h3 className="banner-title">{t('serviceBanner.title')}</h3>
+        <p className="banner-desc">{t('serviceBanner.desc')}</p>
+        <button className="banner-btn">{t('serviceBanner.btn')}</button>
       </div>
 
       <div className="service-list">
         {services.map((s, i) => (
           <div className="service-item" key={i}>
-            <span>{s.icon}</span> {s.name}
+            <span>{s.icon}</span> {t(s.name)}
           </div>
         ))}
       </div>

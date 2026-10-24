@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import apiClient from '../api/client.js';
+import { LOCALES } from '../i18n/index.js';
 
 export default function BikeSlider() {
+  const { t, i18n } = useTranslation();
   const [bikes, setBikes] = useState([]);
   const trackRef = useRef(null);
   const timerRef = useRef(null);
@@ -45,10 +48,10 @@ export default function BikeSlider() {
   return (
     <section className="bike-slider-section">
       <div className="section-header">
-        <h2>Seçilmiş modellər</h2>
+        <h2>{t('home.sliderTitle')}</h2>
         <div style={{ display: 'flex', gap: 8 }}>
-          <button className="slider-arrow" onClick={() => scrollByCards(-1)} aria-label="Əvvəlki">‹</button>
-          <button className="slider-arrow" onClick={() => scrollByCards(1)} aria-label="Növbəti">›</button>
+          <button className="slider-arrow" onClick={() => scrollByCards(-1)} aria-label={t('home.sliderPrev')}>‹</button>
+          <button className="slider-arrow" onClick={() => scrollByCards(1)} aria-label={t('home.sliderNext')}>›</button>
         </div>
       </div>
 
@@ -61,7 +64,7 @@ export default function BikeSlider() {
             <div className="slider-card-info">
               <p className="slider-card-name">{bike.name}</p>
               <p className="slider-card-meta">{bike.brand} · {bike.year}</p>
-              <p className="slider-card-price">{bike.price.toLocaleString('az-AZ')} AZN</p>
+              <p className="slider-card-price">{bike.price.toLocaleString(LOCALES[i18n.resolvedLanguage])} {t('currency.azn')}</p>
             </div>
           </Link>
         ))}

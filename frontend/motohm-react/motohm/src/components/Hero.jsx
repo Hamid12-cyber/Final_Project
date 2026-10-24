@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import apiClient from '../api/client.js';
 
 const EMPTY_FILTERS = { brand: '', model: '', year: '', price: '' };
@@ -15,6 +16,7 @@ function SearchIcon() {
 }
 
 export default function Hero() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [options, setOptions] = useState(EMPTY_OPTIONS);
@@ -54,14 +56,13 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
-        <p className="hero-eyebrow">MOTOSİKLET DÜNYASINDA</p>
+        <p className="hero-eyebrow">{t('hero.eyebrow')}</p>
         <h1 className="hero-title">
-          HƏR ŞEY<br />
-          <span className="accent">BİR YERDƏ</span>
+          {t('hero.title1')}<br />
+          <span className="accent">{t('hero.title2')}</span>
         </h1>
         <p className="hero-desc">
-          Motosiklet al, kirayə götür, ehtiyat hissələri sifariş et, servis
-          xidmətlərimizdən yararlan — hamısı MotoHM-də.
+          {t('hero.desc')}
         </p>
       </div>
 
@@ -69,24 +70,24 @@ export default function Hero() {
 
       <div className="search-bar">
         <select name="brand" value={filters.brand} onChange={handleChange}>
-          <option value="">Marka seçin</option>
+          <option value="">{t('hero.brand')}</option>
           {loaded && renderOptions(options.brands)}
         </select>
         <select name="model" value={filters.model} onChange={handleChange} disabled={!filters.brand}>
-          <option value="">Model</option>
+          <option value="">{t('hero.model')}</option>
           {loaded && renderOptions(options.models)}
         </select>
         <select name="year" value={filters.year} onChange={handleChange}>
-          <option value="">İl</option>
+          <option value="">{t('hero.year')}</option>
           {loaded && renderOptions(options.years)}
         </select>
         <select name="price" value={filters.price} onChange={handleChange}>
-          <option value="">Qiymət aralığı</option>
+          <option value="">{t('hero.price')}</option>
           {loaded && renderOptions(options.priceRanges)}
         </select>
         <button className="search-btn" onClick={handleSearch}>
           <SearchIcon />
-          Axtar
+          {t('hero.search')}
         </button>
       </div>
     </section>

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import apiClient from '../api/client.js';
 
 export default function PartsCategories() {
+  const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -16,8 +18,8 @@ export default function PartsCategories() {
   return (
     <section className="section">
       <div className="section-header">
-        <h2>Ehtiyat hissələri</h2>
-        <Link to="/parts" className="see-all">Bütün hissələrə bax →</Link>
+        <h2>{t('home.partsTitle')}</h2>
+        <Link to="/parts" className="see-all">{t('home.partsSeeAll')}</Link>
       </div>
 
       <div className="parts-grid">

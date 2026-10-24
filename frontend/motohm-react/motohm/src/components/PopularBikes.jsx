@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import apiClient from '../api/client.js';
+import { LOCALES } from '../i18n/index.js';
 
 export default function PopularBikes() {
+  const { t, i18n } = useTranslation();
   const [bikes, setBikes] = useState([]);
 
   useEffect(() => {
@@ -19,8 +22,8 @@ export default function PopularBikes() {
   return (
     <section className="section">
       <div className="section-header">
-        <h2>Populyar motosikletlər</h2>
-        <Link to="/motorcycles" className="see-all">Hamısına bax →</Link>
+        <h2>{t('home.popularTitle')}</h2>
+        <Link to="/motorcycles" className="see-all">{t('home.popularSeeAll')}</Link>
       </div>
 
       <div className="bike-grid">
@@ -32,7 +35,7 @@ export default function PopularBikes() {
             <div className="bike-info">
               <p className="bike-name">{m.name}</p>
               <p className="bike-meta">{m.brand} · {m.year}</p>
-              <p className="bike-price">{m.price.toLocaleString('az-AZ')} AZN</p>
+              <p className="bike-price">{m.price.toLocaleString(LOCALES[i18n.resolvedLanguage])} {t('currency.azn')}</p>
             </div>
           </Link>
         ))}
