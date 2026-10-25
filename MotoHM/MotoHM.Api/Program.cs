@@ -55,6 +55,10 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 });
 builder.Services.AddSwaggerGen(c =>
 {
+    // Eyni adlı nested tiplər (RejectPart.RejectBody, RejectMotorcycle.RejectBody və s.)
+    // Swagger-də schemaId toqquşması yaradırdı -> tam ad ilə fərqləndiririk.
+    c.CustomSchemaIds(type => type.FullName!.Replace("+", "."));
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -301,6 +305,7 @@ DeleteReview.MapEndpoint(app);
 // Favorites
 AddFavorite.MapEndpoint(app);
 RemoveFavorite.MapEndpoint(app);
+GetMyFavorites.MapEndpoint(app);
 
 
 app.Run();

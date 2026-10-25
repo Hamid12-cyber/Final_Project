@@ -47,6 +47,10 @@ namespace MotoHM.Api.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
+                    b.Property<string>("RejectionReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
                     b.Property<int>("SellerId")
                         .HasColumnType("integer");
 
@@ -132,6 +136,10 @@ namespace MotoHM.Api.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
+
+                    b.Property<string>("RejectionReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<int>("SellerId")
                         .HasColumnType("integer");
@@ -289,6 +297,10 @@ namespace MotoHM.Api.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
+
+                    b.Property<string>("RejectionReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<int>("SellerId")
                         .HasColumnType("integer");
