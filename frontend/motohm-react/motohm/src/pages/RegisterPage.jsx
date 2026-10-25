@@ -19,8 +19,12 @@ export default function RegisterPage() {
     setSubmitting(true);
     try {
       const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
-      await apiClient.post('/auth/register', { fullName, email, phone, password, role });
-      navigate('/login');
+      const res = await apiClient.post('/auth/register', { fullName, email, phone, password, role });
+      sessionStorage.setItem(
+        'pendingRegistration',
+        JSON.stringify({ verificationToken: res.data.verificationToken, email: res.data.email })
+      );
+      navigate('/verify-email');
     } catch (err) {
       setError(err.response?.data?.message ?? 'Qeydiyyat uğursuz oldu.');
     } finally {
