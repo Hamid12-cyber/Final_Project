@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#190e17"/><stop offset="1" stop-color="#3b1426"/></linearGradient>
+  <radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ff4d7a" stop-opacity=".55"/><stop offset="1" stop-color="#ff4d7a" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".035"/></pattern>
+  <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8d8d9a"/><stop offset="0.5" stop-color="#4a4a55"/><stop offset="1" stop-color="#25252d"/></linearGradient>
+  <linearGradient id="metal2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8b8c4"/><stop offset="0.5" stop-color="#6c6c78"/><stop offset="1" stop-color="#34343d"/></linearGradient>
+</defs>
+<rect width="800" height="500" fill="url(#bg)"/><rect width="800" height="500" fill="url(#grid)"/>
+<circle cx="470" cy="200" r="330" fill="url(#g)"/>
+<defs>
+  <linearGradient id="shell" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5a52"/><stop offset="0.55" stop-color="#e53935"/><stop offset="1" stop-color="#7c1a1c"/></linearGradient>
+  <linearGradient id="visor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b4a63"/><stop offset="0.5" stop-color="#0d1017"/><stop offset="1" stop-color="#1c2230"/></linearGradient>
+</defs>
+<g transform="translate(105,5) scale(1.0)">
+  <path d="M210 330 C170 270 180 150 275 105 C375 60 520 75 555 185 L562 255 C564 292 545 308 520 312 L470 322 L430 338 C410 350 395 352 380 350 L300 352 C260 352 235 350 210 330 Z" fill="url(#shell)" stroke="#5e1214" stroke-width="3"/>
+  <path d="M280 108 C380 66 505 80 540 170" fill="none" stroke="#ffd0cc" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+  <path d="M345 214 C395 186 510 182 550 222 L553 262 C500 252 410 254 346 278 Z" fill="url(#visor)" stroke="#0a0b10" stroke-width="3"/>
+  <path d="M375 214 C420 198 480 196 515 206" fill="none" stroke="#9fc4ff" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+  <path d="M478 292 L552 280 L548 300 C530 308 505 312 478 316 Z" fill="#0f0f14" stroke="#16161b" stroke-width="2"/>
+  <path d="M470 322 L430 338 C410 350 395 352 380 350 L350 350 L350 296 L470 296 Z" fill="#1b1b22" stroke="#33333d" stroke-width="2.5"/>
+  <path d="M368 300 H462 M368 312 H462 M368 324 H455" stroke="#3a3a46" stroke-width="3" stroke-linecap="round"/>
+  <path d="M215 250 C240 195 300 160 345 150" fill="none" stroke="#0a0a0d" stroke-width="22" stroke-linecap="round" opacity=".55"/>
+  <circle cx="300" cy="260" r="16" fill="#14141a" stroke="#34343e" stroke-width="3"/>
+</g>
+</svg>

@@ -857,3 +857,57 @@ a { text-decoration: none; color: inherit; }
 .lang-btn { background: none; color: var(--muted); font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 14px; cursor: pointer; border: none; }
 .lang-btn:hover { color: #fff; }
 .lang-btn.active { background: var(--accent); color: #fff; }
+/* ===== Hero: foto fon (şəkil yoxdursa köhnə gradient qalır) ===== */
+.hero {
+  min-height: 560px;
+  background:
+    linear-gradient(90deg, rgba(11,11,15,0.95) 0%, rgba(11,11,15,0.7) 40%, rgba(11,11,15,0.25) 100%),
+    linear-gradient(0deg, rgba(11,11,15,1) 0%, rgba(11,11,15,0) 35%),
+    url('/images/hero.jpg') center / cover no-repeat,
+    radial-gradient(circle at 75% 30%, #3a1414 0%, #1a0e12 40%, #0b0b0f 75%);
+}
+.hero-shape { display: none !important; }
+
+/* ===== Kateqoriya kartları: şəkilli ===== */
+.category-card {
+  position: relative;
+  overflow: hidden;
+  height: 190px;
+  background:
+    linear-gradient(0deg, rgba(11,11,15,0.92) 0%, rgba(11,11,15,0.35) 70%, rgba(11,11,15,0.2) 100%),
+    var(--cat-img, none) center / cover no-repeat,
+    linear-gradient(135deg, #2a1414, #151518);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(229, 57, 53, 0.18);
+}
+.category-title { color: #fff; }
+
+/* ===== Məhsul kartları: şəkil yoxdursa motosiklet ikonu ===== */
+.product-image {
+  position: relative;
+  height: 170px;
+}
+.product-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%238a8a92' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='16' cy='42' r='9'/%3E%3Ccircle cx='48' cy='42' r='9'/%3E%3Cpath d='M16 42 L24 30 H38 L44 24 L48 42'/%3E%3Cpath d='M44 24 L42 18 H47'/%3E%3Cpath d='M24 30 L30 42 H38 L38 30'/%3E%3C/svg%3E") center / 72px no-repeat;
+}
+.product-image img {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s;
+}
+.product-card {
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229, 57, 53, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+.product-card:hover .product-image img { transform: scale(1.06); }
