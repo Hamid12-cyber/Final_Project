@@ -68,7 +68,7 @@ export default function RegisterPage() {
 
           <label className="form-field">
             <span>Şifrə</span>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} />
           </label>
 
           <label className="form-field">

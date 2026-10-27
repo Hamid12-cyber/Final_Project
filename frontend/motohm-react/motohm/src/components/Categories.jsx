@@ -16,7 +16,7 @@ export default function Categories({ onSelect }) {
         <button
           key={c.id}
           className="category-card"
-          style={{ '--cat-img': `url('/images/categories/${c.id}.jpg')` }}
+          style={{ '--cat-art': `var(--art-${c.id})` }}
           onClick={() => onSelect && onSelect(c.id)}
         >
           <p className="category-title">{t(c.title)}</p>

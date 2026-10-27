@@ -91,12 +91,12 @@ export default function ResetPasswordPage() {
 
               <label className="form-field">
                 <span>Yeni şifrə</span>
-                <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required minLength={6} />
+                <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required minLength={8} />
               </label>
 
               <label className="form-field">
                 <span>Yeni şifrə (təkrar)</span>
-                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required minLength={6} />
+                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required minLength={8} />
               </label>
 
               {error && <p className="form-error">{error}</p>}
