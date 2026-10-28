@@ -46,6 +46,7 @@ export default function CreateListingPage() {
   const [year, setYear] = useState('');
   const [stockQty, setStockQty] = useState('');
   const [partCategoryId, setPartCategoryId] = useState('');
+  const [customCategory, setCustomCategory] = useState('');
   const [isForSale, setIsForSale] = useState(true);
   const [isForRent, setIsForRent] = useState(false);
 
@@ -61,9 +62,12 @@ export default function CreateListingPage() {
       apiClient.get('/part-categories')
         .then((res) => {
           setCategories(res.data);
-          if (res.data.length > 0) setPartCategoryId(String(res.data[0].id));
+          setPartCategoryId(res.data.length > 0 ? String(res.data[0].id) : OTHER);
         })
-        .catch(() => setCategories([]));
+        .catch(() => {
+          setCategories([]);
+          setPartCategoryId(OTHER);
+        });
     }
   }, [type]);
 
@@ -122,6 +126,7 @@ export default function CreateListingPage() {
   const resetForm = () => {
     setName(''); setPrice(''); setImageUrls([]);
     setCc(''); setYear(''); setStockQty('');
+    setCustomCategory('');
     setIsForSale(true); setIsForRent(false);
     clearBrandModel();
   };
@@ -132,6 +137,14 @@ export default function CreateListingPage() {
 
     const finalBrand = type === 'motorcycle' && brand === OTHER ? customBrand.trim() : brand;
     const finalModel = brand === OTHER || model === OTHER ? customModel.trim() : model;
+
+    const isOtherCategory = type === 'part' && partCategoryId === OTHER;
+    const finalCategoryName = isOtherCategory ? customCategory.trim() : '';
+
+    if (isOtherCategory && !finalCategoryName) {
+      setFormError('Kateqoriya adını yazın.');
+      return;
+    }
 
     if (type === 'motorcycle' && (!finalBrand || !finalModel)) {
       setFormError('Marka və modeli seçin (və ya "Digər" seçib yazın).');
@@ -155,7 +168,9 @@ export default function CreateListingPage() {
       } else if (type === 'part') {
         res = await apiClient.post('/parts', {
           name, brand: finalBrand, price: Number(price), stockQty: Number(stockQty),
-          imageUrl: imageUrls[0] || null, imageUrls, partCategoryId: Number(partCategoryId),
+          imageUrl: imageUrls[0] || null, imageUrls,
+          partCategoryId: isOtherCategory ? 0 : Number(partCategoryId),
+          customCategoryName: finalCategoryName || null,
         });
       } else {
         res = await apiClient.post('/accessories', {
@@ -284,8 +299,15 @@ export default function CreateListingPage() {
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>{c.icon} {c.name}</option>
                 ))}
+                <option value={OTHER}>Digər (özüm yazacağam)</option>
               </select>
             </label>
+            {partCategoryId === OTHER && (
+              <label className="form-field">
+                <span>Kateqoriya adı</span>
+                <input type="text" value={customCategory} onChange={(e) => setCustomCategory(e.target.value)} required maxLength={100} />
+              </label>
+            )}
             <label className="form-field">
               <span>Stok miqdarı</span>
               <input type="number" value={stockQty} onChange={(e) => setStockQty(e.target.value)} required min={0} />
