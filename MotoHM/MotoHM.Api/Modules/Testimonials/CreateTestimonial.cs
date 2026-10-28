@@ -1,8 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-using MotoHM.Api.Data;
-using MotoHM.Api.Entites;
-
+﻿
 namespace MotoHM.Api.Modules.Testimonials;
 
 public static class CreateTestimonial

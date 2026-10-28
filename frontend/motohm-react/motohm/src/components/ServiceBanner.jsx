@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const services = [
@@ -16,7 +17,7 @@ export default function ServiceBanner() {
         <p className="banner-eyebrow">{t('serviceBanner.eyebrow')}</p>
         <h3 className="banner-title">{t('serviceBanner.title')}</h3>
         <p className="banner-desc">{t('serviceBanner.desc')}</p>
-        <button className="banner-btn">{t('serviceBanner.btn')}</button>
+        <Link to="/service" className="banner-btn">{t('serviceBanner.btn')}</Link>
       </div>
 
       <div className="service-list">

@@ -8,6 +8,13 @@ export const PRICE_RANGES = [
 
 export const norm = (s) => (s ?? '').toString().trim().toLowerCase();
 
+// Qiymət aralığının etiketini qaytarır (value: '0-5000', t: i18n tərcümə funksiyası)
+export function priceRangeLabel(value, t) {
+  const r = PRICE_RANGES.find((p) => p.value === value);
+  const fallback = r ? r.label : value;
+  return t ? t(`price.${value}`, { defaultValue: fallback }) : fallback;
+}
+
 // filters: { brand, model, year, price } - boş string = "fərqi yoxdur"
 export function matchesFilters(m, f) {
   if (f.brand && norm(m.brand) !== norm(f.brand)) return false;

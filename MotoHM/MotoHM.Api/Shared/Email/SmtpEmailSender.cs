@@ -1,7 +1,4 @@
-﻿using System.Net;
-using System.Net.Mail;
-using System.Text;
-
+﻿
 namespace MotoHM.Api.Shared.Email;
 
 public class SmtpEmailSender : IEmailSender

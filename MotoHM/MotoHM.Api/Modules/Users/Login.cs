@@ -1,14 +1,4 @@
 ﻿using Microsoft.AspNetCore.RateLimiting;
-using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using MotoHM.Api.Data;
-using MotoHM.Api.Shared.Exceptions.Common;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace MotoHM.Api.Modules.Users;
 
@@ -16,7 +6,7 @@ public static class Login
 {
     public record LoginCommand(string Email, string Password) : IRequest<LoginResponse>;
 
-    public record LoginResponse(string Token, string FullName, string Role);
+    public record LoginResponse(string Token, string FullName, string Role, string? AvatarUrl);
 
     public class Handler : IRequestHandler<LoginCommand, LoginResponse>
     {
@@ -39,7 +29,7 @@ public static class Login
 
             var token = GenerateToken(user.Id, user.Email, user.Role.ToString());
 
-            return new LoginResponse(token, user.FullName, user.Role.ToString());
+            return new LoginResponse(token, user.FullName, user.Role.ToString(), user.AvatarUrl);
         }
 
         private string GenerateToken(int userId, string email, string role)

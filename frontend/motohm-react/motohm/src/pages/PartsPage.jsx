@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import apiClient from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
+import AdminDeleteButton from '../components/AdminDeleteButton.jsx';
 
 export default function PartsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -101,6 +102,12 @@ export default function PartsPage() {
                 >
                   {p.stockQty === 0 ? 'Stokda yoxdur' : addingId === p.id ? 'Əlavə olunur...' : 'Səbətə at'}
                 </button>
+                <AdminDeleteButton
+                  endpoint="parts"
+                  id={p.id}
+                  name={p.name}
+                  onDeleted={(id) => setParts((prev) => prev.filter((x) => x.id !== id))}
+                />
               </div>
             </div>
           ))}

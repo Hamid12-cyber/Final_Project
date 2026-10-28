@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import apiClient from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
+import AdminDeleteButton from '../components/AdminDeleteButton.jsx';
 
 export default function AccessoriesPage() {
   const [accessories, setAccessories] = useState([]);
@@ -71,6 +72,12 @@ export default function AccessoriesPage() {
                 >
                   {addingId === a.id ? 'Əlavə olunur...' : 'Səbətə at'}
                 </button>
+                <AdminDeleteButton
+                  endpoint="accessories"
+                  id={a.id}
+                  name={a.name}
+                  onDeleted={(id) => setAccessories((prev) => prev.filter((x) => x.id !== id))}
+                />
               </div>
             </div>
           ))}

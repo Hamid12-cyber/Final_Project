@@ -6,6 +6,7 @@ import { useCart } from '../context/CartContext.jsx';
 import { matchesFilters } from '../utils/motorcycleFilter.js';
 import StarRating from '../components/StarRating.jsx';
 import FavoriteButton from '../components/FavoriteButton.jsx';
+import AdminDeleteButton from '../components/AdminDeleteButton.jsx';
 
 export default function MotorcyclesPage() {
   const [motorcycles, setMotorcycles] = useState([]);
@@ -104,6 +105,12 @@ export default function MotorcyclesPage() {
                 >
                   {addingId === m.id ? 'Əlavə olunur...' : 'Səbətə at'}
                 </button>
+                <AdminDeleteButton
+                  endpoint="motorcycles"
+                  id={m.id}
+                  name={m.name}
+                  onDeleted={(id) => setMotorcycles((prev) => prev.filter((x) => x.id !== id))}
+                />
               </div>
             </div>
           ))}

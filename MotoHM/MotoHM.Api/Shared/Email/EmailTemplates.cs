@@ -1,5 +1,4 @@
-﻿using System.Net;
-
+﻿
 namespace MotoHM.Api.Shared.Email;
 
 public enum EmailPurpose

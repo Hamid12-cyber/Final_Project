@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
+import PasswordInput from '../components/PasswordInput.jsx';
+import { PHONE_PREFIX, PHONE_PATTERN, formatPhone, phoneToE164 } from '../utils/phone.js';
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState('');
@@ -19,7 +21,7 @@ export default function RegisterPage() {
     setSubmitting(true);
     try {
       const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
-      const res = await apiClient.post('/auth/register', { fullName, email, phone, password, role });
+      const res = await apiClient.post('/auth/register', { fullName, email, phone: phoneToE164(phone), password, role });
       sessionStorage.setItem(
         'pendingRegistration',
         JSON.stringify({ verificationToken: res.data.verificationToken, email: res.data.email })
@@ -57,18 +59,22 @@ export default function RegisterPage() {
           <label className="form-field">
             <span>Telefon nömrəsi</span>
             <input
-              type="text"
+              type="tel"
+              inputMode="tel"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => setPhone(formatPhone(e.target.value, e.target.value.length < phone.length))}
+              onFocus={() => { if (!phone) setPhone(PHONE_PREFIX); }}
+              onBlur={() => setPhone(formatPhone(phone, true))}
               required
-              maxLength={30}
-              placeholder="+994 55 123 45 67"
+              pattern={PHONE_PATTERN}
+              title="Nömrəni tam yazın: +994 55-123-45-67"
+              placeholder="+994 55-123-45-67"
             />
           </label>
 
           <label className="form-field">
             <span>Şifrə</span>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} />
+            <PasswordInput value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} />
           </label>
 
           <label className="form-field">

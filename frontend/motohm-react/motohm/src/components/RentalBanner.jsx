@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export default function RentalBanner() {
@@ -8,7 +9,7 @@ export default function RentalBanner() {
       <p className="banner-eyebrow">{t('rentalBanner.eyebrow')}</p>
       <h3 className="banner-title">{t('rentalBanner.title')}</h3>
       <p className="banner-desc">{t('rentalBanner.desc')}</p>
-      <button className="banner-btn">{t('rentalBanner.btn')}</button>
+      <Link to="/rentals" className="banner-btn">{t('rentalBanner.btn')}</Link>
 
       <div className="rental-prices">
         <div>

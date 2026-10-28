@@ -12,6 +12,7 @@
     "searchPlaceholder": "Motosiklet axtar...",
     "searchAria": "Axtar",
     "cartAria": "Səbət",
+    "profile": "Profilim",
     "adminPanel": "Admin panel",
     "myListings": "Elanlarım",
     "createListing": "Elan yerləşdir",
@@ -19,6 +20,19 @@
     "myOrders": "Sifarişlərim",
     "logout": "Çıxış",
     "loginRegister": "Giriş / Qeydiyyat"
+  },
+  "profile": {
+    "title": "Profilim",
+    "hint": "Profil şəkli istəyə bağlıdır. Yükləməsəniz adınızın baş hərfləri göstərilir.",
+    "upload": "Şəkil yüklə",
+    "change": "Şəkli dəyiş",
+    "remove": "Şəkli sil",
+    "uploading": "Yüklənir...",
+    "saved": "Profil şəkli yadda saxlandı.",
+    "removed": "Profil şəkli silindi.",
+    "typeError": "Yalnız JPG, PNG və ya WebP şəkilləri qəbul olunur.",
+    "sizeError": "Şəkil 5 MB-dan böyük ola bilməz.",
+    "error": "Profil şəkli yadda saxlanmadı."
   },
   "footer": {
     "tagline": "Sürət, azadlıq, macəra!",
@@ -29,7 +43,7 @@
     "delivery": "Çatdırılma",
     "returns": "Qaytarma və dəyişdirmə",
     "terms": "İstifadə şərtləri",
-    "address": "Bakı, Nərimanov r., Əhməd Racabli 25",
+    "address": "Bakı, Yasamal r., Məhəmməd Xiyabani 8A",
     "rights": "Bütün hüquqlar qorunur."
   },
   "hero": {

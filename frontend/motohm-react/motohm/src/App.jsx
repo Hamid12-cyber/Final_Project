@@ -15,6 +15,7 @@ import AdminPage from './pages/AdminPage.jsx';
 import AdminOrdersPage from './pages/AdminOrdersPage.jsx';
 import AdminDashboardPage from './pages/AdminDashboardPage.jsx';
 import FavoritesPage from './pages/FavoritesPage.jsx';
+import ProfilePage from './pages/ProfilePage.jsx';
 import MotorcycleDetailPage from './pages/MotorcycleDetailPage.jsx';
 import CreateListingPage from './pages/CreateListingPage.jsx';
 import SellerPage from './pages/SellerPage.jsx';
@@ -53,6 +54,7 @@ export default function App() {
         <Route path="/sell" element={<CreateListingPage />} />
         <Route path="/seller" element={<SellerPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Route>
 
       <Route element={<ProtectedRoute roles={['Admin']} />}>

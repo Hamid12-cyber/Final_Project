@@ -12,3 +12,8 @@ logs/
 
 # Yüklənmiş şəkillər
 uploads/
+
+# Env faylları (secret ola bilər)
+.env
+.env.*
+!.env.example

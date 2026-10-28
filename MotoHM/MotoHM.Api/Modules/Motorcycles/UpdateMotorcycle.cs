@@ -1,13 +1,11 @@
-﻿using System.Security.Claims;
-using MotoHM.Api.Shared.Extensions;
-using FluentValidation;
+﻿using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Motorcycles;
 
 public static class UpdateMotorcycle
 {
     public record UpdateMotorcycleCommand(int Id, string Name, string Brand, string Model, int Cc, int Year,
-    decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale,
+    decimal Price, string? ImageUrl, IReadOnlyList<string>? ImageUrls, bool IsForRent, bool IsForSale,
     int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<UpdateMotorcycleCommand, bool>
@@ -28,7 +26,9 @@ public static class UpdateMotorcycle
             entity.Cc = request.Cc;
             entity.Year = request.Year;
             entity.Price = request.Price;
-            entity.ImageUrl = request.ImageUrl;
+            var images = ImageList.Normalize(request.ImageUrls, request.ImageUrl);
+            entity.ImageUrl = images.FirstOrDefault();
+            entity.ImageUrlsJson = ImageList.ToJson(images);
             entity.IsForRent = request.IsForRent;
             entity.IsForSale = request.IsForSale;
             // Satıcı elanı dəyişəndə (rədd edilmiş də olsa, təsdiqlənmiş də) yenidən admin təsdiqinə göndərilir
@@ -50,7 +50,7 @@ public static class UpdateMotorcycle
         app.MapPut("/api/motorcycles/{id:int}", async (int id, UpdateMotorcycleBody body, ClaimsPrincipal user, ISender sender) =>
         {
             var command = new UpdateMotorcycleCommand(id, body.Name, body.Brand, body.Model, body.Cc, body.Year,
-                body.Price, body.ImageUrl, body.IsForRent, body.IsForSale,
+                body.Price, body.ImageUrl, body.ImageUrls, body.IsForRent, body.IsForSale,
                 user.GetUserId(), user.IsInRole("Admin"));
 
             var success = await sender.Send(command);
@@ -62,7 +62,7 @@ public static class UpdateMotorcycle
     }
 
     public record UpdateMotorcycleBody(string Name, string Brand, string Model, int Cc, int Year,
-        decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale);
+        decimal Price, string? ImageUrl, bool IsForRent, bool IsForSale, string[]? ImageUrls = null);
 
     public class Validator : AbstractValidator<UpdateMotorcycleCommand>
     {
@@ -74,6 +74,8 @@ public static class UpdateMotorcycle
             RuleFor(x => x.Cc).GreaterThan(0);
             RuleFor(x => x.Year).InclusiveBetween(1980, DateTime.UtcNow.Year + 1);
             RuleFor(x => x.Price).GreaterThan(0);
+            RuleFor(x => x).Must(x => x.IsForRent || x.IsForSale)
+                .WithMessage("Elan ən azı satış və ya kirayə üçün olmalıdır.");
         }
     }
 }

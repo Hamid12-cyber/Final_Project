@@ -35,8 +35,8 @@ export default function Footer() {
 
         <div>
           <p className="footer-heading">{t('footer.contact')}</p>
-          <p className="footer-contact-item">📞 +994 50 123 45 67</p>
-          <p className="footer-contact-item">✉️ info@motohm.az</p>
+          <p className="footer-contact-item">📞 +994-70-791-17-07</p>
+          <p className="footer-contact-item">✉️ infomotohm@gmail.com</p>
           <p className="footer-contact-item">📍 {t('footer.address')}</p>
         </div>
       </div>

@@ -1,0 +1,45 @@
+# Repo kökündə (MotoHM/docker-compose.yml). İşə salmaq: docker compose up -d --build
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SA_PASSWORD}
+    volumes: [mssql_data:/var/opt/mssql]
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: MotoDbHmBackup
+    volumes: [pg_data:/var/lib/postgresql/data]
+    restart: unless-stopped
+
+  api:
+    build: ./MotoHM/MotoHM.Api
+    depends_on: [mssql, postgres]
+    environment:
+      ConnectionStrings__Default: "Server=mssql;Database=MotoDbHm;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=true;"
+      ConnectionStrings__Backup: "Host=postgres;Port=5432;Database=MotoDbHmBackup;Username=postgres;Password=${PG_PASSWORD}"
+      Jwt__Key: ${JWT_KEY}
+      Frontend__BaseUrl: ${FRONTEND_URL}
+      Database__AutoMigrate: "true"
+      Admin__Email: ${ADMIN_EMAIL}
+      Admin__Password: ${ADMIN_PASSWORD}
+      Smtp__Username: ${SMTP_USERNAME}
+      Smtp__Password: ${SMTP_PASSWORD}
+      Smtp__FromEmail: ${SMTP_FROM_EMAIL}
+    volumes: [uploads:/data/uploads]
+    ports: ["8080:8080"]
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend/motohm-react/motohm
+      args:
+        VITE_API_URL: ${API_PUBLIC_URL}/api
+    ports: ["8081:80"]
+    restart: unless-stopped
+
+volumes: { mssql_data: {}, pg_data: {}, uploads: {} }

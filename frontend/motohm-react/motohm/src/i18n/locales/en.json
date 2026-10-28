@@ -12,6 +12,7 @@
     "searchPlaceholder": "Search motorcycles...",
     "searchAria": "Search",
     "cartAria": "Cart",
+    "profile": "My profile",
     "adminPanel": "Admin panel",
     "myListings": "My listings",
     "createListing": "Post a listing",
@@ -19,6 +20,19 @@
     "myOrders": "My orders",
     "logout": "Log out",
     "loginRegister": "Log in / Sign up"
+  },
+  "profile": {
+    "title": "My profile",
+    "hint": "A profile photo is optional. If you don't upload one, your initials are shown.",
+    "upload": "Upload photo",
+    "change": "Change photo",
+    "remove": "Remove photo",
+    "uploading": "Uploading...",
+    "saved": "Profile photo saved.",
+    "removed": "Profile photo removed.",
+    "typeError": "Only JPG, PNG or WebP images are accepted.",
+    "sizeError": "The image can't be larger than 5 MB.",
+    "error": "Couldn't save the profile photo."
   },
   "footer": {
     "tagline": "Speed, freedom, adventure!",
@@ -29,7 +43,7 @@
     "delivery": "Delivery",
     "returns": "Returns and exchanges",
     "terms": "Terms of use",
-    "address": "Baku, Narimanov district, 25 Ahmad Rajabli St.",
+    "address": "Baku, Yasamal district, 8A Mahammad Khiyabani Street",
     "rights": "All rights reserved."
   },
   "hero": {

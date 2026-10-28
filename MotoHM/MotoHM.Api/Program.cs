@@ -1,12 +1,5 @@
-using FluentValidation;
-using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+﻿using Serilog;
 using Microsoft.OpenApi;
-using Microsoft.OpenApi.Models;
-using MotoHM.Api.Data;
-using MotoHM.Api.Data.Interceptors;
 using MotoHM.Api.Modules.Accessories;
 using MotoHM.Api.Modules.Admin;
 using MotoHM.Api.Modules.Cart;
@@ -20,19 +13,15 @@ using MotoHM.Api.Modules.Service;
 using MotoHM.Api.Modules.Testimonials;
 using MotoHM.Api.Modules.Uploads;
 using MotoHM.Api.Modules.Users;
-using System.Text.Json.Serialization;
 using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
-using MotoHM.Api.Shared.Behaviors;
-using MotoHM.Api.Shared.Email;
 using MotoHM.Api.Shared.Handlers;
-using Serilog;
 using System.Reflection;
-using System.Text;
 using Microsoft.Extensions.FileProviders;
 using MotoHM.Api.Modules.Uploads;
 using MotoHM.Api.Modules.Reviews;
 using MotoHM.Api.Modules.Favorites;
+using Microsoft.AspNetCore.HttpOverrides;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -113,11 +102,27 @@ builder.Services.AddExceptionHandler<AppExceptionHandler>();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
+// ---- Reverse proxy (Nginx / Azure / Render / Railway ...) arxasında düzgün scheme və client IP üçün ----
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost;
+    // Proxy-nin IP-si əvvəlcədən məlum deyil (PaaS), ona görə default etibarlı siyahını təmizləyirik.
+    options.KnownNetworks.Clear();
+    options.KnownProxies.Clear();
+});
+
 // ---- CORS ----
+// Frontend:BaseUrl bir və ya vergüllə ayrılmış bir neçə ünvan ola bilər:
+// "https://motohm.az,https://www.motohm.az"
+var frontendOrigins = (builder.Configuration["Frontend:BaseUrl"] ?? "http://localhost:5173")
+    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+    .Select(o => o.TrimEnd('/'))
+    .ToArray();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins(builder.Configuration["Frontend:BaseUrl"] ?? "http://localhost:5173")
+        policy.WithOrigins(frontendOrigins)
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
@@ -180,6 +185,42 @@ builder.Services.AddRateLimiter(options =>
 
 var app = builder.Build();
 
+// ---- Əsas baza migration-larını avtomatik tətbiq et (Database:AutoMigrate=true olduqda) ----
+// Prod-da env ilə: Database__AutoMigrate=true
+if (app.Configuration.GetValue<bool>("Database:AutoMigrate"))
+{
+    using var migrateScope = app.Services.CreateScope();
+    var mainDb = migrateScope.ServiceProvider.GetRequiredService<AppDbContext>();
+    mainDb.Database.Migrate();
+    app.Logger.LogInformation("Əsas baza migration-ları tətbiq olundu.");
+}
+
+// ---- İlk Admin istifadəçisi (Admin:Email və Admin:Password verilibsə və belə admin yoxdursa) ----
+{
+    var adminEmail = app.Configuration["Admin:Email"];
+    var adminPassword = app.Configuration["Admin:Password"];
+    if (!string.IsNullOrWhiteSpace(adminEmail) && !string.IsNullOrWhiteSpace(adminPassword))
+    {
+        using var seedScope = app.Services.CreateScope();
+        var db = seedScope.ServiceProvider.GetRequiredService<AppDbContext>();
+        var normalized = adminEmail.Trim().ToLowerInvariant();
+        var exists = await db.Set<MotoHM.Api.Entites.UserEntity>()
+            .AnyAsync(u => u.Email.ToLower() == normalized);
+        if (!exists)
+        {
+            db.Set<MotoHM.Api.Entites.UserEntity>().Add(new MotoHM.Api.Entites.UserEntity
+            {
+                FullName = app.Configuration["Admin:FullName"] ?? "Admin",
+                Email = normalized,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(adminPassword),
+                Role = MotoHM.Api.Entites.Enums.UserRole.Admin
+            });
+            await db.SaveChangesAsync();
+            app.Logger.LogInformation("İlk admin istifadəçisi yaradıldı: {Email}", normalized);
+        }
+    }
+}
+
 // ---- Postgres backup DB-nin cədvəllərini (yoxdursa) avtomatik yarat ----
 using (var scope = app.Services.CreateScope())
 {
@@ -195,6 +236,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 // ---- Pipeline ----
+app.UseForwardedHeaders();
+
 // Development-də http və https ikisi də işləsin; production-da http -> https yönləndirilir
 if (!app.Environment.IsDevelopment())
     app.UseHttpsRedirection();
@@ -210,7 +253,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowFrontend");
 
-var uploadsPath = Path.Combine(app.Environment.ContentRootPath, "uploads");
+// Uploads:Path ilə persistent volume göstərmək olar (məs. /data/uploads)
+var uploadsPath = app.Configuration["Uploads:Path"] ?? Path.Combine(app.Environment.ContentRootPath, "uploads");
 Directory.CreateDirectory(uploadsPath);
 app.UseStaticFiles(new StaticFileOptions
 {
@@ -223,6 +267,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // ---- Endpoints ----
+
+// Health check (deploy platformaları üçün)
+app.MapGet("/health", () => Results.Ok(new { status = "ok" })).WithTags("Health");
 
 // Motorcycles
 CreateMotorcycle.MapEndpoint(app);
@@ -288,6 +335,7 @@ Register.MapEndpoint(app);
 Login.MapEndpoint(app);
 ForgotPassword.MapEndpoint(app);
 ResetPassword.MapEndpoint(app);
+UpdateAvatar.MapEndpoint(app);
 
 // Cart
 GetMyCart.MapEndpoint(app);

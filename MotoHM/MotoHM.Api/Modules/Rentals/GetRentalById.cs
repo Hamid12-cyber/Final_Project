@@ -1,7 +1,4 @@
-﻿using Dapper;
-using MediatR;
-using MotoHM.Api.Data;
-
+﻿
 namespace MotoHM.Api.Modules.Rentals;
 
 public static class GetRentalById

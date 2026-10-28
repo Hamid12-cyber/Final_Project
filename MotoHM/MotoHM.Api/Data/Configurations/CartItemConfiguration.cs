@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MotoHM.Api.Entites;
-
+﻿
 namespace MotoHM.Api.Data.Configurations;
 
 public class CartItemConfiguration : IEntityTypeConfiguration<CartItemEntity>

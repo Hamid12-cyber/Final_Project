@@ -1,7 +1,4 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-
+﻿
 namespace MotoHM.Api.Modules.Rentals;
 
 public static class DeleteRental

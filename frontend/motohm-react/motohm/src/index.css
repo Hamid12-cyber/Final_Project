@@ -195,42 +195,76 @@ a { text-decoration: none; color: inherit; }
 .feature-title { font-weight: 600; }
 .feature-subtitle { color: var(--muted); font-size: 12px; }
 
-/* Bike slider (Ana səhifə, Hero-dan sonra) — eyni anda bir neçə kart görünən karusel */
+/* Bike slider (Ana səhifə, Hero-dan sonra) — öz-özünə fırlanan sonsuz lent.
+   Siçan üstünə gələndə lent dayanır və həmin motosikletin digər şəkilləri göstərilir. */
 .bike-slider-section { padding: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
 .slider-track {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  padding-bottom: 4px;
+  --cards: 4; /* eyni anda ən çox 4 kart görünür */
+  container-type: inline-size;
+  overflow: hidden;
+  padding: 6px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
-.slider-track::-webkit-scrollbar { display: none; }
+.slider-rail {
+  display: flex;
+  width: max-content;
+  animation: slider-scroll var(--slider-duration, 48s) linear infinite;
+}
+.slider-track:hover .slider-rail { animation-play-state: paused; }
+@keyframes slider-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
 .slider-card {
-  flex: 0 0 calc(25% - 15px);
-  scroll-snap-align: start;
+  /* lentin eninə görə: ekranda həmişə --cards qədər kart sığır */
+  flex: 0 0 calc((100vw - 140px) / var(--cards));
+  flex: 0 0 calc((100cqw - (var(--cards) - 1) * 20px) / var(--cards));
+  margin-right: 20px;
   text-decoration: none; color: var(--text);
   background: var(--card); border: 1px solid var(--border); border-radius: 14px;
   overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
 }
-@media (max-width: 1024px) { .slider-card { flex: 0 0 calc(33.333% - 14px); } }
-@media (max-width: 768px)  { .slider-card { flex: 0 0 calc(50% - 10px); } }
-@media (max-width: 480px)  { .slider-card { flex: 0 0 85%; } }
+.slider-card:hover { border-color: rgba(229,57,53,0.5); transform: translateY(-3px); }
+@media (max-width: 1024px) { .slider-track { --cards: 3; } }
+@media (max-width: 768px)  { .slider-track { --cards: 2; } }
+@media (max-width: 480px)  { .slider-track { --cards: 1.15; } }
 
-.slider-card-image { height: 140px; background: linear-gradient(135deg, #2a1414, #151518); }
-.slider-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slider-card-image {
+  position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+  background: linear-gradient(135deg, #2a1414, #151518);
+}
+.slider-card-image img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.6s ease;
+}
+.slider-card-image img.active { opacity: 1; }
+.slider-card:hover .slider-card-image img.active { transform: scale(1.06); }
+
+.slider-dots {
+  position: absolute; left: 0; right: 0; bottom: 8px;
+  display: flex; justify-content: center; gap: 5px;
+  opacity: 0; transition: opacity 0.2s;
+}
+.slider-card:hover .slider-dots { opacity: 1; }
+.slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.45); }
+.slider-dot.active { background: #fff; }
+
 .slider-card-info { padding: 14px; }
 .slider-card-name { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
 .slider-card-meta { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
 .slider-card-price { font-weight: 700; }
 
-.slider-arrow {
-  background: var(--card); border: 1px solid var(--border); color: var(--text);
-  width: 36px; height: 36px; border-radius: 50%; font-size: 18px;
+/* Hərəkəti azaltmaq istəyən istifadəçilər üçün lent dayanır, əl ilə sürüşdürülür */
+@media (prefers-reduced-motion: reduce) {
+  .slider-rail { animation: none; }
+  .slider-track { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
 }
-.slider-arrow:hover { border-color: rgba(229,57,53,0.4); }
 
 /* Categories */
 .categories {
@@ -493,6 +527,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 14px; font-weight: 600;
 }
 .banner-btn:hover { background: var(--accent-hover); }
+a.banner-btn { display: inline-block; text-decoration: none; }
 
 .rental-banner {
   background: linear-gradient(120deg, #1a1010, #0b0b0f);
@@ -895,20 +930,28 @@ a { text-decoration: none; color: inherit; }
   .tracker-label { font-size: 11px; }
   .admin-order-items li { flex-direction: column; gap: 2px; }
 }
-.fav-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
-  background: transparent; color: var(--text); border: 1px solid var(--border);
-  cursor: pointer; transition: 0.2s;
-}
-.fav-btn:hover:not(:disabled) { border-color: var(--accent); }
-.fav-btn:disabled { opacity: 0.6; cursor: default; }
-.fav-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(229,57,53,0.10); }
 /* ---- Dil seçimi (AZ / EN / RU) ---- */
-.lang-switch { display: flex; gap: 2px; background: #0e0e11; border: 1px solid var(--border); border-radius: 16px; padding: 2px; }
+/* Həmişə yalnız seçilmiş dil görünür; üstünə gələndə AZ / EN / RU yan-yana açılır */
+.lang-switch { position: relative; display: inline-flex; }
+.lang-current,
+.lang-options {
+  display: flex; gap: 2px; padding: 2px;
+  background: #0e0e11; border: 1px solid var(--border); border-radius: 16px;
+}
+.lang-current { cursor: pointer; }
+.lang-options { position: absolute; top: 0; right: 0; z-index: 60; display: none; }
+.lang-switch:hover .lang-options,
+.lang-switch.open .lang-options,
+.lang-switch:has(:focus-visible) .lang-options { display: flex; }
 .lang-btn { background: none; color: var(--muted); font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 14px; cursor: pointer; border: none; }
 .lang-btn:hover { color: #fff; }
 .lang-btn.active { background: var(--accent); color: #fff; }
+
+/* Mobil menyuda hover yoxdur, ona görə üçü də həmişə açıq görünür */
+@media (max-width: 900px) {
+  .lang-current { display: none; }
+  .lang-options { position: static; display: flex; }
+}
 /* ===== Hero: foto fon (şəkil yoxdursa köhnə gradient qalır) ===== */
 .hero {
   min-height: 560px;
@@ -927,7 +970,7 @@ a { text-decoration: none; color: inherit; }
   height: 190px;
   background:
     linear-gradient(0deg, rgba(11,11,15,0.92) 0%, rgba(11,11,15,0.35) 70%, rgba(11,11,15,0.2) 100%),
-    var(--cat-img, none) center / cover no-repeat,
+    var(--cat-art, none) center / cover no-repeat,
     linear-gradient(135deg, #2a1414, #151518);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
@@ -936,6 +979,7 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 12px 28px rgba(229, 57, 53, 0.18);
 }
 .category-title { color: #fff; }
+a.category-card { text-decoration: none; }
 
 /* ===== Məhsul kartları: şəkil yoxdursa motosiklet ikonu ===== */
 .product-image {
@@ -981,3 +1025,204 @@ a { text-decoration: none; color: inherit; }
   background: rgba(11, 11, 15, 0.78);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
 }
+
+/* Mobil menyu (burger) */
+.mobile-controls { display: none; }
+.burger { background: none; color: #fff; display: flex; align-items: center; padding: 6px; border-radius: 8px; }
+.burger:hover { background: rgba(255,255,255,0.08); }
+
+@media (max-width: 900px) {
+  .header { padding: 14px 20px; }
+  .mobile-controls { display: flex; align-items: center; gap: 14px; order: 2; }
+
+  .nav,
+  .header-actions { display: none; width: 100%; order: 3; }
+
+  .header.menu-open .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 6px;
+    font-size: 16px;
+  }
+  .header.menu-open .nav .nav-link {
+    padding: 14px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .header.menu-open .nav .nav-link.active { color: var(--accent); }
+
+  .header.menu-open .header-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 16px 0 6px;
+  }
+  /* Səbət artıq yuxarıdakı sətirdə var */
+  .header-actions .cart-btn { display: none; }
+  .header-actions > div { flex-wrap: wrap; }
+}
+
+/* Mobil: hero yazısı */
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px; }
+  .hero-content { margin-left: 0; }
+  .hero-eyebrow { font-size: 12px; letter-spacing: 0.04em; }
+  .hero-title { font-size: clamp(32px, 10vw, 44px); margin-bottom: 14px; }
+  .hero-desc { font-size: 15px; }
+  .search-bar { margin-top: 32px; }
+}
+
+/* Mobil: footer 2 sütun */
+@media (max-width: 639px) {
+  .footer { padding: 40px 20px 20px; }
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; }
+  .footer-grid > div:first-child,
+  .footer-grid > div:last-child { grid-column: 1 / -1; }
+  .footer-tagline { max-width: none; }
+  .footer-bottom { margin-top: 32px; }
+}
+
+/* Istifadəçi menyusu: qırmızı dairə, üstünə gələndə siyahı alt-alta açılır */
+.user-menu { position: relative; }
+.user-menu-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; border: none;
+  box-shadow: 0 0 0 0 rgba(229,57,53,0.35);
+  transition: box-shadow 0.2s;
+}
+.user-menu.open .user-menu-btn,
+.user-menu-btn:hover { box-shadow: 0 0 0 4px rgba(229,57,53,0.25); }
+
+.user-menu-dropdown {
+  display: none;
+  position: absolute; top: 100%; right: 0;
+  padding-top: 12px; /* siçan boşluqdan keçəndə menyu bağlanmasın */
+  z-index: 70;
+}
+.user-menu.open .user-menu-dropdown { display: block; }
+.user-menu-panel {
+  min-width: 210px; padding: 8px;
+  display: flex; flex-direction: column; gap: 2px;
+  background: #151519; border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+}
+.user-menu-name {
+  padding: 8px 12px 10px; margin-bottom: 4px;
+  font-size: 13px; font-weight: 600; color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.user-menu-item {
+  display: block; width: 100%; text-align: left;
+  padding: 10px 12px; border-radius: 8px;
+  font-size: 14px; color: #c8c8cc; background: none; border: none;
+  cursor: pointer; text-decoration: none;
+}
+.user-menu-item:hover { background: rgba(255,255,255,0.06); color: #fff; }
+.user-menu-logout { margin-top: 4px; color: var(--accent); border-top: 1px solid rgba(255,255,255,0.08); border-radius: 0 0 8px 8px; }
+.user-menu-logout:hover { color: #ff6b66; }
+
+/* Mobil menyuda hover yoxdur: siyahı həmişə açıq görünür */
+@media (max-width: 900px) {
+  .user-menu { width: 100%; }
+  .user-menu-btn { display: none; }
+  .user-menu-dropdown { display: block; position: static; padding-top: 0; }
+  .user-menu-panel { box-shadow: none; min-width: 0; }
+}
+
+/* Motosiklet detal səhifəsi */
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 15px; font-weight: 600; color: #e8e8ec;
+  text-decoration: none; transition: color 0.15s;
+}
+.back-link:hover { color: var(--accent); }
+
+/* Birinci ekranı doldurur, məhsul ortada durur; rəylər aşağı düşür */
+.detail-hero {
+  min-height: calc(100vh - 130px);
+  display: flex; flex-direction: column;
+  padding-bottom: 40px;
+}
+.detail-hero .detail-layout { margin-block: auto; padding: 24px 0; align-items: center; }
+
+/* Ürək düyməsi (yalnız ikon) */
+.fav-btn.inline { border-radius: 12px; color: #c8c8cc; flex-shrink: 0; }
+.fav-btn.inline:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.fav-btn.inline.active { border-color: var(--accent); background: rgba(229,57,53,0.10); color: var(--accent); }
+
+/* Elan yerləşdir: başlıq və düymələr əvvəlki kimi solda, yalnız forma ortada */
+.listing-wrap { max-width: none; margin: 0; }
+.listing-wrap .checkout-form { margin-left: auto; margin-right: auto; }
+
+/* Geniş ekranda: başlıq + düymələr solda, forma ortada və başlıqla eyni xəttdən başlayır */
+@media (min-width: 1280px) {
+  .listing-split {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 480px) 1fr;
+    grid-template-rows: auto auto 1fr;
+    column-gap: 40px;
+  }
+  .listing-split .page-title { grid-column: 1; grid-row: 1; }
+  .listing-split .listing-type-tabs { grid-column: 1; grid-row: 2; align-self: start; }
+  .listing-split .checkout-form { grid-column: 2; grid-row: 1 / span 3; margin: 24px 0 0; }
+}
+/* ---- Çoxlu şəkil yükləmə (max 5) ---- */
+.multi-img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.multi-img-item, .multi-img-add {
+  position: relative; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+}
+.multi-img-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.multi-img-cover {
+  position: absolute; left: 6px; top: 6px; font-size: 11px; padding: 2px 8px; border-radius: 999px;
+  background: rgba(0, 0, 0, .65); color: #fff;
+}
+.multi-img-tools { position: absolute; right: 6px; top: 6px; display: flex; gap: 4px; }
+.multi-img-tools button {
+  width: 24px; height: 24px; border: 0; border-radius: 50%; cursor: pointer; font-size: 12px; line-height: 1;
+  background: rgba(0, 0, 0, .65); color: #fff;
+}
+.multi-img-tools button:hover { background: rgba(0, 0, 0, .85); }
+.multi-img-add {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer;
+  border: 1px dashed var(--border); background: transparent; color: var(--muted); font-size: 13px;
+}
+.multi-img-add span { font-size: 26px; line-height: 1; }
+.multi-img-add:disabled { cursor: default; opacity: .7; }
+
+/* ---- Motosiklet detalı: qalereya ---- */
+.detail-gallery { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.detail-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+.detail-thumb {
+  width: 64px; height: 64px; padding: 0; border-radius: 8px; overflow: hidden; cursor: pointer;
+  border: 2px solid transparent; background: none; opacity: .7;
+}
+.detail-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.detail-thumb.active, .detail-thumb:hover { opacity: 1; }
+.detail-thumb.active { border-color: var(--accent, #e63946); }
+/* ---- Admin: elanı birbaşa saytdan silmək ---- */
+.admin-delete-card { width: 100%; margin-top: 8px; cursor: pointer; }
+/* Avatar: profil şəkli, yoxdursa adın baş hərfləri (default avatar) */
+.avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--accent); color: #fff;
+  font-weight: 700; letter-spacing: 0.02em; user-select: none;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.user-menu-btn { padding: 0; overflow: hidden; }
+
+/* Profil səhifəsi */
+.profile-card {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px;
+}
+.profile-info { display: flex; flex-direction: column; gap: 10px; min-width: 200px; flex: 1; }
+.profile-name { font-size: 20px; font-weight: 700; }
+.profile-hint { font-size: 13px; color: var(--muted); }
+.profile-ok { color: #4caf50; font-size: 13px; }

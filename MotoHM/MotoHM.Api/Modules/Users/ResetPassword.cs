@@ -1,9 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-using Microsoft.AspNetCore.RateLimiting;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-using MotoHM.Api.Shared.Exceptions.Common;
+﻿using Microsoft.AspNetCore.RateLimiting;
 using MotoHM.Api.Shared.Security;
 
 namespace MotoHM.Api.Modules.Users;

@@ -1,16 +1,11 @@
-﻿using System.Security.Claims;
-using MotoHM.Api.Shared.Extensions;
-using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
+﻿using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Accessories;
 
 public static class UpdateAccessory
 {
     public record UpdateAccessoryCommand(int Id, string Name, string Brand, decimal Price,
-        int StockQty, string? ImageUrl, int UserId, bool IsAdmin) : IRequest<bool>;
+        int StockQty, string? ImageUrl, IReadOnlyList<string>? ImageUrls, int UserId, bool IsAdmin) : IRequest<bool>;
 
     public class Handler : IRequestHandler<UpdateAccessoryCommand, bool>
     {
@@ -28,7 +23,9 @@ public static class UpdateAccessory
             entity.Brand = request.Brand;
             entity.Price = request.Price;
             entity.StockQty = request.StockQty;
-            entity.ImageUrl = request.ImageUrl;
+            var images = ImageList.Normalize(request.ImageUrls, request.ImageUrl);
+            entity.ImageUrl = images.FirstOrDefault();
+            entity.ImageUrlsJson = ImageList.ToJson(images);
             if (!request.IsAdmin)
             {
                 entity.Status = MotoHM.Api.Entites.Enums.ApprovalStatus.Pending;
@@ -42,13 +39,14 @@ public static class UpdateAccessory
         }
     }
 
-    public record UpdateAccessoryBody(string Name, string Brand, decimal Price, int StockQty, string? ImageUrl);
+    public record UpdateAccessoryBody(string Name, string Brand, decimal Price, int StockQty, string? ImageUrl,
+        string[]? ImageUrls = null);
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapPut("/api/accessories/{id:int}", async (int id, UpdateAccessoryBody body, ClaimsPrincipal user, ISender sender) =>
         {
-            var command = new UpdateAccessoryCommand(id, body.Name, body.Brand, body.Price, body.StockQty, body.ImageUrl,
+            var command = new UpdateAccessoryCommand(id, body.Name, body.Brand, body.Price, body.StockQty, body.ImageUrl, body.ImageUrls,
                 user.GetUserId(), user.IsInRole("Admin"));
             var success = await sender.Send(command);
             return success ? Results.NoContent() : Results.NotFound();

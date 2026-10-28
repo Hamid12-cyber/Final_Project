@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
+import UserMenu from './UserMenu.jsx';
 
 function SearchIcon() {
   return (
@@ -24,6 +25,25 @@ function CartIcon() {
   );
 }
 
+function BurgerIcon({ open }) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {open ? (
+        <>
+          <line x1="5" y1="5" x2="19" y2="19" />
+          <line x1="19" y1="5" x2="5" y2="19" />
+        </>
+      ) : (
+        <>
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export default function Header() {
   const { t } = useTranslation();
   const { user, logout } = useAuth();
@@ -32,6 +52,12 @@ export default function Header() {
   const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Səhifə dəyişəndə mobil menyu bağlansın
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   const isActive = (path) => location.pathname === path;
 
@@ -50,12 +76,29 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${menuOpen ? 'menu-open' : ''}`}>
       <div className="logo">
         <div className="logo-badge">HM</div>
         <span className="logo-text">
           Moto<span className="accent">HM</span>
         </span>
+      </div>
+
+      {/* Yalnız mobildə görünür: səbət + burger düyməsi */}
+      <div className="mobile-controls">
+        <Link to="/cart" className="icon-btn cart-btn" aria-label={t('header.cartAria')}>
+          <CartIcon />
+          <span className="cart-count">{count}</span>
+        </Link>
+        <button
+          type="button"
+          className="burger"
+          aria-label={t('header.menuAria', { defaultValue: 'Menu' })}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <BurgerIcon open={menuOpen} />
+        </button>
       </div>
 
       <nav className="nav">
@@ -92,15 +135,7 @@ export default function Header() {
         </Link>
 
         {user ? (
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            {user.role === 'Admin' && <Link to="/admin" className="nav-link">{t('header.adminPanel')}</Link>}
-            <Link to="/seller" className="nav-link">{t('header.myListings')}</Link>
-            <Link to="/sell" className="nav-link">{t('header.createListing')}</Link>
-            <Link to="/favorites" className="nav-link">{t('header.favorites')}</Link>
-            <Link to="/orders" className="nav-link">{t('header.myOrders')}</Link>
-            <span style={{ color: '#c8c8cc', fontSize: 14 }}>👤 {user.fullName}</span>
-            <button className="login-btn" onClick={handleLogout}>{t('header.logout')}</button>
-          </div>
+          <UserMenu user={user} onLogout={handleLogout} />
         ) : (
           <Link to="/login" className="login-btn">👤 {t('header.loginRegister')}</Link>
         )}

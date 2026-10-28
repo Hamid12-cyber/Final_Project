@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-using MotoHM.Api.Shared.Exceptions.Common;
-
+﻿
 namespace MotoHM.Api.Shared.Extensions;
 
 public static class ClaimsPrincipalExtensions

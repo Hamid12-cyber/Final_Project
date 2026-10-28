@@ -1,8 +1,4 @@
-﻿using Dapper;
-using MediatR;
-using MotoHM.Api.Data;
-using MotoHM.Api.Modules.Orders;
-using MotoHM.Api.Shared.Exceptions.Common;
+﻿using MotoHM.Api.Modules.Orders;
 
 namespace MotoHM.Api.Modules.Admin;
 

@@ -1,8 +1,4 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-using MotoHM.Api.Entites;
-
+﻿
 namespace MotoHM.Api.Modules.Admin;
 public static class ResyncBackup
 {

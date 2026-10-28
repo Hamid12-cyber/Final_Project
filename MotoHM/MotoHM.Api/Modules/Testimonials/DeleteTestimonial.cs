@@ -1,7 +1,4 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-
+﻿
 namespace MotoHM.Api.Modules.Testimonials;
 
 public static class DeleteTestimonial

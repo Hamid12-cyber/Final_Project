@@ -1,10 +1,4 @@
-﻿using System.Security.Claims;
-using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-using MotoHM.Api.Shared.Exceptions.Common;
-using MotoHM.Api.Shared.Extensions;
+﻿using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Cart;
 

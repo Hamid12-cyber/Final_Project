@@ -5,6 +5,9 @@ import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import Reviews from '../components/Reviews.jsx';
 import FavoriteButton from '../components/FavoriteButton.jsx';
+import AdminDeleteButton from '../components/AdminDeleteButton.jsx';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
 
 export default function MotorcycleDetailPage() {
   const { id } = useParams();
@@ -12,6 +15,7 @@ export default function MotorcycleDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [adding, setAdding] = useState(false);
+  const [activeImg, setActiveImg] = useState(0);
 
   const { user } = useAuth();
   const { addToCart } = useCart();
@@ -21,6 +25,7 @@ export default function MotorcycleDetailPage() {
     apiClient.get(`/motorcycles/${id}`)
       .then((res) => {
         setBike(res.data);
+        setActiveImg(0);
         setLoading(false);
       })
       .catch((err) => {
@@ -44,17 +49,48 @@ export default function MotorcycleDetailPage() {
     }
   };
 
-  if (loading) return <div className="state-msg">Yüklənir...</div>;
-  if (error) return <div className="state-msg">Xəta: {error}</div>;
-  if (!bike) return null;
+  if (loading || error || !bike) {
+    return (
+      <>
+        <Header />
+        {loading && <div className="state-msg">Yüklənir...</div>}
+        {!loading && error && <div className="state-msg">Xəta: {error}</div>}
+      </>
+    );
+  }
+
+  const gallery = (bike.imageUrls?.length ? bike.imageUrls : bike.imageUrl ? [bike.imageUrl] : []);
 
   return (
+    <>
+    <Header />
     <div className="page-wrap">
-      <Link to="/motorcycles" className="see-all">← Motosikletlərə qayıt</Link>
+      {/* Birinci ekran: məhsul bölməsi tam görünür, rəylər aşağıda qalır */}
+      <section className="detail-hero">
+      <Link to="/motorcycles" className="back-link">
+        <span aria-hidden="true">←</span> Motosikletlərə qayıt
+      </Link>
 
       <div className="detail-layout">
-        <div className="detail-image">
-          {bike.imageUrl && <img src={bike.imageUrl} alt={bike.name} />}
+        <div className="detail-gallery">
+          <div className="detail-image">
+            {gallery[activeImg] && <img src={gallery[activeImg]} alt={bike.name} />}
+          </div>
+          {gallery.length > 1 && (
+            <div className="detail-thumbs">
+              {gallery.map((src, i) => (
+                <button
+                  type="button"
+                  key={src}
+                  className={`detail-thumb ${i === activeImg ? 'active' : ''}`}
+                  onClick={() => setActiveImg(i)}
+                  aria-label={`Şəkil ${i + 1}`}
+                >
+                  <img src={src} alt="" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="detail-info">
@@ -92,10 +128,19 @@ export default function MotorcycleDetailPage() {
             )}
             <FavoriteButton motorcycleId={bike.id} className="inline" />
           </div>
+          <AdminDeleteButton
+            endpoint="motorcycles"
+            id={bike.id}
+            name={bike.name}
+            onDeleted={() => navigate('/motorcycles')}
+          />
         </div>
       </div>
+      </section>
 
       <Reviews motorcycleId={bike.id} />
     </div>
+    <Footer />
+    </>
   );
 }

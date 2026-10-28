@@ -1,7 +1,4 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-
+﻿
 namespace MotoHM.Api.Modules.Service;
 
 public static class DeleteServiceBooking

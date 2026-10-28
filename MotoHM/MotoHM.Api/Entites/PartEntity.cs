@@ -9,7 +9,7 @@ public class PartEntity : BaseEntity
     public decimal Price { get; set; }
     public int StockQty { get; set; }
     public string? ImageUrl { get; set; }
-
+    public string? ImageUrlsJson { get; set; }
     public int PartCategoryId { get; set; }
     public PartCategoryEntity PartCategory { get; set; } = null!;
 

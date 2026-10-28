@@ -1,19 +1,12 @@
-﻿using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-using MotoHM.Api.Entites;
-using MotoHM.Api.Entites.Enums;
-using MotoHM.Api.Shared.Exceptions.Common;
+﻿using MotoHM.Api.Entites.Enums;
 using MotoHM.Api.Shared.Extensions;
-using System.Security.Claims;
 
 namespace MotoHM.Api.Modules.Parts;
 
 public static class CreatePart
 {
     public record CreatePartCommand(string Name, string Brand, decimal Price, int StockQty,
-        string? ImageUrl, int PartCategoryId, int SellerId) : IRequest<int>;
+        string? ImageUrl, IReadOnlyList<string>? ImageUrls, int PartCategoryId, int SellerId) : IRequest<int>;
 
     public class Handler : IRequestHandler<CreatePartCommand, int>
     {
@@ -32,6 +25,8 @@ public static class CreatePart
                 throw new AppException("NOT_FOUND", StatusCodes.Status404NotFound,
                     $"PartCategory (Id={request.PartCategoryId}) tapılmadı.");
 
+            var images = ImageList.Normalize(request.ImageUrls, request.ImageUrl);
+
             var entity = new PartEntity
             {
                 SellerId = request.SellerId,
@@ -39,7 +34,8 @@ public static class CreatePart
                 Brand = request.Brand,
                 Price = request.Price,
                 StockQty = request.StockQty,
-                ImageUrl = request.ImageUrl,
+                ImageUrl = images.FirstOrDefault(),
+                ImageUrlsJson = ImageList.ToJson(images),
                 PartCategoryId = request.PartCategoryId,
                 Status = ApprovalStatus.Pending
             };
@@ -52,7 +48,7 @@ public static class CreatePart
     }
 
     public record CreatePartBody(string Name, string Brand, decimal Price, int StockQty,
-        string? ImageUrl, int PartCategoryId);
+        string? ImageUrl, int PartCategoryId, string[]? ImageUrls = null);
 
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
@@ -61,7 +57,7 @@ public static class CreatePart
             var sellerId = user.GetUserId();
 
             var command = new CreatePartCommand(body.Name, body.Brand, body.Price, body.StockQty,
-                body.ImageUrl, body.PartCategoryId, sellerId);
+                body.ImageUrl, body.ImageUrls, body.PartCategoryId, sellerId);
 
             var id = await sender.Send(command);
             return Results.Created($"/api/parts/{id}", new { id });

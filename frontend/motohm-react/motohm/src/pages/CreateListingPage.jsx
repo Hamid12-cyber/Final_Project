@@ -2,7 +2,22 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
-import ImageUpload from '../components/ImageUpload.jsx';
+import MultiImageUpload from '../components/MultiImageUpload.jsx';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
+
+// Səhifənin ümumi çərçivəsi: header + ortalanmış məzmun + footer
+function Shell({ children, className = '' }) {
+  return (
+    <>
+      <Header />
+      <div className="page-wrap">
+        <div className={`listing-wrap ${className}`}>{children}</div>
+      </div>
+      <Footer />
+    </>
+  );
+}
 
 const TYPES = [
   { key: 'motorcycle', label: 'Motosiklet' },
@@ -24,13 +39,15 @@ export default function CreateListingPage() {
   const [brand, setBrand] = useState('');
   const [customBrand, setCustomBrand] = useState('');
   const [price, setPrice] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrls, setImageUrls] = useState([]);
   const [model, setModel] = useState('');
   const [customModel, setCustomModel] = useState('');
   const [cc, setCc] = useState('');
   const [year, setYear] = useState('');
   const [stockQty, setStockQty] = useState('');
   const [partCategoryId, setPartCategoryId] = useState('');
+  const [isForSale, setIsForSale] = useState(true);
+  const [isForRent, setIsForRent] = useState(false);
 
   const [brandOptions, setBrandOptions] = useState([]);
   const [modelOptions, setModelOptions] = useState([]);
@@ -77,12 +94,12 @@ export default function CreateListingPage() {
 
   if (!user) {
     return (
-      <div className="page-wrap">
+      <Shell>
         <h1 className="page-title">Elan yerləşdir</h1>
         <div className="state-msg">
           Elan yerləşdirmək üçün <Link to="/login" className="accent">daxil olun</Link>.
         </div>
-      </div>
+      </Shell>
     );
   }
 
@@ -103,8 +120,9 @@ export default function CreateListingPage() {
   };
 
   const resetForm = () => {
-    setName(''); setPrice(''); setImageUrl('');
+    setName(''); setPrice(''); setImageUrls([]);
     setCc(''); setYear(''); setStockQty('');
+    setIsForSale(true); setIsForRent(false);
     clearBrandModel();
   };
 
@@ -120,23 +138,29 @@ export default function CreateListingPage() {
       return;
     }
 
+    if (type === 'motorcycle' && !isForSale && !isForRent) {
+      setFormError('"Satış üçün" və ya "Kirayə üçün" seçimlərindən ən azı birini işarələyin.');
+      return;
+    }
+
     setSubmitting(true);
     try {
       let res;
       if (type === 'motorcycle') {
         res = await apiClient.post('/motorcycles', {
           name, brand: finalBrand, model: finalModel, cc: Number(cc), year: Number(year),
-          price: Number(price), imageUrl: imageUrl || null,
+          price: Number(price), imageUrl: imageUrls[0] || null, imageUrls,
+          isForSale, isForRent,
         });
       } else if (type === 'part') {
         res = await apiClient.post('/parts', {
           name, brand: finalBrand, price: Number(price), stockQty: Number(stockQty),
-          imageUrl: imageUrl || null, partCategoryId: Number(partCategoryId),
+          imageUrl: imageUrls[0] || null, imageUrls, partCategoryId: Number(partCategoryId),
         });
       } else {
         res = await apiClient.post('/accessories', {
           name, brand: finalBrand, price: Number(price), stockQty: Number(stockQty),
-          imageUrl: imageUrl || null,
+          imageUrl: imageUrls[0] || null, imageUrls,
         });
       }
       setConfirmation(res.data.id);
@@ -150,7 +174,7 @@ export default function CreateListingPage() {
 
   if (confirmation) {
     return (
-      <div className="page-wrap">
+      <Shell>
         <h1 className="page-title">Elan göndərildi ✅</h1>
         <div className="state-msg" style={{ textAlign: 'left' }}>
           Elanınız (ID: {confirmation}) admin təsdiqi gözləyir. Təsdiqləndikdən sonra saytda görünəcək.
@@ -158,12 +182,12 @@ export default function CreateListingPage() {
         <button className="checkout-btn" style={{ marginTop: 20 }} onClick={() => setConfirmation(null)}>
           Yeni elan yerləşdir
         </button>
-      </div>
+      </Shell>
     );
   }
 
   return (
-    <div className="page-wrap">
+    <Shell className="listing-split">
       <h1 className="page-title">Elan yerləşdir</h1>
 
       <div className="listing-type-tabs">
@@ -233,6 +257,17 @@ export default function CreateListingPage() {
               <span>İl</span>
               <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required min={1980} max={new Date().getFullYear() + 1} />
             </label>
+
+            <div className="seller-checks">
+              <label className="check-row">
+                <input type="checkbox" checked={isForSale} onChange={(e) => setIsForSale(e.target.checked)} />
+                Satış üçün
+              </label>
+              <label className="check-row">
+                <input type="checkbox" checked={isForRent} onChange={(e) => setIsForRent(e.target.checked)} />
+                Kirayə üçün
+              </label>
+            </div>
           </>
         ) : (
           <label className="form-field">
@@ -270,7 +305,7 @@ export default function CreateListingPage() {
           <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required min={0.01} step="0.01" />
         </label>
 
-        <ImageUpload value={imageUrl} onChange={setImageUrl} />
+        <MultiImageUpload value={imageUrls} onChange={setImageUrls} />
 
         {formError && <p className="form-error">{formError}</p>}
 
@@ -278,6 +313,6 @@ export default function CreateListingPage() {
           {submitting ? 'Göndərilir...' : 'Elanı göndər'}
         </button>
       </form>
-    </div>
+    </Shell>
   );
 }

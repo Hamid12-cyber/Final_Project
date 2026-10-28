@@ -9,6 +9,9 @@ public class UserEntity : BaseEntity
     public string PasswordHash { get; set; } = string.Empty;
     public UserRole Role { get; set; } = UserRole.Customer;
 
+    [System.ComponentModel.DataAnnotations.MaxLength(500)]
+    public string? AvatarUrl { get; set; }
+
     public string? PasswordResetToken { get; set; }
     public DateTime? PasswordResetTokenExpiry { get; set; }
 }

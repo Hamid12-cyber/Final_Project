@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiClient from '../api/client.js';
-import ImageUpload from '../components/ImageUpload.jsx';
+import MultiImageUpload from '../components/MultiImageUpload.jsx';
 
 const TYPE_LABELS = { motorcycle: 'Motosiklet', part: 'Ehtiyat hissəsi', accessory: 'Aksesuar' };
 const TYPE_ENDPOINT = { motorcycle: 'motorcycles', part: 'parts', accessory: 'accessories' };
@@ -75,7 +75,7 @@ export default function SellerPage() {
       name: item.name,
       brand: item.brand,
       price: String(item.price),
-      imageUrl: item.imageUrl ?? '',
+      imageUrls: (item.imageUrls?.length ? item.imageUrls : item.imageUrl ? [item.imageUrl] : []),
       stockQty: String(item.stockQty ?? 0),
       model: item.model ?? '',
       cc: String(item.cc ?? ''),
@@ -92,7 +92,7 @@ export default function SellerPage() {
   const setField = (field, value) => setEditing((prev) => ({ ...prev, [field]: value }));
 
   const buildBody = (f) => {
-    const common = { name: f.name.trim(), brand: f.brand.trim(), price: Number(f.price), imageUrl: f.imageUrl || null };
+    const common = { name: f.name.trim(), brand: f.brand.trim(), price: Number(f.price), imageUrl: f.imageUrls[0] || null, imageUrls: f.imageUrls };
     if (f.type === 'motorcycle') {
       return { ...common, model: f.model.trim(), cc: Number(f.cc), year: Number(f.year), isForRent: f.isForRent, isForSale: f.isForSale };
     }
@@ -114,7 +114,7 @@ export default function SellerPage() {
         itemKey(i) === editing.key
           ? {
               ...i,
-              name: body.name, brand: body.brand, price: body.price, imageUrl: body.imageUrl,
+              name: body.name, brand: body.brand, price: body.price, imageUrl: body.imageUrl, imageUrls: body.imageUrls,
               status: 'Pending', rejectionReason: null,
               ...(editing.type === 'motorcycle'
                 ? { model: body.model, cc: body.cc, year: body.year, isForRent: body.isForRent, isForSale: body.isForSale }
@@ -316,7 +316,7 @@ export default function SellerPage() {
               </div>
             )}
 
-            <ImageUpload value={editing.imageUrl} onChange={(url) => setField('imageUrl', url)} />
+            <MultiImageUpload value={editing.imageUrls} onChange={(urls) => setField('imageUrls', urls)} />
 
             {formError && <p className="form-error">{formError}</p>}
 

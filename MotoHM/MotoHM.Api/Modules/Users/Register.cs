@@ -1,14 +1,6 @@
-﻿using System.Text.Json;
-using FluentValidation;
-using MediatR;
-using Microsoft.AspNetCore.DataProtection;
+﻿using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.RateLimiting;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-using MotoHM.Api.Entites;
 using MotoHM.Api.Entites.Enums;
-using MotoHM.Api.Shared.Email;
-using MotoHM.Api.Shared.Exceptions.Common;
 using MotoHM.Api.Shared.Security;
 
 namespace MotoHM.Api.Modules.Users;

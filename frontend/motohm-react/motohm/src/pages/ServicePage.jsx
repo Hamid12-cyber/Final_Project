@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import apiClient from '../api/client.js';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
+import { PHONE_PREFIX, PHONE_PATTERN, formatPhone, phoneToE164 } from '../utils/phone.js';
 
 const SERVICE_TYPES = [
   { value: 'OilChange', label: 'Yağ dəyişimi' },
@@ -17,6 +20,25 @@ const TYPE_NAME_LABELS = {
   Tuning: 'Tənzimləmə',
 };
 
+// Siyahıda olmayan motosiklet üçün "Digər" seçimi
+const OTHER = '__other__';
+
+// Backend saatlıq vaxtları qaytarır (09:00, 10:00 ...). Hər saatın arxasına yarım saatlıq (09:30, 10:30 ...) əlavə edirik.
+// Yarım saatlıq vaxt yalnız qonşu saatlıq vaxtların hər ikisi boşdursa seçilə bilir (üst-üstə düşməsin deyə).
+function withHalfHours(list) {
+  if (!Array.isArray(list)) return [];
+  const out = [];
+  list.forEach((s, i) => {
+    out.push(s);
+    if (typeof s.time !== 'string') return;
+    const half = s.time.replace(/T(\d{2}):00/, 'T$1:30');
+    if (half === s.time) return;
+    const next = list[i + 1];
+    out.push({ time: half, isAvailable: s.isAvailable && (!next || next.isAvailable) });
+  });
+  return out;
+}
+
 function todayIso() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -32,6 +54,7 @@ export default function ServicePage() {
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [notes, setNotes] = useState('');
+  const [customMotorcycle, setCustomMotorcycle] = useState('');
 
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState(null);
@@ -41,7 +64,7 @@ export default function ServicePage() {
     apiClient.get('/motorcycles').then((res) => {
       const list = res.data.items ?? res.data;
       setMotorcycles(list);
-      if (list.length > 0) setMotorcycleId(String(list[0].id));
+      setMotorcycleId(list.length > 0 ? String(list[0].id) : OTHER);
     });
   }, []);
 
@@ -50,7 +73,7 @@ export default function ServicePage() {
     setSlotsLoading(true);
     setSelectedSlot(null);
     apiClient.get(`/service-bookings/available-slots?date=${date}`)
-      .then((res) => setSlots(res.data))
+      .then((res) => setSlots(withHalfHours(res.data)))
       .catch(() => setSlots([]))
       .finally(() => setSlotsLoading(false));
   }, [date]);
@@ -64,14 +87,22 @@ export default function ServicePage() {
     setFormError(null);
     setSubmitting(true);
     try {
-      const res = await apiClient.post('/service-bookings', {
-        motorcycleId: Number(motorcycleId),
+      const isOther = motorcycleId === OTHER;
+      const otherName = customMotorcycle.trim();
+      const payload = {
+        motorcycleId: isOther ? null : Number(motorcycleId),
         type,
         scheduledDate: selectedSlot,
         customerName,
-        customerPhone,
+        customerPhone: phoneToE164(customerPhone),
         notes: notes || null,
-      });
+      };
+      if (isOther) {
+        payload.motorcycleName = otherName;
+        // Ad itməsin deyə qeydə də əlavə olunur
+        payload.notes = `Motosiklet: ${otherName}${notes ? ` | ${notes}` : ''}`;
+      }
+      const res = await apiClient.post('/service-bookings', payload);
       setConfirmation(res.data);
     } catch (err) {
       setFormError(err.response?.data?.message ?? 'Bron göndərilmədi.');
@@ -82,10 +113,12 @@ export default function ServicePage() {
 
   if (confirmation) {
     return (
+      <>
+      <Header />
       <div className="page-wrap">
         <h1 className="page-title">Servis bronu təsdiqləndi ✅</h1>
         <div className="cart-summary" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: 10 }}>
-          <p><strong>{confirmation.motorcycleName}</strong></p>
+          <p><strong>{confirmation.motorcycleName ?? customMotorcycle}</strong></p>
           <p className="cart-item-type">{TYPE_NAME_LABELS[confirmation.type] ?? confirmation.type}</p>
           <p className="cart-item-name">
             {new Date(confirmation.scheduledDate).toLocaleString('az-AZ', { dateStyle: 'medium', timeStyle: 'short' })}
@@ -95,11 +128,16 @@ export default function ServicePage() {
           Yeni bron et
         </button>
       </div>
+      <Footer />
+      </>
     );
   }
 
   return (
+    <>
+    <Header />
     <div className="page-wrap">
+      <div className="listing-wrap listing-split">
       <h1 className="page-title">Servis bronu</h1>
 
       <form className="checkout-form" style={{ maxWidth: 480 }} onSubmit={handleSubmit}>
@@ -109,8 +147,24 @@ export default function ServicePage() {
             {motorcycles.map((m) => (
               <option key={m.id} value={m.id}>{m.name} — {m.brand}</option>
             ))}
+            <option value={OTHER}>Digər (özüm yazacağam)</option>
           </select>
         </label>
+
+        {motorcycleId === OTHER && (
+          <label className="form-field">
+            <span>Motosikletin adı</span>
+            <input
+              type="text"
+              value={customMotorcycle}
+              onChange={(e) => setCustomMotorcycle(e.target.value)}
+              required
+              maxLength={100}
+              placeholder="məs. Yamaha R6"
+              autoFocus
+            />
+          </label>
+        )}
 
         <label className="form-field">
           <span>Xidmət növü</span>
@@ -154,7 +208,18 @@ export default function ServicePage() {
 
         <label className="form-field">
           <span>Telefon</span>
-          <input type="text" value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} required maxLength={30} placeholder="+994 55 123 45 67" />
+          <input
+            type="tel"
+            inputMode="tel"
+            value={customerPhone}
+            onChange={(e) => setCustomerPhone(formatPhone(e.target.value, e.target.value.length < customerPhone.length))}
+            onFocus={() => { if (!customerPhone) setCustomerPhone(PHONE_PREFIX); }}
+            onBlur={() => setCustomerPhone(formatPhone(customerPhone, true))}
+            required
+            pattern={PHONE_PATTERN}
+            title="Nömrəni tam yazın: +994 55-123-45-67"
+            placeholder="+994 55-123-45-67"
+          />
         </label>
 
         <label className="form-field">
@@ -168,6 +233,9 @@ export default function ServicePage() {
           {submitting ? 'Göndərilir...' : 'Bron et'}
         </button>
       </form>
+      </div>
     </div>
+    <Footer />
+    </>
   );
 }

@@ -11,6 +11,7 @@ public class MotorcycleEntity : BaseEntity
     public int Year { get; set; }
     public decimal Price { get; set; }
     public string? ImageUrl { get; set; }
+    public string? ImageUrlsJson { get; set; }
     public bool IsForRent { get; set; }
     public bool IsForSale { get; set; } = true;
 

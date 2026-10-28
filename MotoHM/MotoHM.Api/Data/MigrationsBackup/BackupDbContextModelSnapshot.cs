@@ -37,6 +37,9 @@ namespace MotoHM.Api.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
+                    b.Property<string>("ImageUrlsJson")
+                        .HasColumnType("text");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
@@ -115,6 +118,9 @@ namespace MotoHM.Api.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("ImageUrl")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageUrlsJson")
                         .HasColumnType("text");
 
                     b.Property<bool>("IsDeleted")
@@ -283,6 +289,9 @@ namespace MotoHM.Api.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("ImageUrl")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageUrlsJson")
                         .HasColumnType("text");
 
                     b.Property<bool>("IsDeleted")
@@ -487,6 +496,10 @@ namespace MotoHM.Api.Migrations
                 {
                     b.Property<int>("Id")
                         .HasColumnType("integer");
+
+                    b.Property<string>("AvatarUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");

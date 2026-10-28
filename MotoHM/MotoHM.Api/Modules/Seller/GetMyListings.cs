@@ -1,8 +1,4 @@
-﻿using System.Security.Claims;
-using Dapper;
-using MediatR;
-using MotoHM.Api.Data;
-using MotoHM.Api.Shared.Extensions;
+﻿using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Seller;
 
@@ -10,7 +6,13 @@ public static class GetMyListings
 {
     public record Query(int UserId) : IRequest<List<ListingDto>>;
     public record ListingDto(string Type, int Id, string Name, string Brand, decimal Price, int? StockQty,
-        string? ImageUrl, string Status, DateTime CreatedAt,
+        string? ImageUrl, IReadOnlyList<string> ImageUrls, string Status, DateTime CreatedAt,
+        string? Model, int? Cc, int? Year, bool? IsForRent, bool? IsForSale, int? PartCategoryId,
+        string? RejectionReason);
+
+    // SQL nəticəsini oxumaq üçün (ImageUrlsJson burada JSON mətn kimi gəlir)
+    public record ListingRow(string Type, int Id, string Name, string Brand, decimal Price, int? StockQty,
+        string? ImageUrl, string? ImageUrlsJson, string Status, DateTime CreatedAt,
         string? Model, int? Cc, int? Year, bool? IsForRent, bool? IsForSale, int? PartCategoryId,
         string? RejectionReason);
 
@@ -25,7 +27,7 @@ public static class GetMyListings
 
             const string sql = """
                 SELECT 'motorcycle' AS Type, m.Id, m.Name, m.Brand, m.Price,
-                       CAST(NULL AS int) AS StockQty, m.ImageUrl, m.Status, m.CreatedAt,
+                       CAST(NULL AS int) AS StockQty, m.ImageUrl, m.ImageUrlsJson, m.Status, m.CreatedAt,
                        m.Model, m.Cc, m.Year, m.IsForRent, m.IsForSale, CAST(NULL AS int) AS PartCategoryId,
                        m.RejectionReason
                 FROM Motorcycles m
@@ -34,7 +36,7 @@ public static class GetMyListings
                 UNION ALL
 
                 SELECT 'part', p.Id, p.Name, p.Brand, p.Price,
-                       p.StockQty, p.ImageUrl, p.Status, p.CreatedAt,
+                       p.StockQty, p.ImageUrl, p.ImageUrlsJson, p.Status, p.CreatedAt,
                        CAST(NULL AS nvarchar(80)), CAST(NULL AS int), CAST(NULL AS int),
                        CAST(NULL AS bit), CAST(NULL AS bit), p.PartCategoryId,
                        p.RejectionReason
@@ -44,7 +46,7 @@ public static class GetMyListings
                 UNION ALL
 
                 SELECT 'accessory', a.Id, a.Name, a.Brand, a.Price,
-                       a.StockQty, a.ImageUrl, a.Status, a.CreatedAt,
+                       a.StockQty, a.ImageUrl, a.ImageUrlsJson, a.Status, a.CreatedAt,
                        CAST(NULL AS nvarchar(80)), CAST(NULL AS int), CAST(NULL AS int),
                        CAST(NULL AS bit), CAST(NULL AS bit), CAST(NULL AS int),
                        a.RejectionReason
@@ -54,8 +56,11 @@ public static class GetMyListings
                 ORDER BY CreatedAt DESC
                 """;
 
-            var result = await connection.QueryAsync<ListingDto>(sql, new { request.UserId });
-            return result.ToList();
+            var rows = await connection.QueryAsync<ListingRow>(sql, new { request.UserId });
+
+            return rows.Select(r => new ListingDto(r.Type, r.Id, r.Name, r.Brand, r.Price, r.StockQty,
+                r.ImageUrl, ImageList.FromJson(r.ImageUrlsJson, r.ImageUrl), r.Status, r.CreatedAt,
+                r.Model, r.Cc, r.Year, r.IsForRent, r.IsForSale, r.PartCategoryId, r.RejectionReason)).ToList();
         }
     }
 

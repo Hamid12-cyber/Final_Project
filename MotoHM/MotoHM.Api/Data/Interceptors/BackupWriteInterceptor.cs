@@ -1,6 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using MotoHM.Api.Entites;
 
 namespace MotoHM.Api.Data.Interceptors;
 

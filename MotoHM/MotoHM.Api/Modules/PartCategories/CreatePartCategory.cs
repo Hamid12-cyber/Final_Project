@@ -1,8 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-using MotoHM.Api.Data;
-using MotoHM.Api.Entites;
-
+﻿
 namespace MotoHM.Api.Modules.PartCategories;
 
 public static class CreatePartCategory

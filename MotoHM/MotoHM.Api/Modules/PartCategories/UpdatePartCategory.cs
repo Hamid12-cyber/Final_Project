@@ -1,8 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-
+﻿
 namespace MotoHM.Api.Modules.PartCategories;
 
 public static class UpdatePartCategory

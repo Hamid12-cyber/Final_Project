@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Entites;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace MotoHM.Api.Data;
 

@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <NoWarn>NU1903</NoWarn>
+	<NoWarn>NU1902;NU1903</NoWarn>
     <UserSecretsId>2a19a754-d729-4bff-abd9-a72bfaa0605d</UserSecretsId>
   </PropertyGroup>
 
@@ -34,6 +34,10 @@
 
   <ItemGroup>
     <Folder Include="uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="MotoHM.Api.csproj.user" />
   </ItemGroup>
 
 </Project>

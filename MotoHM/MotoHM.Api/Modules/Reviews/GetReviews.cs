@@ -1,9 +1,4 @@
-﻿using System.Security.Claims;
-using Dapper;
-using MediatR;
-using MotoHM.Api.Data;
-using MotoHM.Api.Shared.Exceptions.Common;
-using MotoHM.Api.Shared.Extensions;
+﻿using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Reviews;
 

@@ -1,7 +1,4 @@
-﻿using Dapper;
-using MediatR;
-using MotoHM.Api.Data;
-using MotoHM.Api.Entites.Enums;
+﻿using MotoHM.Api.Entites.Enums;
 
 namespace MotoHM.Api.Modules.Admin;
 

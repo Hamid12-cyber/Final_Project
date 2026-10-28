@@ -1,6 +1,4 @@
-﻿using MotoHM.Api.Shared.Exceptions.Common;
-
-namespace MotoHM.Api.Modules.Uploads;
+﻿namespace MotoHM.Api.Modules.Uploads;
 
 public static class UploadImage
 {
@@ -9,7 +7,7 @@ public static class UploadImage
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
         // JWT ilə qorunan API olduğu üçün antiforgery lazım deyil
-        app.MapPost("/api/uploads/images", async (IFormFile file, HttpContext http, IWebHostEnvironment env, CancellationToken ct) =>
+        app.MapPost("/api/uploads/images", async (IFormFile file, HttpContext http, IWebHostEnvironment env, IConfiguration config, CancellationToken ct) =>
         {
             if (file is null || file.Length == 0)
                 throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest, "Fayl seçilməyib.");
@@ -31,7 +29,7 @@ public static class UploadImage
                 throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
                     "Yalnız JPG, PNG və ya WebP şəkilləri qəbul olunur.");
 
-            var uploadsPath = Path.Combine(env.ContentRootPath, "uploads");
+            var uploadsPath = config["Uploads:Path"] ?? Path.Combine(env.ContentRootPath, "uploads");
             Directory.CreateDirectory(uploadsPath);
 
             // İstifadəçinin göndərdiyi fayl adı istifadə olunmur, təsadüfi ad veririk

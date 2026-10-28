@@ -1,8 +1,4 @@
-﻿using System.Security.Claims;
-using MotoHM.Api.Shared.Extensions;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
+﻿using MotoHM.Api.Shared.Extensions;
 
 namespace MotoHM.Api.Modules.Parts;
 

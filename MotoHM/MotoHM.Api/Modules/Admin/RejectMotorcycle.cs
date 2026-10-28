@@ -1,9 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MotoHM.Api.Data;
-using MotoHM.Api.Entites.Enums;
-using MotoHM.Api.Shared.Exceptions.Common;
+﻿using MotoHM.Api.Entites.Enums;
 
 namespace MotoHM.Api.Modules.Admin;
 

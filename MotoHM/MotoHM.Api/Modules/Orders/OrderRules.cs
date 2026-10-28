@@ -1,5 +1,4 @@
-﻿using MotoHM.Api.Entites;
-using MotoHM.Api.Entites.Enums;
+﻿using MotoHM.Api.Entites.Enums;
 
 namespace MotoHM.Api.Modules.Orders;
 

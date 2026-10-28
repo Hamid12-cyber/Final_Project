@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
-using MotoHM.Api.Shared.Exceptions.Common;
 
 namespace MotoHM.Api.Shared.Handlers;
 

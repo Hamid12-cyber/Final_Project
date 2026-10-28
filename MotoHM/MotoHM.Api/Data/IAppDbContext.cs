@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using MotoHM.Api.Entites;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace MotoHM.Api.Data;
 
