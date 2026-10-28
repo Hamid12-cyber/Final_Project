@@ -220,6 +220,8 @@ if (app.Configuration.GetValue<bool>("Database:AutoMigrate"))
         }
     }
 }
+// ---- İlk məlumatlar (kateqoriyalar və s.) ----
+      await DbSeeder.SeedAsync(app.Services);
 
 // ---- Postgres backup DB-nin cədvəllərini (yoxdursa) avtomatik yarat ----
 using (var scope = app.Services.CreateScope())
