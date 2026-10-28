@@ -37,6 +37,7 @@ public static class CreateTestimonial
             var id = await sender.Send(command);
             return Results.Created($"/api/testimonials/{id}", new { id });
         })
+        .RequireAuthorization()
         .WithName("CreateTestimonial")
         .WithTags("Testimonials");
     }

@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Microsoft.AspNetCore.RateLimiting;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MotoHM.Api.Data;
@@ -54,6 +55,7 @@ public static class CreateServiceBooking
             var detail = await sender.Send(new GetServiceBookingById.Query(id));
             return Results.Created($"/api/service-bookings/{id}", detail);
         })
+        .RequireRateLimiting("public-write")
         .WithName("CreateServiceBooking")
         .WithTags("Service");
     }

@@ -6,6 +6,7 @@ using MotoHM.Api.Entites;
 using MotoHM.Api.Entites.Enums;
 using MotoHM.Api.Shared.Exceptions.Common;
 using MotoHM.Api.Shared.Extensions;
+using System.Data;
 using System.Security.Claims;
 
 namespace MotoHM.Api.Modules.Orders;
@@ -20,6 +21,26 @@ public static class CreateOrder
         public Handler(IAppDbContext db) => _db = db;
 
         public async Task<int> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Serializable transaction: eyni anda iki nəfər eyni son stoku / eyni motosikleti sifariş etsə,
+                // biri gözləyir və ya geri çəkilir -> stok mənfiyə düşmür, motosiklet iki dəfə satılmır.
+                await using var tx = await _db.Database.BeginTransactionAsync(IsolationLevel.Serializable, cancellationToken);
+
+                var orderId = await CreateAsync(request, cancellationToken);
+
+                await tx.CommitAsync(cancellationToken);
+                return orderId;
+            }
+            catch (Exception ex) when (IsDeadlock(ex))
+            {
+                throw new AppException("CONFLICT", StatusCodes.Status409Conflict,
+                    "Eyni anda çoxlu sifariş gəldi, zəhmət olmasa bir az sonra yenidən cəhd edin.");
+            }
+        }
+
+        private async Task<int> CreateAsync(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var cart = await _db.Carts
                 .Include(c => c.Items).ThenInclude(i => i.Motorcycle)
@@ -44,9 +65,22 @@ public static class CreateOrder
             foreach (var cartItem in cart.Items)
             {
                 // Sifariş anında hər məhsul yenidən yoxlanılır: təsdiqlənib və stok kifayətdir
-                if (cartItem.Motorcycle is not null && cartItem.Motorcycle.Status != ApprovalStatus.Approved)
-                    throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
-                        $"'{cartItem.Motorcycle.Name}' motosikleti hazırda satışda deyil.");
+                if (cartItem.Motorcycle is not null)
+                {
+                    if (cartItem.Motorcycle.Status != ApprovalStatus.Approved)
+                        throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
+                            $"'{cartItem.Motorcycle.Name}' motosikleti hazırda satışda deyil.");
+
+                    // Motosiklet tək elandır: ləğv olunmamış sifarişdə varsa, artıq satılıb.
+                    var motorcycleId = cartItem.MotorcycleId;
+                    var alreadyOrdered = await _db.OrderItems.AnyAsync(oi =>
+                        oi.MotorcycleId == motorcycleId &&
+                        oi.Order.Status != OrderStatus.Cancelled, cancellationToken);
+
+                    if (alreadyOrdered)
+                        throw new AppException("BUSINESS_RULE", StatusCodes.Status400BadRequest,
+                            $"'{cartItem.Motorcycle.Name}' motosikleti artıq sifariş olunub.");
+                }
 
                 if (cartItem.Part is not null)
                 {
@@ -100,6 +134,17 @@ public static class CreateOrder
             await _db.SaveChangesAsync(cancellationToken);
 
             return order.Id;
+        }
+
+        // SQL Server deadlock (xəta nömrəsi 1205): Serializable zamanı iki sorğu toqquşanda biri "qurban" seçilir
+        private static bool IsDeadlock(Exception ex)
+        {
+            for (var e = ex; e is not null; e = e.InnerException)
+            {
+                if (e is Microsoft.Data.SqlClient.SqlException { Number: 1205 })
+                    return true;
+            }
+            return false;
         }
     }
 

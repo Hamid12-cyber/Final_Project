@@ -261,7 +261,7 @@ public static class Register
         {
             RuleFor(x => x.FullName).NotEmpty().MaximumLength(100);
             RuleFor(x => x.Email).NotEmpty().EmailAddress().MaximumLength(150);
-            RuleFor(x => x.Password).NotEmpty().MinimumLength(6);
+            RuleFor(x => x.Password).NotEmpty().MinimumLength(8);
             RuleFor(x => x.Role)
                 .Must(r => r == UserRole.Customer || r == UserRole.Seller)
                 .WithMessage("Yanlış hesab növü.");

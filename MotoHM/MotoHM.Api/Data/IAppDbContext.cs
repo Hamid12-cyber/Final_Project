@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using MotoHM.Api.Entites;
 
 namespace MotoHM.Api.Data;
+
 public interface IAppDbContext
 {
     DbSet<MotorcycleEntity> Motorcycles { get; }
     DbSet<PartCategoryEntity> PartCategories { get; }
     DbSet<PartEntity> Parts { get; }
-    DbSet<TestimonialEntity> Testimonials { get; }  
+    DbSet<TestimonialEntity> Testimonials { get; }
     DbSet<RentalEntity> Rentals { get; }
     DbSet<ServiceBookingEntity> ServiceBookings { get; }
     DbSet<UserEntity> Users { get; }
@@ -18,5 +20,6 @@ public interface IAppDbContext
     DbSet<AccessoryEntity> Accessories { get; }
     DbSet<ReviewEntity> Reviews { get; }
     DbSet<FavoriteEntity> Favorites { get; }
+    DatabaseFacade Database { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

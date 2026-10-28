@@ -33,6 +33,7 @@ public static class DeleteTestimonial
             var success = await sender.Send(new DeleteTestimonialCommand(id));
             return success ? Results.NoContent() : Results.NotFound();
         })
+        .RequireAuthorization(policy => policy.RequireRole("Admin"))
         .WithName("DeleteTestimonial")
         .WithTags("Testimonials");
     }

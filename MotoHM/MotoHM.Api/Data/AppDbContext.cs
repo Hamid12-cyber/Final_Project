@@ -32,6 +32,16 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         modelBuilder.Entity<UserEntity>().HasQueryFilter(u => !u.IsDeleted);
         modelBuilder.Entity<OrderEntity>().HasQueryFilter(o => !o.IsDeleted);
 
+        // Silinmiş (soft-delete) əsas entity-yə bağlı asılı entity-lər də gizlədilir.
+        // Bu, "required end of a relationship with a query filter" xəbərdarlıqlarını aradan qaldırır.
+        modelBuilder.Entity<CartEntity>().HasQueryFilter(c => !c.User.IsDeleted);
+        modelBuilder.Entity<CartItemEntity>().HasQueryFilter(i => !i.Cart.User.IsDeleted);
+        modelBuilder.Entity<OrderItemEntity>().HasQueryFilter(i => !i.Order.IsDeleted);
+        modelBuilder.Entity<ReviewEntity>().HasQueryFilter(r => !r.User.IsDeleted);
+        modelBuilder.Entity<FavoriteEntity>().HasQueryFilter(f => !f.Motorcycle.IsDeleted && !f.User.IsDeleted);
+        modelBuilder.Entity<RentalEntity>().HasQueryFilter(r => !r.Motorcycle.IsDeleted);
+        modelBuilder.Entity<ServiceBookingEntity>().HasQueryFilter(s => !s.Motorcycle.IsDeleted);
+
         base.OnModelCreating(modelBuilder);
     }
 }

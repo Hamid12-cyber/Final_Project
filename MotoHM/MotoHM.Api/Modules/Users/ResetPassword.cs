@@ -75,7 +75,7 @@ public static class ResetPassword
         {
             RuleFor(x => x.Email).NotEmpty().EmailAddress();
             RuleFor(x => x.Code).NotEmpty().Matches("^[0-9]{6}$").WithMessage("Kod 6 rəqəmdən ibarət olmalıdır.");
-            RuleFor(x => x.NewPassword).NotEmpty().MinimumLength(6);
+            RuleFor(x => x.NewPassword).NotEmpty().MinimumLength(8);
         }
     }
 }

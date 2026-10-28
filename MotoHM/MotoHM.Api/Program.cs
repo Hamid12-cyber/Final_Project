@@ -117,7 +117,7 @@ builder.Services.AddProblemDetails();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins(builder.Configuration["Frontend:BaseUrl"] ?? "http://localhost:5173")
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
@@ -125,7 +125,11 @@ builder.Services.AddCors(options =>
 
 // ---- JWT Authentication ----
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-var jwtKey = jwtSettings["Key"]!;
+var jwtKey = jwtSettings["Key"];
+if (string.IsNullOrWhiteSpace(jwtKey) || jwtKey.Length < 32)
+    throw new InvalidOperationException(
+        "Jwt:Key təyin olunmayıb və ya 32 simvoldan qısadır. " +
+        "dotnet user-secrets set \"Jwt:Key\" \"...\" ilə təyin et.");
 
 builder.Services.AddAuthentication(options =>
 {
@@ -161,6 +165,17 @@ builder.Services.AddRateLimiter(options =>
                 Window = TimeSpan.FromMinutes(1),
                 QueueLimit = 0
             }));
+
+    // Açıq (login tələb etməyən) yazma endpoint-ləri üçün spam qarşısı: IP başına dəqiqədə 5 sorğu
+    options.AddPolicy("public-write", httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 5,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0
+            }));
 });
 
 var app = builder.Build();
@@ -180,6 +195,10 @@ using (var scope = app.Services.CreateScope())
 }
 
 // ---- Pipeline ----
+// Development-də http və https ikisi də işləsin; production-da http -> https yönləndirilir
+if (!app.Environment.IsDevelopment())
+    app.UseHttpsRedirection();
+
 app.UseExceptionHandler();
 app.UseSerilogRequestLogging();
 
@@ -199,13 +218,9 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/uploads"
 });
 
-app.UseStaticFiles(); // wwwroot/uploads/... altındakı şəkilləri servis etmək üçün
-
 app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseHttpsRedirection();
 
 // ---- Endpoints ----
 
